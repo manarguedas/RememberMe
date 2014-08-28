@@ -21,6 +21,7 @@ public class Perfil {
     public Date defuncion;
 
     public Perfil() {
+        id = 0;
     }
 
     public String getNombre() {
