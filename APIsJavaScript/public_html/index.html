@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 
-<html class="no-js"> 
+<html> 
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src=https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script>
     </head>
     <body>
         <p>Hola mundo</p>
-        <script src="js/ScriptsCliente/JSONParser.js"></script>
+        <script src="js/ScriptsCliente/PerfilJSON.js"></script>
+        <script src="js/ScriptsCliente/Comunicador.js"></script>
         
-        <script>
-                CrearPerfil();
-        </script>
+         <script language="javascript">
+             var x = new Comunicador();
+             x.SetTipo("GET");
+             x.SetUrl("http://localhost:8080/pruebaRest/lol");
+             x.SetDato("{\"nombre\":\"hola\"}");
+             Request();
+  </script>
     </body>
 </html>
