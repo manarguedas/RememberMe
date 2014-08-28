@@ -45,7 +45,7 @@ package helloworld;
 
 import javax.ws.rs.core.Application;
 
-@javax.ws.rs.ApplicationPath("perfil")
+@javax.ws.rs.ApplicationPath("app")
 public class ApplicationConfig extends Application {
 
 }

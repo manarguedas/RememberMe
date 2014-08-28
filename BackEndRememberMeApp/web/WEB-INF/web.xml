@@ -50,7 +50,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
-        <url-pattern>/perfil</url-pattern>
+        <url-pattern>/app</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

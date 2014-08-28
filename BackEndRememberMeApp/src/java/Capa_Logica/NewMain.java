@@ -6,6 +6,8 @@
 
 package Capa_Logica;
 
+import Capa_Presentacion.ConsultarPerfil_Presentacion;
+
 /**
  *
  * @author gustavovargas
@@ -17,13 +19,15 @@ public class NewMain {
      */
     public static void main(String[] args) {
         
-        String reader = "{\"perfil\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"121\"}}";
+        String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"121\"}}";
 
-        ParseJson_Perfil p = new ParseJson_Perfil();
-        Perfil l = p.ParsePerfilModelo(reader);
-        System.out.println(p.ParsePerfilJson(l));
+        //ParseJson_Perfil p = new ParseJson_Perfil();
+        //Perfil l = p.ParsePerfilModelo(reader);
+        //System.out.println(p.ParsePerfilJson(l));
         //p.ParsePerfilModelo(reader);
         // TODO code application logic here
+        ConsultarPerfil_Presentacion p = new ConsultarPerfil_Presentacion();
+        System.out.println(p.ConsultarPerfil(030303));
     }
     
 }
