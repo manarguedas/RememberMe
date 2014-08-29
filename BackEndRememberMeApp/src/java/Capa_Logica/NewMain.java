@@ -21,8 +21,8 @@ public class NewMain {
         
         String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"121\"}}";
 
-        //ParseJson_Perfil p = new ParseJson_Perfil();
-        //Perfil l = p.ParsePerfilModelo(reader);
+        //ParseJson_Perfil py = new ParseJson_Perfil();
+        //Perfil l = py.ParsePerfilModelo(reader);
         //System.out.println(p.ParsePerfilJson(l));
         //p.ParsePerfilModelo(reader);
         // TODO code application logic here
