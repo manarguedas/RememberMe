@@ -29,6 +29,7 @@
 /home/manu/NetBeansProjects/RememberMe/platforms/android/ant-build/res/drawable-land-ldpi/screen.png \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/_where-is-www.txt \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/registro.html \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/cordova_plugins.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/apple-touch-icon-precomposed.png \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/index.html \
@@ -38,6 +39,7 @@
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/cordova.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/plugins \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/images \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css/bootstrap.css.map \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css/bootstrap-theme.css \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css/main.css \
@@ -147,4 +149,6 @@
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/plugins/org.apache.cordova.vibration/www/vibration.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/plugins/org.apache.cordova.battery-status/www \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/plugins/org.apache.cordova.battery-status/www/battery.js \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/images/icon.png \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/images/RememberMeLogo.jpg \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/ant-build/AndroidManifest.xml \
