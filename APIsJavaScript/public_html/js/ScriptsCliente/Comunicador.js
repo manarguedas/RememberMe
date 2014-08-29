@@ -44,6 +44,35 @@ function Comunicador(){
 }
 
 
+
+function GetJ(){
+    $.get( "http://localhost:8080/BackEndRememberMeApp/perfiles", function( data ) {
+  alert( JSON.stringify(data) );
+  console.log(data);
+  alert( "Load was performed." );
+});
+    
+}
+
+function Ajax(){
+    
+    $.ajax({
+    type: 'get', // it's easier to read GET request parameters
+    url: 'http://localhost:8080/BackEndRememberMeApp/perfiles',
+    dataType: 'JSON',
+    data: { 
+      loadProds: 1,
+      test: "{\"per\":\"nac\"}" // look here!
+    },
+    success: function(data) {
+        alert( JSON.stringify(data));
+    },
+    error: function(data) {
+        alert('fail');
+    }
+});
+}
+
 function Request(){
     
       var xmlhttp;
@@ -52,13 +81,15 @@ function Request(){
        xmlhttp = new XMLHttpRequest();
     }
     function getdetails() {
-        var url = "http://www.remembermeapp.com/BackEndRememberMeApp/app/perfil";
+        var url = "http://localhost:8080/BackEndRememberMeApp/perfiles";
         xmlhttp.open('GET',url,true);
-        xmlhttp.send("{\"per\":{\"nac\":\"1820-1-4\",\"def\":\"1980-1-8\",\"ape\":\"Rojas\",\"id\":\"121\",\"nom\":\"Ney\",\"url\":\"www\"}}");
+        xmlhttp.setRequestHeader('Content-Type', 'application/json');
+        xmlhttp.send("json={\"per\":\"nac\"}");
         
         xmlhttp.onreadystatechange = function() {
                if (xmlhttp.readyState === 4) {
                   if ( xmlhttp.status === 200) {
+                      alert(xmlhttp.responseText);
                        var det = eval( "(" +  xmlhttp.responseText + ")");
                        alert(xmlhttp.responseText);
                  }
