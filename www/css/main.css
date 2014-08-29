@@ -11,7 +11,8 @@ body {
   color: #333;
   background-color: #85cadd;
 }
-
+         
+//Navbar Principal
 .navbar-custom1  {
     background-color: #177792;
     background-image: none;
@@ -48,7 +49,44 @@ body {
   color: white;
 }
 
+//Navbar Secundario
+.navbar-custom2  {
+    background-color: #8da9b0;
+    background-image: none;
+}
 
+.navbar-custom2  .nav > li > a {
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 0px 0 #ffffff;
+}
+
+.navbar-custom2  .navbar-brand {
+  color: white;
+}
+
+.navbar-custom2 .nav > li > a:focus,
+.navbar-custom2 .nav > li > a:hover {
+  color: white;
+  text-decoration: none;
+  background-color: #71878d;
+}
+
+.navbar-custom2 .navbar-text {
+  margin-bottom: 0;
+  line-height: 40px;
+  color: white;
+}
+
+.navbar-custom2 .navbar-link {
+  color: white;
+}
+
+.navbar-custom2 .navbar-link:hover {
+  color: white;
+}
+
+            
 
 
 
