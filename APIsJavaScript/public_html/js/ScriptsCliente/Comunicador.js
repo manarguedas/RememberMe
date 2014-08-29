@@ -52,17 +52,15 @@ function Request(){
        xmlhttp = new XMLHttpRequest();
     }
     function getdetails() {
-        var url = "http://localhost:8080/pruebaRest/resources/greeting";
+        var url = "http://www.remembermeapp.com/BackEndRememberMeApp/app/perfil";
         xmlhttp.open('GET',url,true);
-        xmlhttp.send("{\"m\":\"mmmm\"}");
+        xmlhttp.send("{\"per\":{\"nac\":\"1820-1-4\",\"def\":\"1980-1-8\",\"ape\":\"Rojas\",\"id\":\"121\",\"nom\":\"Ney\",\"url\":\"www\"}}");
         
         xmlhttp.onreadystatechange = function() {
                if (xmlhttp.readyState === 4) {
                   if ( xmlhttp.status === 200) {
                        var det = eval( "(" +  xmlhttp.responseText + ")");
                        alert(xmlhttp.responseText);
-                       alert(JSON.parse(xmlhttp.responseText).per.nom);
-                       
                  }
                  else
                        alert("Error ->" + xmlhttp.responseText);
