@@ -26,4 +26,15 @@ public class ConstantesLlavesJson {
     // LLAVES PARA EL MANEJO DE FECHAS
     public static String formatoFecha = "yyyy-MM-dd";
     
+    
+    // LLAVES PARA EL JSON DE LOS EVENTOS
+    public static String idDifunto = "idd";
+    public static String evento = "eve";
+    public static String nombreEvento = "nom";
+    public static String descripcionEvento = "des";
+    public static String lugarEvento = "lug";
+    public static String fechaEvento = "fec";
+    public static String horaEvento = "hor";
+    public static String idEvento = "id";
+ 
 }

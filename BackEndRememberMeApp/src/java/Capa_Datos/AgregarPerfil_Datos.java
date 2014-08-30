@@ -7,6 +7,7 @@
 package Capa_Datos;
 
 import Capa_Logica.Perfil;
+import java.sql.ResultSet;
 
 /**
  *
@@ -16,11 +17,16 @@ public class AgregarPerfil_Datos {
 
     public AgregarPerfil_Datos() {
     }
-    
-    public boolean AgregarPerfil(Perfil perfil){
-        // Agregar el perfil a la base de datos
-        System.out.println("Perfil agregado");
-        
-        return true;
+
+    public boolean AgregarPerfil(Perfil perfil) {
+        Conexion conexion = new Conexion();
+        if (conexion.crearConexion()) {
+            PrepararQuerrys preparar = new PrepararQuerrys();
+            String querry = preparar.AgregarPerfil(perfil);
+            System.out.println(querry);
+            return conexion.ejecutarSQL(querry);
+        } else {
+            return false;
+        }
     }
 }

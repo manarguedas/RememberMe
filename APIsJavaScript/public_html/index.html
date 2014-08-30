@@ -11,15 +11,39 @@
     </head>
     <body>
         <p>Hola mundo</p>
+        <script src="js/ScriptsCliente/Constantes.js"></script>
         <script src="js/ScriptsCliente/PerfilJSON.js"></script>
         <script src="js/ScriptsCliente/Comunicador.js"></script>
+        <script src="js/ScriptsCliente/Biografia.js"></script>
+        <script src="js/ScriptsCliente/Eventos.js"></script>
         
          <script language="javascript">
-             var x = new Comunicador();
-             x.SetTipo("GET");
-             x.SetUrl("http://localhost:8080/pruebaRest/lol");
-             x.SetDato("{\"nombre\":\"hola\"}");
-             Request();
+             
+             //AdminBio.CargarBiografias(1);
+             AdminEve.AgregarEvento("asasa","asas","sasa","sas","sasa");
+             AdminEve.EnviarEventoCrear(1);
+             
+            // AdminBio.AgregarBiografia("hola","jskalsjalsa");
+
+             //AdminBio.EnviarBiografiaCrear(1);
+             
+             //var x = new AdministrarPerfil();
+             //AdmiPer.RecuperarPerfil("1000");
+             //AdmiPer.CrearPerfil();
+             /*AdmiPer.SetNombre("Gustavo");
+             AdmiPer.SetApellido("Gustavo");
+             AdmiPer.SetNacimiento("jdksjds");
+             AdmiPer.SetDefuncion("dssds");
+             AdmiPer.SetUrl("dsds");
+             AdmiPer.EnviarPerfilCrear();
+             */
+            
+             //x.SetTipo("GET");
+            // x.SetUrl("http://localhost:8080/BackEndRememberMeApp/app/perfiles");
+             //x.SetDato("{\"nombre\":\"hola\"}");
+             //x.Enviar();
+             
+             //Ajax()();
   </script>
     </body>
 </html>

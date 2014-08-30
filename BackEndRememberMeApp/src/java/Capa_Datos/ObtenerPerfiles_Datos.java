@@ -8,6 +8,9 @@ package Capa_Datos;
 
 import Capa_Logica.ParseJson_Perfil;
 import Capa_Logica.Perfil;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 
 /**
  *
@@ -17,13 +20,27 @@ public class ObtenerPerfiles_Datos {
 
     public ObtenerPerfiles_Datos() {
     }
-    
-    
-    public Perfil ObtenerPerfilDifunto(int idDifunto){
-        System.out.println("IdDifunto: "+idDifunto);
-        String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\""+idDifunto+"\"}}";
-        ParseJson_Perfil p = new ParseJson_Perfil();
-        Perfil l = p.ParsePerfilModelo(reader);
-        return l;
+
+    public Perfil ObtenerPerfilDifunto(int idDifunto) throws SQLException {
+        Conexion conexion = new Conexion();
+        Perfil perfil = new Perfil();
+        if(conexion.crearConexion()){
+        PrepararQuerrys preparar = new PrepararQuerrys();
+        ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarPerfil(idDifunto));
+        if (resultado.next()) {
+            perfil.setId(resultado.getInt("pk_perfiles"));
+            perfil.setNombre(resultado.getString("nombre"));
+            perfil.setApellido(resultado.getString("apellidos"));
+            perfil.setUrlFoto(resultado.getString("dir_foto"));
+            perfil.setDefuncion(new Date(resultado.getString("fecha_defuncion")));
+            perfil.setNacimieno(new Date(resultado.getString("fecha_nacimiento")));
+            //String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\""+idDifunto+"\"}}";
+        } else {
+            perfil.setId(0);
+        }
+        }else{
+            perfil.setId(0);
+        }
+        return perfil;
     }
 }

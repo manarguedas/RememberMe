@@ -7,6 +7,7 @@
 package Capa_Logica;
 
 import Capa_Datos.ObtenerPerfiles_Datos;
+import java.sql.SQLException;
 
 /**
  *
@@ -18,7 +19,7 @@ public class ConsultarPerfiles_Logica {
     }
     
     
-    public String ObtenerPerfilDifunto(int idDifunto){
+    public String ObtenerPerfilDifunto(int idDifunto) throws SQLException{
         ObtenerPerfiles_Datos buscador = new ObtenerPerfiles_Datos();
         ParseJson_Perfil parse = new ParseJson_Perfil();
         Perfil perfil = buscador.ObtenerPerfilDifunto(idDifunto);
