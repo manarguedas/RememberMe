@@ -33,9 +33,11 @@
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/cordova_plugins.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/apple-touch-icon-precomposed.png \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/index.html \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/perfil.html \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/fonts \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/favicon.ico \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/buscar.html \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/cordova.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/plugins \
