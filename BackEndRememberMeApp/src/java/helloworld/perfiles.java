@@ -66,21 +66,6 @@ public class perfiles extends HttpServlet {
         return consulta.ConsultarPerfil(pIdDifunto);
     }
 
-    private String GetJSON(HttpServletRequest request) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        BufferedReader reader = request.getReader();
-        try {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line).append('\n');
-            }
-        } finally {
-            reader.close();
-        }
-        
-        return sb.toString();
-    }
-
     private void AddEncabezados(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
@@ -146,7 +131,6 @@ public class perfiles extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String json = request.getParameter("json");
-        System.out.println("+++++" + json);
         EnviarResultado(response, json);
     }
   

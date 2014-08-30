@@ -52,6 +52,10 @@
         <servlet-name>perfiles</servlet-name>
         <servlet-class>helloworld.perfiles</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Biografias</servlet-name>
+        <servlet-class>helloworld.Biografias</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
         <url-pattern>/app</url-pattern>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>perfiles</servlet-name>
         <url-pattern>/app/perfiles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Biografias</servlet-name>
+        <url-pattern>/app/biografias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
