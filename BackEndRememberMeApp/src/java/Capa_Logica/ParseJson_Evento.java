@@ -10,6 +10,7 @@ import Capa_Logica.Constantes.ConstantesLlavesJson;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
@@ -72,10 +73,10 @@ public class ParseJson_Evento {
         return evento;
     }
 
-    public String ParsePerfilJson(Evento[] eventos) {
+    public String ParsePerfilJson(List<Evento> eventos) {
 
         JSONObject obj = new JSONObject();
-        obj.put(ConstantesLlavesJson.idDifunto, eventos[0].getIdDifunto());
+        obj.put(ConstantesLlavesJson.idDifunto, eventos.get(0).getIdDifunto());
         JSONArray lista = new JSONArray();
         for (Evento evento : eventos) {
             JSONObject obj2 = new JSONObject();

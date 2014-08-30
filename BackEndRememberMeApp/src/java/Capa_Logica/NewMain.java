@@ -16,6 +16,8 @@ import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import com.sun.imageio.plugins.jpeg.JPEG;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -28,28 +30,31 @@ public class NewMain {
      */
     public static void main(String[] args) throws SQLException {
         
-        String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"121\"}}";
+        //String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"121\"}}";
         Conexion c = new Conexion();
         c.crearConexion();
 //        c.ejecutarSQL("INSERT INTO ADMINISTRADORES  ( nombre, apellidos, fecha_nacimiento, fecha_defuncion, dir_foto) VALUES('Ney','Rojas','Tue Jan 04 00:00:00 CST 1820','Tue Jan 08 00:00:00 CST 1980','www.remembermeapp.com/recursos/fotos/121.png')");
         
         
-        
-//        String reader = "{\"idd\":\"2\", \"eve\":[{\"id\":\"32\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"},{\"id\":\"64\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"}]}";
-//        ParseJson_Evento p = new ParseJson_Evento();
+//        
+        String reader = "{\"idd\":\"2\", \"eve\":[{\"id\":\"32\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"},{\"id\":\"64\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"}]}";
+        ParseJson_Evento p = new ParseJson_Evento();
 //        Evento i = p.ParseEventoModelo(reader);
 //        GestionarEventos_Datos r = new GestionarEventos_Datos();
 //        r.AgregarEvento(i);
+//        
         
-        
-        
+//        
 //        PrepararQuerrys h = new PrepararQuerrys();
 //        System.out.println(h.AgregarEvento(i));
-//        Evento []eventos = new Evento[10];
+//        List<Evento> eventos = new ArrayList();
 //        for (int i = 0; i < 10; i++) {
-//            eventos[i] = p.ParseEventoModelo(reader);
-//            System.out.println("id evento: "+eventos[i].getId());
+//            eventos.add(p.ParseEventoModelo(reader));
+//            System.out.println("id evento: "+eventos.get(i).getDescripcion());
 //        }
+//        System.out.println(p.ParsePerfilJson(eventos));
+//        
+//        
         //System.out.println(eventos[0].getId());
         //System.out.println(eventos.length);
         //System.out.println(eventos[0].getIdDifunto());
