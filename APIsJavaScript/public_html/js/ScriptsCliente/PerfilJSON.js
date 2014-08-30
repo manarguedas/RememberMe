@@ -15,10 +15,10 @@ function Perfil() {
 
 function AdministrarPerfil(){
     
-    this.perfil = "";
+    this.per = "";
     
     this.CrearPerfil = function CrearPerfil(){
-        this.perfil = new Perfil();  
+        this.per = new Perfil();  
     };
     
     this.GetJSON = function GetJSON(){
@@ -26,46 +26,88 @@ function AdministrarPerfil(){
     };
     
     this.CargarJSON = function CargarJSON(pJSON){
-        this.perfil = JSON.parse(pJSON).perfil;  
+        this.per = JSON.parse(pJSON).perfil; 
     };
     
+    this.RecuperarPerfil = function RecuperarPerfil(pIdDifunto){
+        $.ajax({
+            type: kConstantes.get, // it's easier to read GET request parameters
+            url: kConstantes.Servidor + kConstantes.DirPerfiles + "?idDifunto="+pIdDifunto,
+            dataType: 'JSON',
+            data: {
+                json: "" // look here!
+            },
+            success: function(data) {
+                var mJson = JSON.stringify(data);
+                AdmiPer.CargarJSON(mJson);
+            },
+            error: function(data) {
+                alert('No se pudo obtener el perfil.');
+            }
+        });
+    };
+
+    this.EnviarPerfilCrear = function EnviarPerfilCrear(){
+        $.ajax({
+            type: kConstantes.post, // it's easier to read GET request parameters
+            url: kConstantes.Servidor + kConstantes.DirPerfiles ,
+            dataType: 'JSON',
+            data: {
+                json: JSON.stringify(this)
+            },
+            success: function(data) {
+                alert("Perfil creado");
+            },
+            error: function(data) {
+                alert('No se pudo crear el perfil.');
+            }
+        });
+    };
+    
+    this.Ejecutar = function Ejecutar(pJson){
+        alert(this.per.nom + "soy la funcion " + pJson);
+    };
+    
+    
     this.SetNombre = function SetNombre(pNombre){
-        this.perfil.nom = pNombre;
+        this.per.nom = pNombre;
     };
     
     this.SetApellido = function SetApellido(pApellido){
-        this.perfil.ape = pApellido;
+        this.per.ape = pApellido;
     };
     
     this.SetNacimiento = function SetNacimiento(pNacimiento){
-        this.perfil.nac = pNacimiento;
+        this.per.nac = pNacimiento;
     };
     
     this.SetDefuncion = function SetDefuncion(pDefuncion){
-        this.perfil.def = pDefuncion;
+        this.per.def = pDefuncion;
     };
     
     this.SetUrl = function SetUrl(pUrl){
-        this.perfil.url = pUrl;
+        this.per.url = pUrl;
     };
     
     this.GetNombre = function GetNombre(){
-        return this.perfil.nom;
+        return this.per.nom;
     };
     
     this.GetApellido = function GetApellido(){
-        return this.perfil.ape;
+        return this.per.ape;
     };
     
     this.GetNacimiento = function GetNacimiento(){
-        return this.perfil.nac;
+        return this.per.nac;
     };
     
     this.GetDefuncion = function GetDefuncion(){
-        return this.perfil.def;
+        return this.per.def;
     };
     
     this.GetUrl = function GetUrl(){
-        return this.perfil.url;
+        return this.per.url;
     };
 }
+
+var AdmiPer = new AdministrarPerfil();

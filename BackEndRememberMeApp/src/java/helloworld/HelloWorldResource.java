@@ -74,8 +74,9 @@ public class HelloWorldResource {
     @GET
     @Produces("application/json")
     public String getPerfil(@QueryParam("idDifunto") int idDifunto) {
-        ConsultarPerfil_Presentacion consulta = new ConsultarPerfil_Presentacion();
-        return consulta.ConsultarPerfil(idDifunto);
+        //ConsultarPerfil_Presentacion consulta = new ConsultarPerfil_Presentacion();
+        //return consulta.ConsultarPerfil(idDifunto);
+        return "OOLA";
     }
 
     /**
