@@ -8,6 +8,7 @@ function Constantes(){
     this.Servidor = "http://localhost:8080/BackEndRememberMeApp/";
     this.DirPerfiles = "app/perfiles";
     this.DirBiografias = "app/biografias";
+    this.DirEventos = "app/eventos";
     
     this.get = "GET";
     this.post = "POST";

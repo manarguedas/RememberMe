@@ -56,6 +56,10 @@
         <servlet-name>Biografias</servlet-name>
         <servlet-class>helloworld.Biografias</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Eventos</servlet-name>
+        <servlet-class>helloworld.Eventos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
         <url-pattern>/app</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>Biografias</servlet-name>
         <url-pattern>/app/biografias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Eventos</servlet-name>
+        <url-pattern>/app/eventos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
