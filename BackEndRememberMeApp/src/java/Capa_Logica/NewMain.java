@@ -8,6 +8,7 @@ package Capa_Logica;
 
 import Capa_Datos.AgregarPerfil_Datos;
 import Capa_Datos.Conexion;
+import Capa_Datos.GestionarEventos_Datos;
 import Capa_Datos.ObtenerPerfiles_Datos;
 import Capa_Datos.PrepararQuerrys;
 import Capa_Presentacion.AgregarPerfil_Presentacion;
@@ -27,12 +28,23 @@ public class NewMain {
      */
     public static void main(String[] args) throws SQLException {
         
-        //String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"121\"}}";
-//        Conexion c = new Conexion();
-//        c.crearConexion();
+        String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"121\"}}";
+        Conexion c = new Conexion();
+        c.crearConexion();
 //        c.ejecutarSQL("INSERT INTO ADMINISTRADORES  ( nombre, apellidos, fecha_nacimiento, fecha_defuncion, dir_foto) VALUES('Ney','Rojas','Tue Jan 04 00:00:00 CST 1820','Tue Jan 08 00:00:00 CST 1980','www.remembermeapp.com/recursos/fotos/121.png')");
-        String reader = "{\"idd\":\"101\", \"eve\":[{\"id\":\"32\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"},{\"id\":\"64\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"}]}";
+        
+        
+        
+//        String reader = "{\"idd\":\"2\", \"eve\":[{\"id\":\"32\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"},{\"id\":\"64\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"}]}";
 //        ParseJson_Evento p = new ParseJson_Evento();
+//        Evento i = p.ParseEventoModelo(reader);
+//        GestionarEventos_Datos r = new GestionarEventos_Datos();
+//        r.AgregarEvento(i);
+        
+        
+        
+//        PrepararQuerrys h = new PrepararQuerrys();
+//        System.out.println(h.AgregarEvento(i));
 //        Evento []eventos = new Evento[10];
 //        for (int i = 0; i < 10; i++) {
 //            eventos[i] = p.ParseEventoModelo(reader);
@@ -45,8 +57,8 @@ public class NewMain {
 //        System.out.println(p.ParsePerfilJson(eventos));
         //ResultSet p = c.ejecutarSQLSelect("select * from ADMINISTRADORES");
         //p.
-        //AgregarPerfil_Presentacion e = new AgregarPerfil_Presentacion();
-        //e.AgregarPerfil(reader);
+//        AgregarPerfil_Presentacion e = new AgregarPerfil_Presentacion();
+//        e.AgregarPerfil(reader);
         //String u = "INSERT INTO ADMINISTRADORES  (pk_administradores , Correo ) VALUES (2, 'nose.com')";
         //c.ejecutarSQL(u);
         //ParseJson_Perfil py = new ParseJson_Perfil();
