@@ -5,6 +5,7 @@
  */
  
 function Biografia(){
+    this.id = "";
     this.nom = "";
     this.des = "";
 }
