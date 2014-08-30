@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/helloworld/HelloWorldResource.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/AgregarPerfil_Logica.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/ObtenerPerfiles_Datos.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/AgregarPerfil_Presentacion.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/AgregarPerfil_Datos.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/web/WEB-INF/web.xml</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/helloworld/ApplicationConfig.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/nbproject/build-impl.xml</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/conf/MANIFEST.MF</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Confirmacion.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/NewMain.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/ConsultarPerfil_Presentacion.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Constantes/ConstantesLlavesJson.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Perfil.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Constantes/ConstantesComunicacion.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ConsultarPerfiles_Logica.java</file>
+            <file>file:/Users/gustavovargas/NetBeansProjects/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Perfil.java</file>
+        </group>
+    </open-files>
+</project-private>

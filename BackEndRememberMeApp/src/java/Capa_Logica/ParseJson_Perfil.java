@@ -47,8 +47,6 @@ public class ParseJson_Perfil {
             String apellidos =  (String)jsonObject1.get(ConstantesLlavesJson.apellido);
             String urlFoto =  (String)jsonObject1.get(ConstantesLlavesJson.urlFoto);
             
-            //System.out.println("Id: "+id+" Nombre: "+nombre+" "+apellidos+" url: "+urlFoto+" Dif: "+defuncion+" Nac: "+nacimiento);
-            
             perfil.setNacimieno(nacimiento);
             perfil.setDefuncion(defuncion);
             perfil.setApellido(apellidos);
@@ -68,7 +66,6 @@ public class ParseJson_Perfil {
     
     
     public String ParsePerfilJson(Perfil perfil) {
-
         JSONObject obj = new JSONObject();
         JSONObject obj2 = new JSONObject();    
         obj.put(ConstantesLlavesJson.nombre, perfil.getNombre());
