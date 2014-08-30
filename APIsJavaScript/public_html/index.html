@@ -11,15 +11,28 @@
     </head>
     <body>
         <p>Hola mundo</p>
+        <script src="js/ScriptsCliente/Constantes.js"></script>
         <script src="js/ScriptsCliente/PerfilJSON.js"></script>
         <script src="js/ScriptsCliente/Comunicador.js"></script>
         
+        
          <script language="javascript">
-             //var x = new Comunicador();
+
+             //var x = new AdministrarPerfil();
+             //AdmiPer.RecuperarPerfil("1000");
+             AdmiPer.CrearPerfil();
+             AdmiPer.SetNombre("Gustavo");
+             AdmiPer.SetApellido("Gustavo");
+             AdmiPer.SetNacimiento("jdksjds");
+             AdmiPer.SetDefuncion("dssds");
+             AdmiPer.SetUrl("dsds");
+             AdmiPer.EnviarPerfilCrear();
              //x.SetTipo("GET");
-             //x.SetUrl("http://localhost:8080/pruebaRest/lol");
+            // x.SetUrl("http://localhost:8080/BackEndRememberMeApp/app/perfiles");
              //x.SetDato("{\"nombre\":\"hola\"}");
-             Ajax()();
+             //x.Enviar();
+             
+             //Ajax()();
   </script>
     </body>
 </html>

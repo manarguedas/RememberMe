@@ -58,7 +58,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>perfiles</servlet-name>
-        <url-pattern>/perfiles</url-pattern>
+        <url-pattern>/app/perfiles</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package helloworld;
 
+import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,12 +34,12 @@ public class perfiles extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setContentType("application/json");
         AddEncabezados(response);
         PrintWriter out = response.getWriter();
         try {
-            String json = request.getParameter("test");
+            String json = request.getParameter("json");
             /* TODO output your page here. You may use following sample code. */
             out.println(json);
             out.flush();
@@ -45,7 +48,25 @@ public class perfiles extends HttpServlet {
         }
     }
 
-    private String GetJSON(HttpServletRequest request) throws IOException{
+    protected void EnviarResultado(HttpServletResponse response, String mResultado)
+            throws ServletException, IOException {
+        AddEncabezados(response);
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        try {
+            out.println(mResultado);
+            out.flush();
+        } finally {
+            out.close();
+        }
+    }
+
+    private String GetDifunto(int pIdDifunto) throws SQLException {
+        ConsultarPerfil_Presentacion consulta = new ConsultarPerfil_Presentacion();
+        return consulta.ConsultarPerfil(pIdDifunto);
+    }
+
+    private String GetJSON(HttpServletRequest request) throws IOException {
         StringBuilder sb = new StringBuilder();
         BufferedReader reader = request.getReader();
         try {
@@ -56,32 +77,33 @@ public class perfiles extends HttpServlet {
         } finally {
             reader.close();
         }
+        
         return sb.toString();
     }
-    
-      private void AddEncabezados(HttpServletResponse response){
+
+    private void AddEncabezados(HttpServletResponse response) {
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
         response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
         response.addHeader("Access-Control-Max-Age", "1728000");
     }
-    
-      protected void enviarJson(HttpServletRequest request, HttpServletResponse response){
+
+    protected void enviarJson(HttpServletRequest request, HttpServletResponse response) {
         try {
-        //TODO: externalize the Allow-Origin
+            //TODO: externalize the Allow-Origin
             AddEncabezados(response);
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        out.println("{");
-        out.println("\"First Name\": \"Devesh\",");
-        out.println("\"Last Name\": \"Sharma\"");
-        out.println("}");
-        out.close();
-    } catch (IOException e) {
-        e.printStackTrace();
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.println("{");
+            out.println("\"First Name\": \"Devesh\",");
+            out.println("\"Last Name\": \"Sharma\"");
+            out.println("}");
+            out.close();
+        } catch (IOException e) {
+        }
     }
-    }
-      
+
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -94,7 +116,22 @@ public class perfiles extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        //processRequest(request, response);
+        try {
+            int idDifunto = -1;
+            System.out.println(request.getParameter("idDifunto") + "------------");
+            String iDifunto = request.getParameter("idDifunto");
+
+            if (iDifunto == null 
+                    ) {
+                iDifunto = "0";
+            }
+            idDifunto = Integer.parseInt(iDifunto);
+            EnviarResultado(response, GetDifunto(idDifunto));
+        } catch (SQLException ex) {
+            Logger.getLogger(perfiles.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -108,9 +145,12 @@ public class perfiles extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String json = request.getParameter("json");
+        System.out.println("+++++" + json);
+        EnviarResultado(response, json);
     }
-
+  
+    
     /**
      * Returns a short description of the servlet.
      *
