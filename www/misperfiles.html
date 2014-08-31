@@ -12,92 +12,84 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/EstilosApp.css">
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
     </head>
     <body>
         
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-            <div class="container">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-custom1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="registro.html">
-                                <span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                        <li><a href="perfil.html">
-                                <span class="glyphicon glyphicon-user"></span></a></li>
-                        <li><a href="buscar.html">
-                                <span class="glyphicon glyphicon-search"></span></a></li>
-                        <li class="dropdown "><a href="#" data-toggle="dropdown" class="dropdown-toggle" role="button">
-                        <span class="glyphicon glyphicon-align-justify"></span><span class="caret"></span></a>
-                            <ul role="menu" class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" href="#">Editar</a></li>
-                                <li role="presentation"><a role="menuitem" href="#">Eliminar</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="#">Sincronizar</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="#">Compartir en Facebook</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-            
-            <div class="container">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-custom2">
-                    <ul class="nav navbar-nav">
-                        <li><a href="misperfiles.html">
-                                <span class="glyphicon glyphicon-user"></span> Perfil</a></li>
-                        <li><a href="#">
-                                <span class="glyphicon glyphicon-calendar"></span> Actividades</a></li>
-                        <li><a href="#">
-                                <span class="glyphicon glyphicon-picture"></span> Fotos</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
+        <script type="text/javascript">
+            ConfigurarBarra(2);
+            ConfigurarBarraActividades(1);
+        </script>
         
         <!-- Datos de un perfil seleccionado -->
         <div class="container">
             <!-- Nombre, ubicación y foto -->
-            <div class="row">
+            <div class="row"><div class="container">
                 <div align="left" class="col-xs-6 col-sm-6">
-                    <b>Nombre:</b>
-                    <p>Juan Brenes Perez</p>
+                    <h3>Juan Brenes Perez</h3>
                     <button class="btn btn-primary btn-sm">Lugar de descanso</button>
                 </div>
                 <div align="center" class="col-xs-6 col-sm-6">
                     <p><img src="images/icon.png" alt="" class="img-circle"></p>
                 </div>
-            </div>
+            </div></div><hr>
+
             <!-- Fechas nacimiento y defunción -->
-            <div class="row">
+            <div class="row"><div class="container">
                 <div align="left" class="col-xs-12 col-sm-12">
                     <p><b>Fecha de nacimiento: </b>18/05/1976</p>
                     <p><b>Fecha de defunción: </b>14/08/2014</p>
                 </div>
-            </div>
+            </div></div><hr>
+
             <!-- Reseña -->
-            <div class="row">
-                <div align="center" class="col-xs-12 col-sm-12">
-                    <p>Juan fue una persona que desde joven se interesó en arte.
-                     Su primer pintura la realizó a los 3 años, y desde entonces
-                    supo que su carrera de mayor sería en ese área. Pintó usando
-                    distintas técnicas, desde acuarela hasta tizas.</p>
+            <div class="row"><div class="container">
+                <div class="panel panel-primary">
+			<div class="panel-heading">
+				<h5 class="panel-title">Primeros años</h5>
+			</div>
+			<div class="panel-body">
+				<small>Juan fue una persona que desde joven se interesó en arte.
+				Su primer pintura la realizó a los 3 años, y desde entonces
+				supo que su carrera de mayor sería en ese área. Pintó usando
+				distintas técnicas, desde acuarela hasta tizas.</small>
+			</div>
                 </div>
-            </div>
+            </div></div><hr>
+
             <!-- Comentarios -->
-            <div class="row">
-                <div align="left" class="col-xs-12 col-sm-12">
-                    <b>Jose Perez:</b>
-                    <p>Siempre fue una persona muy emotiva.</p>
-                </div>
-            </div>
+	    <div class="row"><div class="container"><div class="panel panel-default">
+	    <div class="panel-heading">
+		      <h6 class="panel-title">Comentarios</h6>
+	    </div>
+	    <div class="panel-body">
+		<div class="panel panel-info">
+		   <div class="panel-heading">
+		      <h6 class="panel-title">Jose Perez <small>(30/08/2014)</small></h6>
+		   </div>
+		   <div class="panel-body">
+		      <small>Siempre fue una persona muy emotiva.</small>
+		   </div>
+		</div>
+		<div class="panel panel-info">
+		   <div class="panel-heading">
+		      <h6 class="panel-title">Lucía Monge <small>(31/08/2014)</small></h6>
+		   </div>
+		   <div class="panel-body">
+		      <small>Siempre fue una persona muy emotiva.</small>
+		   </div>
+		</div>
+		<div class="panel panel-info">
+		   <div class="panel-heading">
+		      <h6 class="panel-title">Lapiz Azul <small>(30/08/2014)</small></h6>
+		   </div>
+		   <div class="panel-body">
+		      <small>Siempre fue una persona muy emotiva.</small>
+		   </div>
+		</div>
+	    </div></div></div></div>
         </div>
         
     </body>
