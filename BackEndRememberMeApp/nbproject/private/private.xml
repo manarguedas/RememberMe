@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/Users/MarcoNey/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/perfiles.java</file>
             <file>file:/C:/Users/MarcoNey/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/HelloWorldResource.java</file>
+            <file>file:/C:/Users/MarcoNey/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/AgregarPerfil_Presentacion.java</file>
             <file>file:/C:/Users/MarcoNey/Documents/GitHub/RememberMe/BackEndRememberMeApp/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/MarcoNey/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/ConsultarPerfil_Presentacion.java</file>
             <file>file:/C:/Users/MarcoNey/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/Eventos.java</file>
             <file>file:/C:/Users/MarcoNey/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/Biografias.java</file>
             <file>file:/C:/Users/MarcoNey/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/SingletonHttp.java</file>
