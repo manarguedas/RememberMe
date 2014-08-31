@@ -11,12 +11,12 @@ function Evento(){
     this.fec = "";
     this.hor = "";
     this.lug = "";
+    this.id = "";
 }
 
 function AdministradorEvento(){
     this.idd = "";
     this.eve = new Array();
-    
     
     this.AgregarEvento = function AgregarEvento(pNom,pDes,pFec,pHor,pLug){
         var mEve = new Evento();
@@ -68,6 +68,9 @@ function AdministradorEvento(){
         });
     };
     
+    this.GetEventos = function GetEventos(){
+        return this.eve;
+    };
 }
 
 var AdminEve = new AdministradorEvento();
