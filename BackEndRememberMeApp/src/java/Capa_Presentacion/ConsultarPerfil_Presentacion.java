@@ -22,6 +22,6 @@ public class ConsultarPerfil_Presentacion {
         ConsultarPerfiles_Logica  consulta = new ConsultarPerfiles_Logica();
         //return consulta.ObtenerPerfilDifunto(idDifunto);
         if (idDifunto==0) return "{\"men\":\"0\"}";
-        return "{\"perfil\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"dd/mm/aaaa\",\"def\":\"dd/mm/aaaa\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":121}}";
+        return "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"dd/mm/aaaa\",\"def\":\"dd/mm/aaaa\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":121}}";
     }
 }

@@ -131,6 +131,7 @@ public class perfiles extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String json = request.getParameter("json");
+        System.out.println("-----" + json);
         EnviarResultado(response, json);
     }
   

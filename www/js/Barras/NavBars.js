@@ -23,7 +23,7 @@ var CuerpoBarraInicio = '<nav class="navbar navbar-inverse" role="navigation">' 
                                     '<span class="glyphicon glyphicon-search"></span>'+
                                 '</a>'+
                             '</li>'+ 
-                            '<li class="{4} col-xs-3 BotonAgregarPerfil">'+
+                            '<li class="{4} col-xs-3 BotonAgregarPerfil" style="display: {5};">'+
                                 '<a href="misperfiles.html">' +
                                     '<span class="glyphicon glyphicon-plus"></span>\
                                 </a>\
@@ -34,7 +34,46 @@ var CuerpoBarraInicio = '<nav class="navbar navbar-inverse" role="navigation">' 
         </nav>' ;
 
 
+var CuerpoBarraActividades = '<nav class="navbar-default NavBarActividades BarraPrincipal" > \
+            <div class="BarraPrincipal"> \
+                <div class="ContenedorBotonesActividades BarraPrincipal" align="center"> \
+                    <ul class="nav navbar-nav col-xs-12"> \
+                        <li class="{1} AnchoBotonPerfil col-xs-3"> \
+                            <a href="misperfiles.html"> \
+                                <span class="glyphicon glyphicon-user"></span> Perfil</a> \
+                        </li > \
+                        <li class="{2} AnchoBotonActividades col-xs-6"> \
+                            <a href="#"> \
+                                <span class="glyphicon glyphicon-calendar"></span> Actividades</a> \
+                        </li> \
+                        <li class="{3} AnchoBotonPerfil col-xs-3"> \
+                            <a href="#"> \
+                                <span class="glyphicon glyphicon-picture"></span> Fotos</a> \
+                        </li> \
+                    </ul> \
+                </div> \
+            </div> \
+        </nav>';
+
+
 function ConfigurarBarra(pIndice){
     var mResultado = CuerpoBarraInicio.replace("{" + pIndice + "}","active");
+    if (pIndice===3) mResultado = mResultado.replace("{5}","none");
+    
+    var iframe = document.createElement("div");
+    iframe.innerHTML = mResultado;
+    document.body.appendChild(iframe);
+    
     return mResultado;
 }
+
+function ConfigurarBarraActividades(pIndice){
+    var mResultado = CuerpoBarraActividades.replace("{" + pIndice + "}","active");
+    
+    var iframe = document.createElement("div");
+    iframe.innerHTML = mResultado;
+    document.body.appendChild(iframe);
+    
+    return mResultado;
+}
+
