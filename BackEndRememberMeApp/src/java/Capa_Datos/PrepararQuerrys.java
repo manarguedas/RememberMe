@@ -29,7 +29,7 @@ public class PrepararQuerrys {
     }
     
     public String RecuperarEventos(int idDifunto){
-        return "";
+        return ConstBaseDatos.RecuperarEventos+idDifunto;
     }
     
 }

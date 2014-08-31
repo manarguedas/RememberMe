@@ -77,8 +77,8 @@ public ResultSet ejecutarSQLSelect(String sql)
 {
    ResultSet resultado;
    try {
+       //System.out.println("--->  "+sql);
       Statement sentencia = conexion.createStatement();
-      //conexion.prepareStatement(sql);
       resultado = sentencia.executeQuery(sql);
    } catch (SQLException ex) {
       ex.printStackTrace();
