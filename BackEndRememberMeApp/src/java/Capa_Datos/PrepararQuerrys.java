@@ -7,6 +7,7 @@
 package Capa_Datos;
 
 import Capa_Datos.Constantes.ConstBaseDatos;
+import Capa_Logica.Evento;
 import Capa_Logica.Perfil;
 
 /**
@@ -21,6 +22,14 @@ public class PrepararQuerrys {
     
     public String AgregarPerfil(Perfil perfil){
         return ConstBaseDatos.GuardarPerfil+"('"+perfil.getNombre()+"','"+perfil.getApellido()+"','"+perfil.getNacimieno().toString()+"','"+perfil.getDefuncion().toString()+"','"+perfil.getUrlFoto()+"',1)";
+    }
+    
+    public String AgregarEvento(Evento evento){
+        return ConstBaseDatos.GuardarEvento+"("+evento.getIdDifunto()+",'"+evento.getFecha().toString()+"','"+evento.getHora()+"','"+evento.getNombre()+"','"+evento.getDescripcion()+"','"+evento.getLugar()+"')";
+    }
+    
+    public String RecuperarEventos(int idDifunto){
+        return "";
     }
     
 }
