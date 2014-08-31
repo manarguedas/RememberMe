@@ -73,12 +73,12 @@ public class ParseJson_Evento {
         return evento;
     }
 
-    public String ParsePerfilJson(List<Evento> eventos) {
+    public String ParseEventosJson(List<Evento> eventos) {
 
         JSONObject obj = new JSONObject();
-        obj.put(ConstantesLlavesJson.idDifunto, eventos.get(0).getIdDifunto());
         JSONArray lista = new JSONArray();
         for (Evento evento : eventos) {
+            obj.put(ConstantesLlavesJson.idDifunto, eventos.get(0).getIdDifunto());
             JSONObject obj2 = new JSONObject();
             obj2.put(ConstantesLlavesJson.nombre, evento.getNombre());
             obj2.put(ConstantesLlavesJson.descripcionEvento, evento.getDescripcion());

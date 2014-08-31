@@ -19,7 +19,7 @@ public class ConsultarEventos_Logica {
       public String ConsultarEventos(int idDifunto) throws SQLException{
           ObtenerEventos_Datos buscar =  new ObtenerEventos_Datos();
           ParseJson_Evento parse = new ParseJson_Evento();
-          return parse.ParsePerfilJson(buscar.ObtenerEventosDifunto(idDifunto));
+          return parse.ParseEventosJson(buscar.ObtenerEventosDifunto(idDifunto));
     }
       
       
