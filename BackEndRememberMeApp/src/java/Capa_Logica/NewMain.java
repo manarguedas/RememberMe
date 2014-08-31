@@ -6,11 +6,12 @@
 
 package Capa_Logica;
 
+import Capa_Datos.Conexion;
+
 /**
  *
  * @author gustavovargas
  */
 public class NewMain {
-
     
 }
