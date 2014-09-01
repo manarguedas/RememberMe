@@ -18,6 +18,8 @@ and open the template in the editor.
         <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/PerfilJSON.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
     </head>
     <body>
         <script type="text/javascript">
@@ -29,20 +31,20 @@ and open the template in the editor.
                 <div class="form-group">
                    <label class="col-sm-2 control-label">Nombre</label>
                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="nombre">
+                      <input type="text" class="form-control" id="nom">
                    </div>
                 </div>
                 <div class="form-group">
                    <label class="col-sm-2 control-label">Apellido</label>
                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="apellido">
+                      <input type="text" class="form-control" id="ape">
                    </div>
                 </div>
                 <div class="form-group">
                    <label class="col-sm-2 control-label">Fecha de nacimiento</label>
                    <div class="col-sm-10">
                        <div class="input-append date" id="nacimiento" data-date-format="dd/mm/yyyy">
-                            <input type="text" class="form-control" readonly>
+                            <input id="nac" type="text" class="form-control" readonly>
                             <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
                        </div>
                    </div>
@@ -51,7 +53,7 @@ and open the template in the editor.
                    <label class="col-sm-2 control-label">Fecha de defunción</label>
                    <div class="col-sm-10">
                        <div class="input-append date" id="defuncion" data-date-format="dd/mm/yyyy">
-                            <input type="text" class="form-control" readonly>
+                            <input id="def" type="text" class="form-control" readonly>
                             <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
                        </div>
                    </div>
@@ -59,18 +61,18 @@ and open the template in the editor.
                 <div class="form-group">
                    <label class="col-sm-2 control-label">Sección 1 - Encabezado</label>
                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="secc1-head">
+                      <input type="text" class="form-control" id="tit">
                    </div>
                 </div>
                 <div class="form-group">
                    <label class="col-sm-2 control-label">Sección 1 - Cuerpo</label>
                    <div class="col-sm-10">
-                       <textarea class="form-control" id="secc1-body"></textarea>
+                       <textarea class="form-control" id="des"></textarea>
                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-8">
-                       <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" onclick="AgregarDifunto();" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
             </form>

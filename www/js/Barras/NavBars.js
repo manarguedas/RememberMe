@@ -24,7 +24,7 @@ var CuerpoBarraInicio = '<nav class="navbar navbar-inverse" role="navigation">' 
                                 '</a>'+
                             '</li>'+ 
                             '<li class="{4} col-xs-3 BotonAgregarPerfil" style="display: {5};">'+
-                                '<a id = "AgregarHref" href="misperfiles.html">' +
+                                '<a id = "AgregarHref" href="AgregarPerfil.html">' +
                                     '<span class="glyphicon glyphicon-plus"></span>\
                                 </a>\
                             </li>\
