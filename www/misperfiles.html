@@ -13,9 +13,11 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
+        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/PerfilJSON.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
     </head>
     <body>
 
@@ -43,15 +45,15 @@ and open the template in the editor.
             <!-- Fechas nacimiento y defunción -->
             <div class="row"><div class="container">
                     <div align="left" class="col-xs-12 col-sm-12">
-                        <p id="nacDifunto"><b>Fecha de nacimiento: </b> 18/05/1976 </p>
-                        <p id="defDifunto"><b>Fecha de defunción: </b>14/08/2014</p>
+                        <p id="nacDifunto"><b>Fecha de nacimiento: </b>  </p>
+                        <p id="defDifunto"><b>Fecha de defunción: </b> </p>
                     </div>
                 </div>
             </div><hr>
             <script>
-                AdmiPer.RecuperarPerfil(7);
+                AdmiPer.RecuperarPerfil(10);
             </script>
-            
+
             <!-- Reseña -->
             <div class="row"><div class="container">
                     <div class="panel panel-primary">
@@ -65,8 +67,9 @@ and open the template in the editor.
                                 distintas técnicas, desde acuarela hasta tizas.</small>
                         </div>
                     </div>
-                </div></div><hr>
-                
+                </div>
+            </div><hr>
+
             <!-- Comentarios -->
             <div class="row"><div class="container"><div class="panel panel-default">
                         <div class="panel-heading">

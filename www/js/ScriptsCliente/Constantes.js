@@ -9,6 +9,7 @@ function Constantes(){
     this.DirPerfiles = "app/perfiles";
     this.DirBiografias = "app/biografias";
     this.DirEventos = "app/eventos";
+    this.DirBusquedas = "app/busquedas";
     
     this.get = "GET";
     this.post = "POST";
