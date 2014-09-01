@@ -68,3 +68,23 @@ and open the template in the editor.
     width: 100%;
     height: 100%;
 }
+
+//Eventos
+
+.InputFecha{
+    width: 30%;
+}
+
+
+//Geleria
+
+.ContenedorFoto{
+    width: 100%;
+    height: 100%;
+}
+
+.Foto{
+    margin-top: 15%;
+    width: 100%;
+    width: 100%;
+}
