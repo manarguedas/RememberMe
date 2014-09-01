@@ -30,6 +30,7 @@ function AdministrarPerfil() {
     };
 
     this.RecuperarPerfil = function RecuperarPerfil(pIdDifunto) {
+        pIdDifunto = sessionStorage.getItem("idDifunto");
         $.ajax({
             type: kConstantes.get, // it's easier to read GET request parameters
             url: kConstantes.Servidor + kConstantes.DirPerfiles + "?idDifunto=" + pIdDifunto,
@@ -151,6 +152,5 @@ function CargarPerfilHtml(pOb) {
     document.getElementById("defDifunto").innerHTML = ("<b>Fecha de defunción: </b>" + pOb.per.def);
     sessionStorage.setItem('idDifunto',pOb.per.id);
     if (pOb.per.url !== "")
-        alert(pOb.per.url);
-        document.getElementById("fotoDifunto").src = pOb.per.url;
+        document.getElementById("fotoDifunto").src =  "./images/FondoNegro.png";  //pOb.per.url;
 }

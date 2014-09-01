@@ -9,7 +9,7 @@ var CuerpoBarraInicio = '<nav class="navbar navbar-inverse" role="navigation">' 
                     '<div class="ContenedorBotones">' + 
                         '<ul class="nav navbar-nav" >' +
                             '<li class="{1} col-xs-2 BotonAtras">' +
-                                '<a href="registro.html">' +
+                                '<a id="btnAtras" href="registro.html">' +
                                     '<span class="glyphicon glyphicon-chevron-left"></span>'+
                                 '</a>' +
                             '</li>' + 
@@ -79,6 +79,8 @@ function ConfigurarBarraActividades(pIndice){
     var iframe = document.createElement("div");
     iframe.innerHTML = mResultado;
     document.body.appendChild(iframe);
+    
+    document.getElementById("btnAtras").href = "perfil.html";
     
     return mResultado;
 }

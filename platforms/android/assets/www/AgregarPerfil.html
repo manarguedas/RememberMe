@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>RememberMeApp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/EstilosApp.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/PerfilJSON.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            ConfigurarBarra(2);
+        </script>
+        
+        <div class="container">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                   <label class="col-sm-2 control-label">Nombre</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="nom">
+                   </div>
+                </div>
+                <div class="form-group">
+                   <label class="col-sm-2 control-label">Apellido</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="ape">
+                   </div>
+                </div>
+                <div class="form-group">
+                   <label class="col-sm-2 control-label">Fecha de nacimiento</label>
+                   <div class="col-sm-10">
+                       <div class="input-append date" id="nacimiento" data-date-format="dd/mm/yyyy">
+                            <input id="nac" type="text" class="form-control" readonly>
+                            <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
+                       </div>
+                   </div>
+                </div>
+                <div class="form-group">
+                   <label class="col-sm-2 control-label">Fecha de defunción</label>
+                   <div class="col-sm-10">
+                       <div class="input-append date" id="defuncion" data-date-format="dd/mm/yyyy">
+                            <input id="def" type="text" class="form-control" readonly>
+                            <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
+                       </div>
+                   </div>
+                </div>
+                <div class="form-group">
+                   <label class="col-sm-2 control-label">Sección 1 - Encabezado</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="tit">
+                   </div>
+                </div>
+                <div class="form-group">
+                   <label class="col-sm-2 control-label">Sección 1 - Cuerpo</label>
+                   <div class="col-sm-10">
+                       <textarea class="form-control" id="des"></textarea>
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="button" onclick="AgregarDifunto();" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <script type="text/javascript">
+            $(function () {
+                $('#nacimiento').datepicker();
+            });
+	</script>
+        
+        <script type="text/javascript">
+            $(function () {
+                $('#defuncion').datepicker();
+            });
+	</script>
+        
+    </body>
+</html>
