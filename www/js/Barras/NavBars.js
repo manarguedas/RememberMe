@@ -24,7 +24,7 @@ var CuerpoBarraInicio = '<nav class="navbar navbar-inverse" role="navigation">' 
                                 '</a>'+
                             '</li>'+ 
                             '<li class="{4} col-xs-3 BotonAgregarPerfil" style="display: {5};">'+
-                                '<a href="misperfiles.html">' +
+                                '<a id = "AgregarHref" href="misperfiles.html">' +
                                     '<span class="glyphicon glyphicon-plus"></span>\
                                 </a>\
                             </li>\
@@ -43,11 +43,11 @@ var CuerpoBarraActividades = '<nav class="navbar-default NavBarActividades Barra
                                 <span class="glyphicon glyphicon-user"></span> Perfil</a> \
                         </li > \
                         <li class="{2} AnchoBotonActividades col-xs-6"> \
-                            <a href="#"> \
+                            <a href="Actividades.html"> \
                                 <span class="glyphicon glyphicon-calendar"></span> Actividades</a> \
                         </li> \
                         <li class="{3} AnchoBotonPerfil col-xs-3"> \
-                            <a href="#"> \
+                            <a href="Galeria.html"> \
                                 <span class="glyphicon glyphicon-picture"></span> Fotos</a> \
                         </li> \
                     </ul> \
@@ -70,6 +70,12 @@ function ConfigurarBarra(pIndice){
 function ConfigurarBarraActividades(pIndice){
     var mResultado = CuerpoBarraActividades.replace("{" + pIndice + "}","active");
     
+    switch(pIndice){
+        case 2:
+            ConfigurarAgregar();
+            break;
+    }
+    
     var iframe = document.createElement("div");
     iframe.innerHTML = mResultado;
     document.body.appendChild(iframe);
@@ -77,3 +83,6 @@ function ConfigurarBarraActividades(pIndice){
     return mResultado;
 }
 
+function ConfigurarAgregar(){
+    document.getElementById("AgregarHref").href = "AgregarActividad.html";
+}
