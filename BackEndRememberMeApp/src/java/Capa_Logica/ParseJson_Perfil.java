@@ -9,8 +9,10 @@ package Capa_Logica;
 import Capa_Logica.Constantes.ConstantesLlavesJson;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -72,9 +74,24 @@ public class ParseJson_Perfil {
         obj.put(ConstantesLlavesJson.apellido, perfil.getApellido());
         obj.put(ConstantesLlavesJson.identificador, perfil.getId());
         obj.put(ConstantesLlavesJson.urlFoto, perfil.getUrlFoto());
-        obj.put(ConstantesLlavesJson.fechaNacimiento, (perfil.getNacimieno().getYear()+1900)+"-"+(perfil.getNacimieno().getMonth()+1)+"-"+perfil.getNacimieno().getDate());
-        obj.put(ConstantesLlavesJson.fechaDefuncion, (perfil.getDefuncion().getYear()+1900)+"-"+(perfil.getDefuncion().getMonth()+1)+"-"+perfil.getDefuncion().getDate());
+        obj.put(ConstantesLlavesJson.fechaNacimiento, perfil.getNacimieno().getDate()+"/"+(perfil.getNacimieno().getMonth()+1)+"/"+(perfil.getNacimieno().getYear()+1900));
+        obj.put(ConstantesLlavesJson.fechaDefuncion, perfil.getNacimieno().getDate()+"/"+(perfil.getNacimieno().getMonth()+1)+"/"+(perfil.getNacimieno().getYear()+1900));
         obj2.put(ConstantesLlavesJson.perfil, obj);
+        return obj2.toJSONString();
+    }
+    
+    public String ParsePerfilesJson(List<Perfil> perfiles) {
+        JSONObject obj2 = new JSONObject();
+        JSONArray lista = new JSONArray();
+        for (Perfil perfil : perfiles) {
+        JSONObject obj = new JSONObject();
+        obj.put(ConstantesLlavesJson.nombre, perfil.getNombre());
+        obj.put(ConstantesLlavesJson.identificador, perfil.getId());
+        obj.put(ConstantesLlavesJson.urlFoto, perfil.getUrlFoto());
+        lista.add(obj);
+        }
+        obj2.put(ConstantesLlavesJson.busqueda, lista);
+        
         return obj2.toJSONString();
     }
 }
