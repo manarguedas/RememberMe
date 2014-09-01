@@ -6,8 +6,14 @@
 
 package helloworld;
 
+import Capa_Presentacion.AgregarPerfil_Presentacion;
+import Capa_Presentacion.ConsultarEventos_Presentacion;
+import Capa_Presentacion.GestionarEvento_Presentacion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,23 +29,28 @@ public class Eventos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String mIdD = request.getParameter("idDifunto");
-        System.out.println(mIdD + "eventos");
-        if (mIdD!=null){
-            mIdD = "-1";
+        try {
+            int mIdD;
+            try {
+                mIdD = Integer.parseInt(request.getParameter("idDifunto"));
+            } catch (NumberFormatException e) {
+                mIdD = 0;
+            }
+            ConsultarEventos_Presentacion consulta = new ConsultarEventos_Presentacion();
+            SingletonHttp.getInstance().EnviarResultado(response, consulta.ConsultarEventos(mIdD));
+        } catch (SQLException ex) {
+            Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
         }
-        SingletonHttp.getInstance().EnviarResultado(response, 
-            "{\"idd\":\"101\", \"eve\":[{\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"},{\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"}]}");
-   }
+    }
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        System.out.println("Evento: " + request.getParameter("json"));
-        SingletonHttp.getInstance().EnviarResultado(response, 
-                "{\"idd\":\"101\", \"eve\":[{\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"},{\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"}]}"); 
+         GestionarEvento_Presentacion agregar = new GestionarEvento_Presentacion();
+         String json = request.getParameter("json");
+        System.out.println("Evento: " + json);
+        SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarEvento(json)); 
     }
 
     

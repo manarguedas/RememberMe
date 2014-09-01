@@ -21,7 +21,7 @@ public class GestionarEventos_Logica {
         GestionarEventos_Datos guardar = new GestionarEventos_Datos();
         if (evento.getId() != 0) {
             if (guardar.AgregarEvento(evento)) {
-                return parseConf.Exito();
+                return parseConf.Exito(evento.getId());
             } else {
                 return parseConf.Error();
             }

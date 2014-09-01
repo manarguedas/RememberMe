@@ -14,8 +14,12 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
+        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Busquedas.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
+        
     </head>
     <body>
         <script type="text/javascript">
@@ -26,31 +30,15 @@ and open the template in the editor.
             <div class="ContenedorActividades ">
                 <div class="panel panel-primary ">
                     <div class="panel-heading">
-                        <h5 class="panel-title">Perfiles Creados </h5>
+                        <h5 class="panel-title">Perfiles Creados</h5>
                     </div>
                     <div class="panel-body">
-                        <div class="list-group">
-                            <a href="misperfiles.html" class="list-group-item">
-                                <div class="ContenedorPerfil row">
-                                    <div class="col-xs-4" >
-                                        <img src="images/icon.png" alt="" class="img-circle">
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <h3  class="col-xs-12">Juan Brenes </h3>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="misperfiles.html" class="list-group-item">
-                                <div class="ContenedorPerfil row">
-                                    <div class="col-xs-4" >
-                                        <img src="images/icon.png" alt="" class="img-circle">
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <h3  class="col-xs-12">Juan Pérez </h3>
-                                    </div>
-                                </div>
-                            </a>
+                        <div id="ListaPerfiles" class="list-group">
+                            <p>No hay perfiles.</p>
                         </div>
+                        <script>
+                            CargarBusqueda(1);
+                        </script>
                    </div>
                 </div>
             </div>

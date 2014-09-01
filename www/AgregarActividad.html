@@ -14,8 +14,14 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Eventos.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
+        
     </head>
     <body>
         <script type="text/javascript">
@@ -33,41 +39,41 @@ and open the template in the editor.
                     <div class="panel-body">
                         <div class="col-xs-12">
                             <h6 class="col-xs-12">Nombre:</h6>
-                            <input id="nombre" type="text" class="form-control" placeholder="Nombre evento">
+                            <input id="nomEvento" type="text" class="form-control" placeholder="Nombre evento">
                         </div>
                         <div class="col-xs-12" >
                             <h6 class="col-xs-12">Fecha:</h6>
-                            <div align="center" class="row">
-                                <div class="col-xs-4 InputFecha">
-                                    <input id="dia" type="text" class="form-control" placeholder="Dia">
-                                </div>
-                                <div class="col-xs-4">
-                                    <input id="mes" type="text" class="form-control" placeholder="Mes">
-                                </div>
-                                <div class="col-xs-4">
-                                    <input id="ano" type="text" class="form-control" placeholder="Año">
+                            <div class="" align="center">
+                                <div class="input-group date" id="defuncion"  data-date-format="dd/mm/yyyy">
+                                    <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
+                                    <input id="fecEvento" type="text" class="form-control" readonly>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <h6 class="col-xs-12">Hora:</h6>
-                            <input id="hora" type="text" class="form-control" placeholder="Hora del evento">
+                            <input id="horEvento" type="text" class="form-control" placeholder="Hora del evento">
                         </div>
                         <div class="col-xs-12">
                             <h6 class="col-xs-12">Lugar:</h6>
-                            <input id="lugar" type="text" class="form-control" placeholder="Lugar del evento">
+                            <input id="lugEvento" type="text" class="form-control" placeholder="Lugar del evento">
                         </div>
                         <div class="col-xs-12">
                             <h6 class="col-xs-12">Descripción:</h6>
-                            <textarea id="descripcion" class="form-control" placeholder="Descripción del evento"></textarea>
+                            <textarea id="desEvento" class="form-control" placeholder="Descripción del evento"></textarea>
                         </div>
                         <div class="col-xs-12" align="right">
                             <br>
-                            <button class="btn btn-primary" type="button">Agregar</button>
+                            <button onclick="AgregarEvento();" class="btn btn-primary" type="button">Agregar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            $(function() {
+                $('#defuncion').datepicker();
+            });
+        </script>
     </body>
 </html>

@@ -25,7 +25,7 @@ public class AgregarPerfil_Logica {
         if (perfil.getId() != 0) {
             AgregarPerfil_Datos guardar = new AgregarPerfil_Datos();
             if (guardar.AgregarPerfil(perfil)) {
-                return parseConf.Exito();
+                return parseConf.Exito(perfil.getId());
             } else {
                 return parseConf.Error();
             }

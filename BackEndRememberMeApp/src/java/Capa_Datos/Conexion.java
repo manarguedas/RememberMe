@@ -33,7 +33,7 @@ public boolean crearConexion()
 {
    try {
       Class.forName("com.mysql.jdbc.Driver");
-      conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","");
+      conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/rememberme","root","123456789");
        System.out.println("Se creo la conexion");
    } catch (SQLException ex) {
       ex.printStackTrace();

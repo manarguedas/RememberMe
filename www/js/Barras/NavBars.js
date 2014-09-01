@@ -9,7 +9,7 @@ var CuerpoBarraInicio = '<nav class="navbar navbar-inverse" role="navigation">' 
                     '<div class="ContenedorBotones">' + 
                         '<ul class="nav navbar-nav" >' +
                             '<li class="{1} col-xs-2 BotonAtras">' +
-                                '<a href="registro.html">' +
+                                '<a id="btnAtras" href="registro.html">' +
                                     '<span class="glyphicon glyphicon-chevron-left"></span>'+
                                 '</a>' +
                             '</li>' + 
@@ -24,7 +24,7 @@ var CuerpoBarraInicio = '<nav class="navbar navbar-inverse" role="navigation">' 
                                 '</a>'+
                             '</li>'+ 
                             '<li class="{4} col-xs-3 BotonAgregarPerfil" style="display: {5};">'+
-                                '<a id = "AgregarHref" href="misperfiles.html">' +
+                                '<a id = "AgregarHref" href="AgregarPerfil.html">' +
                                     '<span class="glyphicon glyphicon-plus"></span>\
                                 </a>\
                             </li>\
@@ -79,6 +79,8 @@ function ConfigurarBarraActividades(pIndice){
     var iframe = document.createElement("div");
     iframe.innerHTML = mResultado;
     document.body.appendChild(iframe);
+    
+    document.getElementById("btnAtras").href = "perfil.html";
     
     return mResultado;
 }

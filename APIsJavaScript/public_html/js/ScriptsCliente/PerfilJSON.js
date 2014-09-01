@@ -26,7 +26,7 @@ function AdministrarPerfil(){
     };
     
     this.CargarJSON = function CargarJSON(pJSON){
-        this.per = JSON.parse(pJSON).perfil; 
+        this.per = JSON.parse(pJSON).per; 
     };
     
     this.RecuperarPerfil = function RecuperarPerfil(pIdDifunto){
