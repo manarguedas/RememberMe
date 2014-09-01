@@ -16,7 +16,7 @@ public class ConstantesComunicacion {
     
     // CONSTANES DE NOTIFICACION DE FALLOS EN LA COMUNICACION
     public static String exito = "1";
-    public static String fallo = "0";
+    public static String fallo = "-1";
     public static String LLaveMensaje = "men";
     
     

@@ -22,7 +22,7 @@ public class ParseJson_Confirmacion {
     }
     
     
-    public String Exito(){
+    public String Exito(int idDifunto){
         JSONObject obj = new JSONObject();
         obj.put(ConstantesComunicacion.LLaveMensaje, ConstantesComunicacion.exito);
         return obj.toJSONString();

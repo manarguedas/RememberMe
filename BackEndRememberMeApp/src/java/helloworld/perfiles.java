@@ -5,6 +5,8 @@
  */
 package helloworld;
 
+import Capa_Datos.AgregarPerfil_Datos;
+import Capa_Presentacion.AgregarPerfil_Presentacion;
 import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -131,8 +133,8 @@ public class perfiles extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String json = request.getParameter("json");
-        System.out.println("-----" + json);
-        EnviarResultado(response, json);
+        AgregarPerfil_Presentacion agregar = new AgregarPerfil_Presentacion();
+        EnviarResultado(response, agregar.AgregarPerfil(json));
     }
   
     
