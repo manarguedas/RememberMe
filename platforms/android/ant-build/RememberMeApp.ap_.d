@@ -37,6 +37,7 @@
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/perfil.html \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/fonts \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/AgregarPerfil.html \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/favicon.ico \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/buscar.html \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/AgregarActividad.html \
@@ -44,8 +45,10 @@
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/cordova.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/Actividades.html \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/plugins \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/Galeria.html \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/images \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css/bootstrap.css.map \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css/datepicker.css \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css/bootstrap-theme.css \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css/EstilosApp.css \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/css/main.css \
@@ -62,6 +65,7 @@
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js/main.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js/Barras/NavBars.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js/vendor/bootstrap.js \
+/home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js/vendor/bootstrap-datepicker.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js/vendor/jquery-1.11.0.js \
 /home/manu/NetBeansProjects/RememberMe/platforms/android/assets/www/js/vendor/bootstrap.min.js \

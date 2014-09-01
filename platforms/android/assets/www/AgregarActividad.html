@@ -22,35 +22,49 @@ and open the template in the editor.
             ConfigurarBarra(2);
             ConfigurarBarraActividades(2);
         </script>
-        
+
         <div class="ContenedorActividades container-fluid ">
             <div class="ContenedorActividades ">
                 <br>
                 <div class="panel panel-primary ">
                     <div class="panel-heading">
-                        <h5 class="panel-title">Velorio </h5>
-                        <h6>Lugar: Alajuela, Fecha: 30/08/2014, Hora: 17:00 </h6>
+                        <h5 class="panel-title">Agregar Actividad </h5>
                     </div>
                     <div class="panel-body">
-                        <small>El la iglesia de alajuela centro se celebrará la vela de Juan, y tiene una duración de 3 horas.</small>
-                    </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Velorio </h5>
-                        <h6>Lugar: Alajuela, Fecha: 30/08/2014, Hora: 17:00 </h6>
-                    </div>
-                    <div class="panel-body">
-                        <small>El la iglesia de alajuela centro se celebrará la vela de Juan, y tiene una duración de 3 horas.</small>
-                    </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Velorio </h5>
-                        <h6>Lugar: Alajuela, Fecha: 30/08/2014, Hora: 17:00 </h6>
-                    </div>
-                    <div class="panel-body">
-                        <small>El la iglesia de alajuela centro se celebrará la vela de Juan, y tiene una duración de 3 horas.</small>
+                        <div class="col-xs-12">
+                            <h6 class="col-xs-12">Nombre:</h6>
+                            <input id="nombre" type="text" class="form-control" placeholder="Nombre evento">
+                        </div>
+                        <div class="col-xs-12" >
+                            <h6 class="col-xs-12">Fecha:</h6>
+                            <div align="center" class="row">
+                                <div class="col-xs-4 InputFecha">
+                                    <input id="dia" type="text" class="form-control" placeholder="Dia">
+                                </div>
+                                <div class="col-xs-4">
+                                    <input id="mes" type="text" class="form-control" placeholder="Mes">
+                                </div>
+                                <div class="col-xs-4">
+                                    <input id="ano" type="text" class="form-control" placeholder="Año">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <h6 class="col-xs-12">Hora:</h6>
+                            <input id="hora" type="text" class="form-control" placeholder="Hora del evento">
+                        </div>
+                        <div class="col-xs-12">
+                            <h6 class="col-xs-12">Lugar:</h6>
+                            <input id="lugar" type="text" class="form-control" placeholder="Lugar del evento">
+                        </div>
+                        <div class="col-xs-12">
+                            <h6 class="col-xs-12">Descripción:</h6>
+                            <textarea id="descripcion" class="form-control" placeholder="Descripción del evento"></textarea>
+                        </div>
+                        <div class="col-xs-12" align="right">
+                            <br>
+                            <button class="btn btn-primary" type="button">Agregar</button>
+                        </div>
                     </div>
                 </div>
             </div>
