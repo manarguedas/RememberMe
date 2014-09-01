@@ -60,6 +60,10 @@
         <servlet-name>Eventos</servlet-name>
         <servlet-class>helloworld.Eventos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Busquedas</servlet-name>
+        <servlet-class>helloworld.Busquedas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
         <url-pattern>/app</url-pattern>
@@ -75,6 +79,10 @@
     <servlet-mapping>
         <servlet-name>Eventos</servlet-name>
         <url-pattern>/app/eventos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Busquedas</servlet-name>
+        <url-pattern>/app/busquedas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

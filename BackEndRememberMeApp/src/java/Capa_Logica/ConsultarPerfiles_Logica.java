@@ -8,6 +8,7 @@ package Capa_Logica;
 
 import Capa_Datos.ObtenerPerfiles_Datos;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
@@ -29,6 +30,13 @@ public class ConsultarPerfiles_Logica {
             ParseJson_Confirmacion fallo =  new ParseJson_Confirmacion();
             return fallo.Error();
         }
+    }
+    
+    public String ObtenerPerfilesAdministrador(int idAdmin) throws SQLException{
+        ObtenerPerfiles_Datos buscador = new ObtenerPerfiles_Datos();
+        List<Perfil> perfiles = buscador.ObtenerPerfilesAdmin(idAdmin);
+        ParseJson_Perfil parse = new ParseJson_Perfil();
+        return parse.ParsePerfilesJson(perfiles);
     }
     
 }

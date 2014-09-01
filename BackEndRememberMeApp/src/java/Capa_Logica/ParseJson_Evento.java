@@ -85,7 +85,7 @@ public class ParseJson_Evento {
             obj2.put(ConstantesLlavesJson.idEvento, evento.getId());
             obj2.put(ConstantesLlavesJson.horaEvento, evento.getHora());
             obj2.put(ConstantesLlavesJson.lugarEvento, evento.getLugar());
-            obj2.put(ConstantesLlavesJson.fechaEvento, (evento.getFecha().getYear() + 1900) + "-" + (evento.getFecha().getMonth() + 1) + "-" + evento.getFecha().getDate());
+            obj2.put(ConstantesLlavesJson.fechaEvento, evento.getFecha().getDate()+"/"+(evento.getFecha().getMonth()+1)+"/"+(evento.getFecha().getYear()+1900));
             lista.add(obj2);
         }
         obj.put(ConstantesLlavesJson.evento, lista);

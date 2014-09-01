@@ -20,6 +20,10 @@ public class PrepararQuerrys {
         return ConstBaseDatos.RecuperarPerfil+idDifunto;
     }
     
+    public String RecuperarPerfiles(int idAdministrador){
+        return ConstBaseDatos.RecuperarPerfilesAdmin+idAdministrador;
+    }
+    
     public String AgregarPerfil(Perfil perfil){
         return ConstBaseDatos.GuardarPerfil+"('"+perfil.getNombre()+"','"+perfil.getApellido()+"','"+perfil.getNacimieno().toString()+"','"+perfil.getDefuncion().toString()+"','"+perfil.getUrlFoto()+"',1)";
     }

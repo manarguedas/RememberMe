@@ -8,6 +8,7 @@
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Constantes/ConstantesComunicacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/AgregarPerfil_Presentacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/perfiles.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/GestionarEventos_Logica.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/AgregarPerfil_Logica.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/Conexion.java</file>
@@ -15,6 +16,7 @@
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/ConsultarPerfil_Presentacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ConsultarPerfiles_Logica.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/Eventos.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Confirmacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/Constantes/ConstBaseDatos.java</file>
         </group>
     </open-files>
