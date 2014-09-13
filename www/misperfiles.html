@@ -13,11 +13,13 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/PerfilJSON.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
+        <script type="text/javascript" src="js/Fotografia.js"></script>
     </head>
     <body>
 
@@ -36,7 +38,7 @@ and open the template in the editor.
                         <button class="btn btn-primary btn-sm">Lugar de descanso</button>
                     </div>
                     <div align="center" class="col-xs-6 col-sm-6 FotoPerfil">
-                        <p><img id="fotoDifunto" src="images/icon.png" alt="" width="100" height="100" class="img-circle "></p>
+                        <p><img id="fotoPerfil" onclick="getPhoto(pictureSource.PHOTOLIBRARY);"id="fotoDifunto" src="images/icon.png" alt="" width="100" height="100" class="img-circle "></p>
                     </div>
                 </div>
             </div>

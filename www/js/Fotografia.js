@@ -1,8 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 var pictureSource;   
 var destinationType; 
@@ -15,11 +10,11 @@ function onDeviceReady()
     destinationType=navigator.camera.DestinationType;
 }
 
+
 function onPhotoURISuccess(imageURI) 
 {
-    console.log(imageURI + "la vara fallo");
-    alert(imageURI);
-    var largeImage = document.getElementById('sls');
+    console.log(imageURI);
+    var largeImage = document.getElementById('fotoPerfil');
     largeImage.style.display = 'block';
     largeImage.src = imageURI;
 }
@@ -38,30 +33,6 @@ function onPhotoDataSuccess(imageURI)
 function onFail(message) 
 {
     alert('Failed because: ' + message);
-}
-
-function movePic(file)
-{ 
-    window.resolveLocalFileSystemURI(file, resolveOnSuccess, resOnError); 
-} 
-
-function resolveOnSuccess(entry)
-{ 
-    var d = new Date();
-    var n = d.getTime();
-    var newFileName = n + ".jpg";
-    var myFolderApp = "MyAppFolder";
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSys) 
-    {      
-        fileSys.root.getDirectory( myFolderApp,
-                {create:true, exclusive: false},
-                function(directory) 
-                {
-                    entry.moveTo(directory, newFileName,  successMove, resOnError);
-                },
-        resOnError);
-    },
-    resOnError);
 }
 
 function successMove(entry) 
