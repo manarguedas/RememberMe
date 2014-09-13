@@ -13,21 +13,55 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
+        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Busquedas.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
     </head>
     <body>
-        
-        
+
+
         <script type="text/javascript">
             ConfigurarBarra(3);
         </script>
-           
+
         <div class="Width100">
-            <div >
-                
+            <div class="ContenedorActividades container-fluid ">
+                <div class="ContenedorActividades ">
+                    <div class="panel panel-primary ">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">Buscar perfiles</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="Width100" >
+                                <div class="input-group">
+                                    <input type="text" class="InputBuscar form-control" placeholder="Ingresar nombre">
+                                    <span onclick="alert('buscar');" class="input-group-addon glyphicon glyphicon-search">Buscar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ContenedorActividades container-fluid ">
+                <div class="ContenedorActividades ">
+                    <div class="panel panel-warning ">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">Resultados de la búsqueda</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div id="ListaPerfiles" class="list-group">
+                                <p>No se ha efectuado ninguna busqueda</p>
+                            </div>
+                            <script>
+                                CargarBusqueda(1);
+                            </script>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
     </body>
 </html>
