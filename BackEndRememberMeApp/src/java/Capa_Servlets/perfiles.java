@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package helloworld;
+package Capa_Servlets;
 
 import Capa_Datos.AgregarPerfil_Datos;
 import Capa_Presentacion.AgregarPerfil_Presentacion;

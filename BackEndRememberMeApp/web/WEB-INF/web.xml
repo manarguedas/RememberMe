@@ -46,23 +46,27 @@
     <servlet>
         <description>Carga el perfil de un difunto</description>
         <servlet-name>perfil</servlet-name>
-        <servlet-class>helloworld.HelloWorldResource</servlet-class>
+        <servlet-class>Capa_Servlets.HelloWorldResource</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>perfiles</servlet-name>
-        <servlet-class>helloworld.perfiles</servlet-class>
+        <servlet-class>Capa_Servlets.perfiles</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Biografias</servlet-name>
-        <servlet-class>helloworld.Biografias</servlet-class>
+        <servlet-class>Capa_Servlets.Biografias</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Eventos</servlet-name>
-        <servlet-class>helloworld.Eventos</servlet-class>
+        <servlet-class>Capa_Servlets.Eventos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Busquedas</servlet-name>
-        <servlet-class>helloworld.Busquedas</servlet-class>
+        <servlet-class>Capa_Servlets.Busquedas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Imagenes</servlet-name>
+        <servlet-class>Capa_Servlets.Imagenes</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>Busquedas</servlet-name>
         <url-pattern>/app/busquedas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Imagenes</servlet-name>
+        <url-pattern>/app/imagenes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package helloworld;
+package Capa_Servlets;
 
 import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import java.io.IOException;

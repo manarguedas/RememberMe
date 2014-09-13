@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package helloworld;
+package Capa_Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
