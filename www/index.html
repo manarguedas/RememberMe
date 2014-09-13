@@ -7,37 +7,37 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/bootstrap.css">
-        
 
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/EstilosApp.css">
     </head>
     <body>
 
-        <div class="container">
-            <div class="row">  
-                <div class="col-sm-12 col-xs-12" align="center">
-                    <p><img src="images/RememberMeLogo.jpg" alt="" class="img-rounded"></p>
+        <div class="Width100 VCenter">
+            <div align="center">
+                <div>
+                    <h1 class="Encabezado">Remember Me</h1>
+                    <div class="">  
+                        <div class="divImagenInicio img-rounded" align="center">
+                            <a href="perfil.html"><img class="ImagenInicio img-rounded" src="images/RememberMeLogo.jpg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <button type="button" class="BotonFace btn btn-primary" onclick="login();">
+                            <span class="glyphicon glyphicon-thumbs-up"></span>
+                            Ingresar con Facebook
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12 col-xs-12" align="center">
-                    <p><a href="registro.html" class="btn btn-primary btn-sm" role="button">
-                            <span class="glyphicon glyphicon-thumbs-up"></span> Registrarse</a></p>
-                </div>
-            </div>
-        <!--    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Gallery!!</button>
-            <img id="sls" src="images/RememberMeLogo.jpg" alt="" class="img-rounded">
-        <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/Fotografia.js"></script>
-        -->
+            <script type="text/javascript" src="cordova.js"></script>
+            <script type="text/javascript" src="js/MetodosFacebook.js"></script>
+            <!--    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Gallery!!</button>
+                <img id="sls" src="images/RememberMeLogo.jpg" alt="" class="img-rounded">
+            <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+            <script type="text/javascript" charset="utf-8" src="js/Fotografia.js"></script>
+            -->
         </div>
-
     </body>
 </html>
