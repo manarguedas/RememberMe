@@ -42,7 +42,7 @@
  * made subject to such option by the copyright holder.
  */
 
-package Capa_Servlets;
+package helloworld;
 
 import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import javax.ejb.EJB;

@@ -11,9 +11,12 @@ package Capa_Datos.Constantes;
  * @author gustavovargas
  */
 public class ConstBaseDatos {
+    
+    static public String RecuperarBiografia = "select pk_biografia, fk_perfiles,descripcion, titulo from BIOGRAFIAS where fk_perfiles = ";
     static public String RecuperarPerfil = "select pk_perfiles, nombre, apellidos, fecha_nacimiento, fecha_defuncion, dir_foto, id_coordenadas, fk_administradores from PERFILES where pk_perfiles = ";
     static public String RecuperarPerfilesAdmin = "select pk_perfiles, nombre, apellidos, dir_foto from PERFILES where fk_administradores = ";
     static public String GuardarPerfil = "INSERT INTO PERFILES  (nombre, apellidos, fecha_nacimiento, fecha_defuncion, dir_foto, fk_administradores) VALUES";
     static public String GuardarEvento = "INSERT INTO ITINERARIO  (fk_pefiles, fecha, hora, nombre_evento, descripcion, lugar) VALUES";
+    static public String GuardarBiografia = "INSERT INTO BIOGRAFIAS (fk_perfiles,descripcion, titulo) VALUES";
     static public String RecuperarEventos = "select pk_itinerario, fk_pefiles, fecha, hora, nombre_evento, descripcion, lugar from ITINERARIO where fk_pefiles = ";
 }

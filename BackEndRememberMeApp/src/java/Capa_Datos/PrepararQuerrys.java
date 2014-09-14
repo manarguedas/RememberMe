@@ -7,6 +7,8 @@
 package Capa_Datos;
 
 import Capa_Datos.Constantes.ConstBaseDatos;
+import Capa_Logica.Biografia;
+import static Capa_Logica.Constantes.ConstantesLlavesJson.Biografia;
 import Capa_Logica.Evento;
 import Capa_Logica.Perfil;
 
@@ -32,8 +34,16 @@ public class PrepararQuerrys {
         return ConstBaseDatos.GuardarEvento+"("+evento.getIdDifunto()+",'"+evento.getFecha().toString()+"','"+evento.getHora()+"','"+evento.getNombre()+"','"+evento.getDescripcion()+"','"+evento.getLugar()+"')";
     }
     
+    public String AgregarBiografia(Biografia biografia){
+        return ConstBaseDatos.GuardarBiografia+"("+biografia.getIdd()+",'"+biografia.getDescripcion()+"','"+biografia.getNombre()+"')";
+    }
+    
     public String RecuperarEventos(int idDifunto){
         return ConstBaseDatos.RecuperarEventos+idDifunto;
+    }
+    
+    public String RecuperarBiografias(int idDifunto){
+        return ConstBaseDatos.RecuperarBiografia+idDifunto;
     }
     
 }

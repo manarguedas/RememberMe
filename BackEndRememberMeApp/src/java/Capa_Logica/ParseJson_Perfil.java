@@ -75,7 +75,7 @@ public class ParseJson_Perfil {
         obj.put(ConstantesLlavesJson.identificador, perfil.getId());
         obj.put(ConstantesLlavesJson.urlFoto, perfil.getUrlFoto());
         obj.put(ConstantesLlavesJson.fechaNacimiento, perfil.getNacimieno().getDate()+"/"+(perfil.getNacimieno().getMonth()+1)+"/"+(perfil.getNacimieno().getYear()+1900));
-        obj.put(ConstantesLlavesJson.fechaDefuncion, perfil.getNacimieno().getDate()+"/"+(perfil.getNacimieno().getMonth()+1)+"/"+(perfil.getNacimieno().getYear()+1900));
+        obj.put(ConstantesLlavesJson.fechaDefuncion, perfil.getDefuncion().getDate()+"/"+(perfil.getDefuncion().getMonth()+1)+"/"+(perfil.getDefuncion().getYear()+1900));
         obj2.put(ConstantesLlavesJson.perfil, obj);
         return obj2.toJSONString();
     }
