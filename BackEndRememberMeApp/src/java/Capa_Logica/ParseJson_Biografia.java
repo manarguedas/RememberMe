@@ -48,6 +48,7 @@ public class ParseJson_Biografia {
                 biografia.setDescripcion(descripcion);
                 biografia.setNombre(nombre);
                 biografia.setIdd(idDifunto);
+                biografia.setId(1);
             }
 
             return biografia;
@@ -55,6 +56,7 @@ public class ParseJson_Biografia {
         } catch (ParseException ex) {
             Logger.getLogger(ParseJson_Perfil.class.getName()).log(Level.SEVERE, null, ex);
         }
+        biografia.setId(0);
         return biografia;
     }
 
@@ -69,7 +71,7 @@ public class ParseJson_Biografia {
             obj2.put(ConstantesLlavesJson.descripcionBiografia, biografia.getDescripcion());
             lista.add(obj2);
         }
-        obj.put(ConstantesLlavesJson.evento, lista);
+        obj.put(ConstantesLlavesJson.Biografia, lista);
         return obj.toJSONString();
     }
 }

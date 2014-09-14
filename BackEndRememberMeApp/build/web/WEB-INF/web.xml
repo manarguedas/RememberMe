@@ -46,23 +46,23 @@
     <servlet>
         <description>Carga el perfil de un difunto</description>
         <servlet-name>perfil</servlet-name>
-        <servlet-class>helloworld.HelloWorldResource</servlet-class>
+        <servlet-class>Servlets.HelloWorldResource</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>perfiles</servlet-name>
-        <servlet-class>helloworld.perfiles</servlet-class>
+        <servlet-class>Servlets.perfiles</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Biografias</servlet-name>
-        <servlet-class>helloworld.Biografias</servlet-class>
+        <servlet-class>Servlets.Biografias</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Eventos</servlet-name>
-        <servlet-class>helloworld.Eventos</servlet-class>
+        <servlet-class>Servlets.Eventos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Busquedas</servlet-name>
-        <servlet-class>helloworld.Busquedas</servlet-class>
+        <servlet-class>Servlets.Busquedas</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>

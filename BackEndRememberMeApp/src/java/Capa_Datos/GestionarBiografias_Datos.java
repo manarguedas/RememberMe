@@ -7,11 +7,9 @@
 package Capa_Datos;
 
 import Capa_Logica.Biografia;
-import Capa_Logica.Evento;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**

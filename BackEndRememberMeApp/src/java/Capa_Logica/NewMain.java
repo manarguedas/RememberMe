@@ -8,6 +8,7 @@ package Capa_Logica;
 
 import Capa_Datos.AgregarPerfil_Datos;
 import Capa_Datos.Conexion;
+import Capa_Datos.GestionarBiografias_Datos;
 import Capa_Presentacion.AgregarPerfil_Presentacion;
 import Capa_Presentacion.ConsultarEventos_Presentacion;
 import Capa_Presentacion.ConsultarPerfil_Presentacion;
@@ -33,17 +34,19 @@ public class NewMain {
         //String g = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"14/03/2030\",\"def\":\"15/03/2030\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"1\"}}";
 //        ParseJson_Perfil parse = new ParseJson_Perfil();
 //        Perfil p = parse.ParsePerfilModelo(g);
-        String bio = "{\"idd\":\"8\", \"bio\":[{\"nom\":\"Joven\",\"des\":\"fue muy malcriado\"},{\"nom\":\"Adultez\",\"des\":\"fue un gran padre que siempre aconsejo a sus hijo a ser mejores\"}]}";
+        String bio = "{\"idd\":\"9\", \"bio\":[{\"nom\":\"Joven\",\"des\":\"fue muy malcriado\"},{\"nom\":\"Adultez\",\"des\":\"fue un gran padre que siempre aconsejo a sus hijo a ser mejores\"}]}";
 //        //System.out.println(parse.ParsePerfilJson(p));
 //        //AgregarPerfil_Datos k = new AgregarPerfil_Datos();
 //        //System.out.println(k.AgregarPerfil(p));
-        ParseJson_Biografia h = new ParseJson_Biografia();
-         List<Biografia> u = new ArrayList();
-        u.add(h.ParseBiografiaModelo(bio));
-       
-        System.out.println(h.ParseBiografiasJson(u));
+        //ParseJson_Biografia h = new ParseJson_Biografia();
+       // Biografia b = h.ParseBiografiaModelo(bio);
+         //List<Biografia> u = new ArrayList();
+        //u.add(h.ParseBiografiaModelo(bio));
+        GestionarBiografias_Presentacion i = new GestionarBiografias_Presentacion();
+        System.out.println(i.ConsultarBiografias(8));
+        //System.out.println(h.ParseBiografiasJson(u));
         //GestionarBiografias_Presentacion k = new GestionarBiografias_Presentacion();
-       // System.out.println(k.AgregarBiografia(bio));
+        //System.out.println(k.AgregarBiografia(bio));
 //        //GestionarEvento_Presentacion k = new GestionarEvento_Presentacion();
 //        //System.out.println(k.AgregarEvento(f));
        // AgregarPerfil_Presentacion l = new AgregarPerfil_Presentacion();

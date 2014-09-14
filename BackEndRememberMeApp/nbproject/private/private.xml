@@ -3,30 +3,34 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Evento.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/NewMain.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/Busquedas.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/PrepararQuerrys.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/AgregarPerfil_Datos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Constantes/ConstantesComunicacion.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/AgregarPerfil_Presentacion.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/perfiles.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/GestionarEventos_Logica.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/GestionarEventos_Datos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/AgregarPerfil_Logica.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Constantes/ConstantesLlavesJson.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/Conexion.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/ObtenerPerfiles_Datos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/ConsultarPerfil_Presentacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ConsultarPerfiles_Logica.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/helloworld/Eventos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Confirmacion.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/GestionarBiografias_Datos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Perfil.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Perfil.java</file>
-            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/Constantes/ConstBaseDatos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/ObtenerEventos_Datos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/ConsultarEventos_Presentacion.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Evento.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/NewMain.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/PrepararQuerrys.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Biografia.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/GestionarBiografias_Logica.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/AgregarPerfil_Presentacion.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/Conexion.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Servlets/perfiles.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/ObtenerPerfiles_Datos.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Servlets/Eventos.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Perfil.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Servlets/Busquedas.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/Constantes/ConstBaseDatos.java</file>
         </group>
     </open-files>
 </project-private>
