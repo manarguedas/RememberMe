@@ -68,4 +68,19 @@ public class PrepararQuerrys {
         return ConstBaseDatos.RecuperarComentarios+idDifunto;
     }
     
+    public String EliminarEvento(int idEvento){
+        return ConstBaseDatos.EliminarEvento+idEvento;
+    }
+    
+    public String EliminarBiografia(int idBiografia){
+        return ConstBaseDatos.EliminarBiografia+idBiografia;
+    }
+    
+    public String EliminarCordenada(int idCoordenada){
+        return ConstBaseDatos.EliminarCoordenada+idCoordenada;
+    }
+    
+    public String EliminarComentarios(int idComentarios){
+        return ConstBaseDatos.EliminarComentario+idComentarios;
+    }
 }

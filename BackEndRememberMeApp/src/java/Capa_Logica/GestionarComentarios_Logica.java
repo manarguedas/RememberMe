@@ -8,6 +8,7 @@ package Capa_Logica;
 
 import Capa_Datos.GestionarBiografias_Datos;
 import Capa_Datos.GestionarComentarios_Datos;
+import Capa_Datos.GestionarCoordenadas_Datos;
 import java.sql.SQLException;
 
 /**
@@ -32,6 +33,17 @@ public class GestionarComentarios_Logica {
         }
 
     }
+   
+   
+    public String EliminarComentarios(int idComentarios) {
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        GestionarComentarios_Datos eliminar = new GestionarComentarios_Datos();
+            if (eliminar.EliminarComentario(idComentarios)) {
+                return parseConf.Exito(1);
+            } else {
+                return parseConf.Error();
+            }
+        }
        
     public String ConsultarComentarios(int idDifunto) throws SQLException{
           GestionarComentarios_Datos buscar =  new GestionarComentarios_Datos();

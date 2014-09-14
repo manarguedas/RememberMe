@@ -30,6 +30,17 @@ public class GestionarBiografias_Datos {
         }
     }
     
+    public boolean EliminarBiografia(int idBiografia){
+        Conexion conexion = new Conexion();
+        if (conexion.crearConexion()) {
+            PrepararQuerrys preparar = new PrepararQuerrys();
+            String querry = preparar.EliminarBiografia(idBiografia);
+            System.out.println(querry);
+            return conexion.ejecutarSQL(querry);
+        } else {
+            return false;
+        }
+    }
     
         public List<Biografia> ObtenerBiografiasDifunto(int idDifunto) throws SQLException {
         Conexion conexion = new Conexion();

@@ -8,6 +8,7 @@ package Capa_Presentacion;
 
 import Capa_Logica.ConsultarEventos_Logica;
 import Capa_Logica.GestionarBiografias_Logica;
+import Capa_Logica.GestionarComentarios_Logica;
 import Capa_Logica.GestionarEventos_Logica;
 import java.sql.SQLException;
 
@@ -23,6 +24,10 @@ public class GestionarBiografias_Presentacion {
         return gestionar.AgregarBiografia(jsonBiografia);
     }
     
+    public String EliminarBiografia(int idBiografia){
+        GestionarBiografias_Logica gestionar  = new GestionarBiografias_Logica();
+        return gestionar.EliminarBiografia(idBiografia);
+    }
         public String ConsultarBiografias(int idDifunto) throws SQLException{
         GestionarBiografias_Logica consultar = new GestionarBiografias_Logica();
         return consultar.ConsultarBiografia(idDifunto);

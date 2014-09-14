@@ -30,6 +30,18 @@ public class GestionarCoordenadas_Datos {
             return false;
         }
     }
+   
+   public boolean EliminarCoodenadas(int idCoordenada){
+        Conexion conexion = new Conexion();
+        if (conexion.crearConexion()) {
+            PrepararQuerrys preparar = new PrepararQuerrys();
+            String querry = preparar.EliminarCordenada(idCoordenada);
+            System.out.println(querry);
+            return conexion.ejecutarSQL(querry);
+        } else {
+            return false;
+        }
+    }
     
     
         public List<Coordenada> ObtenerCoordenadasDifunto(int idDifunto) throws SQLException {

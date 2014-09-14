@@ -7,6 +7,7 @@
 package Capa_Logica;
 
 import Capa_Datos.GestionarCoordenadas_Datos;
+import Capa_Datos.GestionarEventos_Datos;
 import java.sql.SQLException;
 
 /**
@@ -31,6 +32,16 @@ public class GestionarCoordenadas_Logica {
         }
 
     }
+    
+    public String EliminarCoordenada(int idCoordenada) {
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        GestionarCoordenadas_Datos eliminar = new GestionarCoordenadas_Datos();
+            if (eliminar.EliminarCoodenadas(idCoordenada)) {
+                return parseConf.Exito(1);
+            } else {
+                return parseConf.Error();
+            }
+        }
        
     public String ConsultarCoordenada(int idDifunto) throws SQLException{
           GestionarCoordenadas_Datos buscar =  new GestionarCoordenadas_Datos();

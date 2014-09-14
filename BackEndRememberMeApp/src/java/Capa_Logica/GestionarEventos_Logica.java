@@ -31,7 +31,13 @@ public class GestionarEventos_Logica {
 
     }
     
-    
-    
-    
-}
+    public String EliminarEvento(int idEvento) {
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        GestionarEventos_Datos eliminar = new GestionarEventos_Datos();
+            if (eliminar.EliminarEvento(idEvento)) {
+                return parseConf.Exito(1);
+            } else {
+                return parseConf.Error();
+            }
+        } 
+    }

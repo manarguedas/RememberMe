@@ -24,5 +24,8 @@ public class ConstBaseDatos {
     static public String RecuperarComentarios = "select pk_comentarios, fk_pefil_difunto, fecha, nombre, descripcion from COMENTARIOS where fk_pefil_difunto = ";
     static public String RecuperarCoodenada = "select pk_perfiles, coordenada_x, coordenada_y from COORDENADAS where pk_perfiles = ";
     static public String GuardarCoordenada = "INSERT INTO COORDENADAS (coordenada_x,coordenada_y,pk_perfiles) VALUES";
-    
+    static public String EliminarEvento = "DELETE FROM ITINERARIO WHERE pk_itinerario = ";
+    static public String EliminarBiografia = "DELETE FROM BIOGRAFIAS WHERE pk_biografia = ";
+    static public String EliminarCoordenada = "DELETE FROM COORDENADAS WHERE pk_perfiles = ";
+    static public String EliminarComentario = "DELETE FROM COMENTARIOS WHERE pk_comentarios = ";
 }

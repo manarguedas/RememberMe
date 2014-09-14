@@ -7,6 +7,7 @@
 package Capa_Logica;
 
 import Capa_Datos.GestionarBiografias_Datos;
+import Capa_Datos.GestionarComentarios_Datos;
 import java.sql.SQLException;
 
 /**
@@ -31,6 +32,16 @@ public class GestionarBiografias_Logica {
         }
 
     }
+       
+    public String EliminarBiografia(int idBiografia) {
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        GestionarBiografias_Datos eliminar = new GestionarBiografias_Datos();
+            if (eliminar.EliminarBiografia(idBiografia)) {
+                return parseConf.Exito(1);
+            } else {
+                return parseConf.Error();
+            }
+        }
        
     public String ConsultarBiografia(int idDifunto) throws SQLException{
           GestionarBiografias_Datos buscar =  new GestionarBiografias_Datos();
