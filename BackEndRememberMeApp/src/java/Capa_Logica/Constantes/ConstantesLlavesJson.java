@@ -45,5 +45,9 @@ public class ConstantesLlavesJson {
     public static String descripcionBiografia = "des";
     public static String Biografia = "bio";
     
- 
+    // CONSTANTES PARA LOS COMENTARIOS
+    public static String nombreComentario = "nom";
+    public static String descripcionComentario = "des";
+    public static String fechaComentario = "fec";
+    public static String comentario = "com";
 }

@@ -68,6 +68,10 @@
         <servlet-name>BusquedasPerfiles</servlet-name>
         <servlet-class>Servlets.BusquedasPerfiles</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Comentarios</servlet-name>
+        <servlet-class>Servlets.Comentarios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
         <url-pattern>/app</url-pattern>
@@ -91,6 +95,10 @@
     <servlet-mapping>
         <servlet-name>BusquedasPerfiles</servlet-name>
         <url-pattern>/app/busquedasPerfiles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Comentarios</servlet-name>
+        <url-pattern>/app/comentarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

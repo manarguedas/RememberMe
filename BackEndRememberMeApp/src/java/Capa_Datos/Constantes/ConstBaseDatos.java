@@ -19,5 +19,8 @@ public class ConstBaseDatos {
     static public String GuardarPerfil = "INSERT INTO PERFILES  (nombre, apellidos, fecha_nacimiento, fecha_defuncion, dir_foto, fk_administradores) VALUES";
     static public String GuardarEvento = "INSERT INTO ITINERARIO  (fk_pefiles, fecha, hora, nombre_evento, descripcion, lugar) VALUES";
     static public String GuardarBiografia = "INSERT INTO BIOGRAFIAS (fk_pefiles,descripcion, titulo) VALUES";
+    static public String GuardarComentario = "INSERT INTO COMENTARIOS (fk_pefil_difunto,descripcion, nombre, fecha) VALUES";
     static public String RecuperarEventos = "select pk_itinerario, fk_pefiles, fecha, hora, nombre_evento, descripcion, lugar from ITINERARIO where fk_pefiles = ";
+    static public String RecuperarComentarios = "select pk_comentarios, fk_pefil_difunto, fecha, nombre, descripcion from COMENTARIOS where fk_pefil_difunto = ";
+
 }

@@ -67,6 +67,7 @@ public class ParseJson_Biografia {
         for (Biografia biografia : biografias) {
             obj.put(ConstantesLlavesJson.idDifunto, biografias.get(0).getIdd());
             JSONObject obj2 = new JSONObject();
+            obj2.put(ConstantesLlavesJson.identificador, biografia.getId());
             obj2.put(ConstantesLlavesJson.nombreBiografia, biografia.getNombre());
             obj2.put(ConstantesLlavesJson.descripcionBiografia, biografia.getDescripcion());
             lista.add(obj2);
