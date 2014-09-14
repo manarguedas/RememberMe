@@ -26,6 +26,10 @@ public class PrepararQuerrys {
         return ConstBaseDatos.RecuperarPerfilesAdmin+idAdministrador;
     }
     
+    public String RecuperarPerfilesDato(String dato){
+        return ConstBaseDatos.RecuperarPerfiles+"'%"+dato+"%'"+"or apellidos LIKE "+"'%"+dato+"%'";
+    }
+    
     public String AgregarPerfil(Perfil perfil){
         return ConstBaseDatos.GuardarPerfil+"('"+perfil.getNombre()+"','"+perfil.getApellido()+"','"+perfil.getNacimieno().toString()+"','"+perfil.getDefuncion().toString()+"','"+perfil.getUrlFoto()+"',1)";
     }

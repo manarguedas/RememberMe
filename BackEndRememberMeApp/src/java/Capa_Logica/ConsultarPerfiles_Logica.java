@@ -39,4 +39,11 @@ public class ConsultarPerfiles_Logica {
         return parse.ParsePerfilesJson(perfiles);
     }
     
+    public String ObtenerPerfiles(String dato) throws SQLException{
+        ObtenerPerfiles_Datos buscador = new ObtenerPerfiles_Datos();
+        List<Perfil> perfiles = buscador.ObtenerPerfiles(dato);
+        ParseJson_Perfil parse = new ParseJson_Perfil();
+        return parse.ParsePerfilesJson(perfiles);
+    }
+    
 }
