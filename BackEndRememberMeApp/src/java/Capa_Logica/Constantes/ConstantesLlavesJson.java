@@ -50,4 +50,9 @@ public class ConstantesLlavesJson {
     public static String descripcionComentario = "des";
     public static String fechaComentario = "fec";
     public static String comentario = "com";
+    
+    //CONSTANTES PARA LAS COORDENADAS
+    public static String coordenadaX = "cordx";
+    public static String coordenadaY = "cordy";
+    public static String coordenada = "cord";
 }

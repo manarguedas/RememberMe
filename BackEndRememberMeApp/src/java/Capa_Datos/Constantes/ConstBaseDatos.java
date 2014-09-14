@@ -22,5 +22,7 @@ public class ConstBaseDatos {
     static public String GuardarComentario = "INSERT INTO COMENTARIOS (fk_pefil_difunto,descripcion, nombre, fecha) VALUES";
     static public String RecuperarEventos = "select pk_itinerario, fk_pefiles, fecha, hora, nombre_evento, descripcion, lugar from ITINERARIO where fk_pefiles = ";
     static public String RecuperarComentarios = "select pk_comentarios, fk_pefil_difunto, fecha, nombre, descripcion from COMENTARIOS where fk_pefil_difunto = ";
-
+    static public String RecuperarCoodenada = "select pk_perfiles, coordenada_x, coordenada_y from COORDENADAS where pk_perfiles = ";
+    static public String GuardarCoordenada = "INSERT INTO COORDENADAS (coordenada_x,coordenada_y,pk_perfiles,) VALUES";
+    
 }

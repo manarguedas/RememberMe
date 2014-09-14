@@ -14,7 +14,7 @@ import Capa_Presentacion.ConsultarEventos_Presentacion;
 import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import Capa_Presentacion.GestionarBiografias_Presentacion;
 import Capa_Presentacion.GestionarComentarios_Presentacion;
-import Capa_Presentacion.GestionarEvento_Presentacion;
+import Capa_Presentacion.GestionarCoordenadas_Presentacion;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,16 +37,17 @@ public class NewMain {
 //        Perfil p = parse.ParsePerfilModelo(g);
         //String bio = "{\"idd\":\"9\", \"bio\":[{\"nom\":\"Joven\",\"des\":\"fue muy malcriado\"},{\"nom\":\"Adultez\",\"des\":\"fue un gran padre que siempre aconsejo a sus hijo a ser mejores\"}]}";
 //        //System.out.println(parse.ParsePerfilJson(p));
-        String com = "{\"idd\":\"8\", \"com\":[{\"id\":\"2\",\"des\":\"Talves era una buena persona\",\"fec\":\"Nulo\",\"nom\":\"Gustavo Vargas\"}]}";
-//        //AgregarPerfil_Datos k = new AgregarPerfil_Datos();
+        //String com = "{\"idd\":\"8\", \"com\":[{\"id\":\"2\",\"des\":\"Talves era una buena persona\",\"fec\":\"Nulo\",\"nom\":\"Gustavo Vargas\"}]}";
+String o = "{\"bus\":[{\"id\":\"2\",\"nom\":\"Nombre\",\"url\":\"IMAGEN.png\"},{\"id\":\"1\",\"nom\":\"Nombre\",\"url\":\"IMAGEN.png\"}]}";
+        //AgregarPerfil_Datos k = new AgregarPerfil_Datos();
 //        //System.out.println(k.AgregarPerfil(p));
         
        // ParseJson_Comentario h = new ParseJson_Comentario();
   
        // Comentario b = h.ParseComentarioModelo(com);
         
-        GestionarComentarios_Presentacion i = new GestionarComentarios_Presentacion(); 
-        System.out.println(i.ConsultarComentario(8));
+        GestionarCoordenadas_Presentacion i = new GestionarCoordenadas_Presentacion(); 
+        System.out.println(i.AgregarCoordenadas(o));
          //List<Comentario> u = new ArrayList();
         //u.add(h.ParseComentarioModelo(com));
         //System.out.println(h.ParseComentarioJson(u));

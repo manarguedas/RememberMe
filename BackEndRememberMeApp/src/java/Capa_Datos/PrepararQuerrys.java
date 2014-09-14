@@ -10,6 +10,7 @@ import Capa_Datos.Constantes.ConstBaseDatos;
 import Capa_Logica.Biografia;
 import Capa_Logica.Comentario;
 import static Capa_Logica.Constantes.ConstantesLlavesJson.Biografia;
+import Capa_Logica.Coordenada;
 import Capa_Logica.Evento;
 import Capa_Logica.Perfil;
 
@@ -31,8 +32,8 @@ public class PrepararQuerrys {
         return ConstBaseDatos.RecuperarPerfiles+"'%"+dato+"%'"+"or apellidos LIKE "+"'%"+dato+"%'";
     }
     
-    public String AgregarPerfil(Perfil perfil){
-        return ConstBaseDatos.GuardarPerfil+"('"+perfil.getNombre()+"','"+perfil.getApellido()+"','"+perfil.getNacimieno().toString()+"','"+perfil.getDefuncion().toString()+"','"+perfil.getUrlFoto()+"',1)";
+    public String AgregarPerfil(Perfil perfil, int idFacebook){
+        return ConstBaseDatos.GuardarPerfil+"('"+perfil.getNombre()+"','"+perfil.getApellido()+"','"+perfil.getNacimieno().toString()+"','"+perfil.getDefuncion().toString()+"','"+perfil.getUrlFoto()+"',"+idFacebook+")";
     }
     
     public String AgregarEvento(Evento evento){
@@ -43,12 +44,20 @@ public class PrepararQuerrys {
         return ConstBaseDatos.GuardarBiografia+"("+biografia.getIdd()+",'"+biografia.getDescripcion()+"','"+biografia.getNombre()+"')";
     }
     
+    public String AgregarCoordenada(Coordenada coordenada){
+        return ConstBaseDatos.GuardarCoordenada+"('"+coordenada.getCordX()+"','"+coordenada.getCordY()+"',"+coordenada.getIdd()+")";
+    }
+    
     public String AgregarComentario(Comentario comentario){
         return ConstBaseDatos.GuardarComentario+"("+comentario.getIdd()+",'"+comentario.getDescripcion()+"','"+comentario.getNombre()+"','"+comentario.getFecha().toString()+"')";
     }
     
     public String RecuperarEventos(int idDifunto){
         return ConstBaseDatos.RecuperarEventos+idDifunto;
+    }
+    
+    public String RecuperarCoordenadas(int idDifunto){
+        return ConstBaseDatos.RecuperarCoodenada+idDifunto;
     }
     
     public String RecuperarBiografias(int idDifunto){

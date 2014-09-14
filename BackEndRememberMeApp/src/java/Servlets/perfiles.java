@@ -133,8 +133,14 @@ public class perfiles extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String json = request.getParameter("json");
+        int mIdD;
+            try {
+                mIdD = Integer.parseInt(request.getParameter("idFacebook"));
+            } catch (NumberFormatException e) {
+                mIdD = 0;
+            }
         AgregarPerfil_Presentacion agregar = new AgregarPerfil_Presentacion();
-        EnviarResultado(response, agregar.AgregarPerfil(json));
+        EnviarResultado(response, agregar.AgregarPerfil(json,mIdD));
     }
   
     

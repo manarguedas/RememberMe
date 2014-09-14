@@ -18,11 +18,11 @@ public class AgregarPerfil_Datos {
     public AgregarPerfil_Datos() {
     }
 
-    public boolean AgregarPerfil(Perfil perfil) {
+    public boolean AgregarPerfil(Perfil perfil, int idFacebook) {
         Conexion conexion = new Conexion();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            String querry = preparar.AgregarPerfil(perfil);
+            String querry = preparar.AgregarPerfil(perfil,idFacebook);
             System.out.println(querry);
             return conexion.ejecutarSQL(querry);
         } else {

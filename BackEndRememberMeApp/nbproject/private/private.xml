@@ -16,6 +16,9 @@
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ConsultarPerfiles_Logica.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Confirmacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/GestionarBiografias_Datos.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/GestionarEvento_Presentacion.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Servlets/Comentarios.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/GestionarCoordenadas_Logica.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Perfil.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/ObtenerEventos_Datos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/ConsultarEventos_Presentacion.java</file>
@@ -23,6 +26,7 @@
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Evento.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/GestionarBiografias_Presentacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/NewMain.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Coordenada.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/PrepararQuerrys.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Servlets/Biografias.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Biografia.java</file>
@@ -31,10 +35,13 @@
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/AgregarPerfil_Presentacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/GestionarComentarios_Datos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Comentario.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/ParseJson_Coordenada.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/GestionarComentarios_Presentacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/Conexion.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Presentacion/GestionarCoordenadas_Presentacion.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Servlets/perfiles.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/ObtenerPerfiles_Datos.java</file>
+            <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Datos/GestionarCoordenadas_Datos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Servlets/Eventos.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Capa_Logica/Perfil.java</file>
             <file>file:/C:/Users/Administrator/Documents/GitHub/RememberMe/BackEndRememberMeApp/src/java/Servlets/Busquedas.java</file>
