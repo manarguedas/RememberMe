@@ -72,6 +72,10 @@
         <servlet-name>Comentarios</servlet-name>
         <servlet-class>Servlets.Comentarios</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Coordenadas</servlet-name>
+        <servlet-class>Servlets.Coordenadas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
         <url-pattern>/app</url-pattern>
@@ -99,6 +103,10 @@
     <servlet-mapping>
         <servlet-name>Comentarios</servlet-name>
         <url-pattern>/app/comentarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Coordenadas</servlet-name>
+        <url-pattern>/app/coordenadas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

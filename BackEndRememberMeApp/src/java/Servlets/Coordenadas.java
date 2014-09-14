@@ -6,9 +6,7 @@
 
 package Servlets;
 
-
-import Capa_Presentacion.GestionarComentarios_Presentacion;
-import Capa_Presentacion.GestionarEvento_Presentacion;
+import Capa_Presentacion.GestionarCoordenadas_Presentacion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -23,8 +21,36 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrator
  */
-public class Comentarios extends HttpServlet {
+public class Coordenadas extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Coordenadas</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Coordenadas at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {
+            out.close();
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -38,15 +64,15 @@ public class Comentarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                try {
+                        try {
             int mIdD;
             try {
                 mIdD = Integer.parseInt(request.getParameter("idDifunto"));
             } catch (NumberFormatException e) {
                 mIdD = 0;
             }
-            GestionarComentarios_Presentacion consulta = new GestionarComentarios_Presentacion();
-            SingletonHttp.getInstance().EnviarResultado(response, consulta.ConsultarComentario(mIdD));
+            GestionarCoordenadas_Presentacion consulta = new GestionarCoordenadas_Presentacion();
+            SingletonHttp.getInstance().EnviarResultado(response, consulta.ConsultarCoordenadas(mIdD));
         } catch (SQLException ex) {
             Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -63,10 +89,11 @@ public class Comentarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                 GestionarComentarios_Presentacion agregar = new GestionarComentarios_Presentacion();
+        GestionarCoordenadas_Presentacion agregar = new GestionarCoordenadas_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
-        SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarComentario(json)); 
+        SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarCoordenadas(json)); 
+    
     }
 
     /**
