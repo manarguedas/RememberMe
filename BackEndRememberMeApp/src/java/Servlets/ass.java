@@ -4,24 +4,22 @@
  * and open the template in the editor.
  */
 
-package Capa_Servlets;
+package Servlets;
 
-import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Administrator
+ * @author gustavovargas
  */
-public class Busquedas extends HttpServlet {
+@WebServlet(name = "ass", urlPatterns = {"/ass"})
+public class ass extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +39,10 @@ public class Busquedas extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Busquedas</title>");            
+            out.println("<title>Servlet ass</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Busquedas at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ass at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -64,15 +62,7 @@ public class Busquedas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ConsultarPerfil_Presentacion consultar =  new ConsultarPerfil_Presentacion();
-        String idUser = request.getParameter("idUser");
-        System.out.println("Evento: " + idUser);
-        try {
-            int id = Integer.parseInt(idUser);
-            SingletonHttp.getInstance().EnviarResultado(response, consultar.ConsultarPerfilesAdmin(id));
-        } catch (SQLException ex) {
-            Logger.getLogger(Busquedas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

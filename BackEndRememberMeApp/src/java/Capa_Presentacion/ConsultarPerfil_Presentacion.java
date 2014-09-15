@@ -27,4 +27,9 @@ public class ConsultarPerfil_Presentacion {
         ConsultarPerfiles_Logica  consulta = new ConsultarPerfiles_Logica();
         return consulta.ObtenerPerfilesAdministrador(idAdmin);
     }
+     
+     public String ConsultarPerfiles(String dato) throws SQLException{
+        ConsultarPerfiles_Logica  consulta = new ConsultarPerfiles_Logica();
+        return consulta.ObtenerPerfiles(dato);
+    }
 }

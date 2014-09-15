@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package Capa_Servlets;
+package Servlets;
 
 import Capa_Presentacion.AgregarPerfil_Presentacion;
 import Capa_Presentacion.ConsultarEventos_Presentacion;

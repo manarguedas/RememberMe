@@ -17,8 +17,8 @@ public class AgregarPerfil_Presentacion {
     public AgregarPerfil_Presentacion() {
     }
     
-    public String AgregarPerfil(String jsonPerfil){
+    public String AgregarPerfil(String jsonPerfil, int idFacebook){
         AgregarPerfil_Logica agregar = new AgregarPerfil_Logica();
-        return agregar.AgregarPerfil(jsonPerfil);
+        return agregar.AgregarPerfil(jsonPerfil, idFacebook);
     }
 }

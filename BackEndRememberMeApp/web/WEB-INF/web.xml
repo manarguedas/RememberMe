@@ -46,27 +46,35 @@
     <servlet>
         <description>Carga el perfil de un difunto</description>
         <servlet-name>perfil</servlet-name>
-        <servlet-class>Capa_Servlets.HelloWorldResource</servlet-class>
+        <servlet-class>Servlets.HelloWorldResource</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>perfiles</servlet-name>
-        <servlet-class>Capa_Servlets.perfiles</servlet-class>
+        <servlet-class>Servlets.perfiles</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Biografias</servlet-name>
-        <servlet-class>Capa_Servlets.Biografias</servlet-class>
+        <servlet-class>Servlets.Biografias</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Eventos</servlet-name>
-        <servlet-class>Capa_Servlets.Eventos</servlet-class>
+        <servlet-class>Servlets.Eventos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Busquedas</servlet-name>
-        <servlet-class>Capa_Servlets.Busquedas</servlet-class>
+        <servlet-class>Servlets.Busquedas</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Imagenes</servlet-name>
-        <servlet-class>Capa_Servlets.Imagenes</servlet-class>
+        <servlet-name>BusquedasPerfiles</servlet-name>
+        <servlet-class>Servlets.BusquedasPerfiles</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Comentarios</servlet-name>
+        <servlet-class>Servlets.Comentarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Coordenadas</servlet-name>
+        <servlet-class>Servlets.Coordenadas</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
@@ -89,8 +97,16 @@
         <url-pattern>/app/busquedas</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Imagenes</servlet-name>
-        <url-pattern>/app/imagenes</url-pattern>
+        <servlet-name>BusquedasPerfiles</servlet-name>
+        <url-pattern>/app/busquedasPerfiles</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Comentarios</servlet-name>
+        <url-pattern>/app/comentarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Coordenadas</servlet-name>
+        <url-pattern>/app/coordenadas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

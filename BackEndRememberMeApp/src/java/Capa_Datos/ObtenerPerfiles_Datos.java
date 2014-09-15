@@ -65,4 +65,24 @@ public class ObtenerPerfiles_Datos {
         }
         return perfiles;
     }
+   
+   
+      public List<Perfil> ObtenerPerfiles(String dato) throws SQLException {
+        Conexion conexion = new Conexion();
+        List<Perfil> perfiles = new ArrayList();
+        if (conexion.crearConexion()) {
+            PrepararQuerrys preparar = new PrepararQuerrys();
+            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarPerfilesDato(dato));
+            while (resultado.next()) {
+                Perfil perfil = new Perfil();
+                perfil.setId(resultado.getInt("pk_perfiles"));
+                perfil.setNombre(resultado.getString("nombre"));
+                perfil.setApellido(resultado.getString("apellidos"));
+                perfil.setUrlFoto(resultado.getString("dir_foto"));
+                perfiles.add(perfil);
+                //String reader = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"1820-01-04\",\"def\":\"1980-01-08\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\""+idDifunto+"\"}}";
+            }
+        }
+        return perfiles;
+    }
 }

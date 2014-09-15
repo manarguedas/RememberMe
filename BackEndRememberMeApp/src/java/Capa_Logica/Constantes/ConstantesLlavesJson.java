@@ -39,5 +39,20 @@ public class ConstantesLlavesJson {
     
     // CONSTANTES DE BUSQUEDA
     public static String busqueda = "bus";
- 
+    
+    // CONSTANTES DE BIOGRAFIA
+    public static String nombreBiografia = "nom";
+    public static String descripcionBiografia = "des";
+    public static String Biografia = "bio";
+    
+    // CONSTANTES PARA LOS COMENTARIOS
+    public static String nombreComentario = "nom";
+    public static String descripcionComentario = "des";
+    public static String fechaComentario = "fec";
+    public static String comentario = "com";
+    
+    //CONSTANTES PARA LAS COORDENADAS
+    public static String coordenadaX = "cordx";
+    public static String coordenadaY = "cordy";
+    public static String coordenada = "cord";
 }

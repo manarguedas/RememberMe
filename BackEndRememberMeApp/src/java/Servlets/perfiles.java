@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Capa_Servlets;
+package Servlets;
 
 import Capa_Datos.AgregarPerfil_Datos;
 import Capa_Presentacion.AgregarPerfil_Presentacion;
@@ -133,8 +133,14 @@ public class perfiles extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String json = request.getParameter("json");
+        int mIdD;
+            try {
+                mIdD = Integer.parseInt(request.getParameter("idFacebook"));
+            } catch (NumberFormatException e) {
+                mIdD = 0;
+            }
         AgregarPerfil_Presentacion agregar = new AgregarPerfil_Presentacion();
-        EnviarResultado(response, agregar.AgregarPerfil(json));
+        EnviarResultado(response, agregar.AgregarPerfil(json,mIdD));
     }
   
     
