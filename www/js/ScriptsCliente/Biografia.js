@@ -56,8 +56,7 @@ function AdministradorBiografia() {
     };
 
     this.CargarBiografias = function CargarBiografias() {
-        var pIdDifunto = 8;//sessionStorage.getItem("idDifunto");
-        alert(pIdDifunto);
+        var pIdDifunto = sessionStorage.getItem("idDifunto");
         $.ajax({
             type: kConstantes.get,
             url: kConstantes.Servidor + kConstantes.DirBiografias + "?idDifunto=" + pIdDifunto,
@@ -81,7 +80,6 @@ var AdminBio = new AdministradorBiografia();
 
 
 function CargarBiografiasHtml(pOb) {
-    alert("entrado");
     if (pOb === null && pOb.bio === null) {
         console.log("No hay biografías");
         return;
@@ -89,13 +87,12 @@ function CargarBiografiasHtml(pOb) {
     var i = 0;
     var mHtmlResultado= "";
     var bio;
-    alert("cargando los datos");
     for (i; i < pOb.bio.length; i++) {
         bio = CascaronBiografia;
-        bio = replace.replace("{tit}",pOb.bio[i].nom);
-        bio = replace.replace("{des}",pOb.bio[i].des);
-        bio = replace.replace("{id}",pOb.bio[i].id);
+        bio = bio.replace("{tit}",pOb.bio[i].nom);
+        bio = bio.replace("{des}",pOb.bio[i].des);
+        bio = bio.replace("{id}",pOb.bio[i].id);
         mHtmlResultado += bio;
     }
-    $("#biografias").html = mHtmlResultado;
+    document.getElementById("biografias").innerHTML=mHtmlResultado; 
 }

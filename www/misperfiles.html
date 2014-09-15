@@ -19,6 +19,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/PerfilJSON.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/Biografia.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Comentarios.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
         <script type="text/javascript" src="js/Fotografia.js"></script>
         <script type="text/javascript" src="js/LocationGoogleMaps.js"></script>
@@ -27,7 +28,7 @@ and open the template in the editor.
 
         <script type="text/javascript">
             ConfigurarBarra(2);
-            ConfigurarBarraActividades(1);
+            ConfigurarBarraActividades(2);
         </script>
 
         <!-- Datos de un perfil seleccionado -->
@@ -56,49 +57,44 @@ and open the template in the editor.
             </div><hr>
             <!-- Reseña -->
             <div class="row">
-                <div id="biografias" class="container">
-
-                </div>
-            </div><hr>
-
-            <!-- Comentarios -->
-            <div class="row"><div class="container"><div class="panel panel-default">
+                <div class="container">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h6 class="panel-title">Comentarios</h6>
+                            <h6 class="panel-title">Biografía</h6>
                         </div>
                         <div class="panel-body">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h6 class="panel-title">Jose Perez <small>(30/08/2014)</small></h6>
-                                </div>
-                                <div class="panel-body">
-                                    <small>Siempre fue una persona muy emotiva.</small>
-                                </div>
-                            </div>
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h6 class="panel-title">Lucía Monge <small>(31/08/2014)</small></h6>
-                                </div>
-                                <div class="panel-body">
-                                    <small>Siempre fue una persona muy emotiva.</small>
-                                </div>
-                            </div>
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <h6 class="panel-title">Lapiz Azul <small>(30/08/2014)</small></h6>
-                                </div>
-                                <div class="panel-body">
-                                    <small>Siempre fue una persona muy emotiva.</small>
-                                </div>
+                            <div id="biografias">
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <hr>
+
+            <!-- Comentarios -->
+            <div class="row">
+                <div class="container">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h6 class="panel-title">Comentarios</h6>
+                        </div>
+                        <div id="comentarios" class="panel-body">
+                        </div>
+
+                    </div>
+                    <div class="input-group">
+                        <textarea class="form-control" placeholder="Ingresar comentario"></textarea>
+                        <span onclick="alert('enviar comentario');" class="input-group-addon">Comentar</span>
+                    </div>
+                </div>
+            </div>
         </div>
-            <script>
-                //AdmiPer.RecuperarPerfil();
-                AdminBio.CargarBiografias();
-            </script>
+        <script>
+            AdmiPer.RecuperarPerfil();
+            AdminBio.CargarBiografias();
+            AdminCom.CargarComentarios();
+        </script>
     </body>
 </html>

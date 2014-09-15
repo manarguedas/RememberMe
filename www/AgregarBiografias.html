@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>RememberMeApp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/EstilosApp.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Biografia.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            ConfigurarBarra(2);
+            ConfigurarBarraActividades(2);
+        </script>
+        <br>
+        <div class="container">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">
+                    <h5 class="panel-title">Agregar Biografía </h5>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class=" control-label">Sección 1 - Encabezado</label>
+                        <div class="">
+                            <input type="text" class="form-control" id="tit">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Sección 1 - Cuerpo</label>
+                        <div class="">
+                            <textarea class="form-control" id="des"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="" align="right">
+                            <button class="btn-primary btn" onclick="alert('Agregar biografia');">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
