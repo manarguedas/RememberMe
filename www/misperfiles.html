@@ -18,8 +18,10 @@ and open the template in the editor.
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/PerfilJSON.js"></script>
+        <script type="text/javascript" src="js/ScriptsCliente/Biografia.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
         <script type="text/javascript" src="js/Fotografia.js"></script>
+        <script type="text/javascript" src="js/LocationGoogleMaps.js"></script>
     </head>
     <body>
 
@@ -35,10 +37,10 @@ and open the template in the editor.
                 <div class="container">
                     <div align="left" class="col-xs-6 col-sm-6">
                         <h3 id = "nomDifunto"></h3>
-                        <button class="btn btn-primary btn-sm">Lugar de descanso</button>
+                        <button onclick="setLugar();" class="btn btn-primary btn-sm">Lugar de descanso</button>
                     </div>
                     <div align="center" class="col-xs-6 col-sm-6 FotoPerfil">
-                        <p><img id="fotoPerfil" onclick="getPhoto(pictureSource.PHOTOLIBRARY);"id="fotoDifunto" src="images/icon.png" alt="" width="100" height="100" class="img-circle "></p>
+                        <p><img id="fotoPerfil" onclick="getPhoto(pictureSource.PHOTOLIBRARY);" src="images/icon.png" alt="" width="100" height="100" class="img-circle "></p>
                     </div>
                 </div>
             </div>
@@ -52,23 +54,10 @@ and open the template in the editor.
                     </div>
                 </div>
             </div><hr>
-            <script>
-                AdmiPer.RecuperarPerfil();
-            </script>
-
             <!-- Reseña -->
-            <div class="row"><div class="container">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">Primeros años</h5>
-                        </div>
-                        <div class="panel-body">
-                            <small>Juan fue una persona que desde joven se interesó en arte.
-                                Su primer pintura la realizó a los 3 años, y desde entonces
-                                supo que su carrera de mayor sería en ese área. Pintó usando
-                                distintas técnicas, desde acuarela hasta tizas.</small>
-                        </div>
-                    </div>
+            <div class="row">
+                <div id="biografias" class="container">
+
                 </div>
             </div><hr>
 
@@ -102,8 +91,14 @@ and open the template in the editor.
                                     <small>Siempre fue una persona muy emotiva.</small>
                                 </div>
                             </div>
-                        </div></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+            <script>
+                //AdmiPer.RecuperarPerfil();
+                AdminBio.CargarBiografias();
+            </script>
     </body>
 </html>
