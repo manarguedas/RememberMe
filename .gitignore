@@ -1,1 +1,3 @@
 /APIsJavaScript/nbproject/private/
+*.class
+build.xml
