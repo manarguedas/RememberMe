@@ -19,18 +19,22 @@ and open the template in the editor.
         <script type="text/javascript" src="js/ScriptsCliente/Busquedas.js"></script>
         <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
         <script type="text/javascript" src="js/Barras/NavBars.js"></script>
-
+        <script type="text/javascript" src="js/Fotografia.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
     </head>
     <body>
         <script type="text/javascript">
             ConfigurarBarra(2);
         </script>
         <div>
-            <form action="http://localhost:8080/BackEndRememberMeApp/app/imagenes" method="post" >
-                <input type="file" name="file" />
+            <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);"> subir foto</button>
+            <form action="http://localhost:8080/BackEndRememberMeApp/app/imagenes" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="file"/>
                 <input type="submit" value="upload" />
             </form>  
         </div>
+
+
 
         <div class="ContenedorActividades container-fluid ">
             <div class="ContenedorActividades ">
