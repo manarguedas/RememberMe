@@ -92,7 +92,6 @@ function ConfigurarAgregar() {
 }
 
 function ConfigurarOpecionesPerfil() {
-    alert("entrando en la vara");
     document.getElementById("barraEstado").innerHTML += '<li class="col-xs-5 BotonAgregarPerfil" >' +
             '<a id = "AgregarHref" href="AgregarBiografias.html">' +
             '<span class="glyphicon glyphicon-plus"></span>\

@@ -27,11 +27,19 @@ function AdministradorComentarios() {
     this.com = new Array();
 
 
+    this.CrearComentario = function() {
+        this.idd = "";
+        this.com = new Array();
+    };
+
     this.AgregarComentario = function(pNombre, pDescripcion) {
         var mCom = new Comentario();
         mCom.id = 1;
         mCom.des = pDescripcion;
         mCom.nom = pNombre;
+        mCom.fec = new Date();
+        mCom.fec = mCom.fec.getDate() + "/" + (mCom.fec.getMonth()+1) + "/" + mCom.fec.getFullYear();
+        alert("la fecha es " + mCom.fec);
         this.com[this.com.length] = mCom;
     };
 
@@ -46,6 +54,7 @@ function AdministradorComentarios() {
             },
             success: function(data) {
                 alert("Comentario creado.");
+                document.location = "misperfiles.html";
             },
             error: function(data) {
                 alert('No se pudo conectar con el servidor.');
@@ -94,4 +103,18 @@ function CargarComentariosHtml(pOb) {
         mHtmlResultado += com;
     }
     document.getElementById("comentarios").innerHTML = mHtmlResultado;
+}
+
+function AgregarComentario() {
+    var Nombre = sessionStorage.getItem("nomFace");
+    var Descripcion = document.getElementById("desCom").value;
+
+    if (Descripcion === "") {
+        alert("Aún hay campos vacíos.");
+        return;
+    }
+
+    AdminCom.CrearComentario();
+    AdminCom.AgregarComentario(Nombre, Descripcion);
+    AdminCom.EnviarComentarioCrear(sessionStorage.getItem("idDifunto"));
 }

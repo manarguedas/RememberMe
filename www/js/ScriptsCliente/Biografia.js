@@ -24,6 +24,11 @@ function AdministradorBiografia() {
     this.bio = new Array();
 
 
+    this.CrearBiografia = function (){
+        this.idd = 0;
+        this.bio = new Array();
+    };
+
     this.AgregarBiografia = function AgregarBiografia(pTitulo, pDescripcion) {
         var mBio = new Biografia();
         mBio.des = pDescripcion;
@@ -37,7 +42,7 @@ function AdministradorBiografia() {
         this.idd = pObjeto.idd;
     };
 
-    this.EnviarBiografiaCrear = function EnviarBiografiaCrear(pIdDifunto) {
+    this.EnviarBiografiaCrear = function (pIdDifunto) {
         this.idd = pIdDifunto;
         $.ajax({
             type: kConstantes.post, // it's easier to read GET request parameters
@@ -48,6 +53,7 @@ function AdministradorBiografia() {
             },
             success: function(data) {
                 alert("Biografias creadas.");
+                document.location = "misperfiles.html";
             },
             error: function(data) {
                 alert('No se pudo conectar con el servidor.');
@@ -95,4 +101,19 @@ function CargarBiografiasHtml(pOb) {
         mHtmlResultado += bio;
     }
     document.getElementById("biografias").innerHTML=mHtmlResultado; 
+}
+
+
+function AgregarBiografia() {
+    var Nombre = document.getElementById("nom").value;
+    var Descripcion = document.getElementById("des").value;
+
+    if (Nombre === "" || Descripcion === "") {
+        alert("Aún hay campos vacíos.");
+        return;
+    }
+    
+    AdminBio.CrearBiografia();
+    AdminBio.AgregarBiografia(Nombre, Descripcion);
+    AdminBio.EnviarBiografiaCrear(sessionStorage.getItem("idDifunto"));
 }

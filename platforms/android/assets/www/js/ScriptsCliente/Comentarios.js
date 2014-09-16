@@ -95,3 +95,17 @@ function CargarComentariosHtml(pOb) {
     }
     document.getElementById("comentarios").innerHTML = mHtmlResultado;
 }
+
+function AgregarComentario() {
+    var Nombre = document.getElementById("nom").value;
+    var Descripcion = document.getElementById("des").value;
+
+    if (Nombre === "" || Descripcion === "") {
+        alert("Aún hay campos vacíos.");
+        return;
+    }
+    
+    AdminBio.CrearBiografia();
+    AdminBio.AgregarBiografia(Nombre, Descripcion);
+    AdminBio.EnviarBiografiaCrear(sessionStorage.getItem("idDifunto"));
+}
