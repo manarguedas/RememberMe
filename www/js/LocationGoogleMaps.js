@@ -1,66 +1,55 @@
 /* 
- * Utiliza la varibles y métodos para usar Google Maps.
+ * Utiliza las varibles y métodos para usar el API de Google Maps.
  */
+
+/*------------------------------------------------
+ * Relacionado con establecer el Lugar de descanso
+ *------------------------------------------------*/
+//Función del botón de Lugar de descanso
 function setLugar(){
     location.href="SetLugarDescanso.html";
 }
 
+//Permite establecer la posición actual y presentarla en una mapa usando
+//GoogleMaps, esta será la posición a establecer como Lugar de descanso.
+//Se inicia cuando se carga la página SetLugarDescanso.html.
 function initialize(){
-    /*navigator.geolocation.getCurrentPosition(onSuccess, onError);
-}
-
-function onSuccess(position){
-    var element = document.getElementById('geolocation');
-    var longitud = position.coords.longitude;
-    var latitud = position.coords.latitude;
-    var latlong = new google.maps.LatLng(latitud, longitud);
-    
     var mapOptions = {
-        center: latlong,
-        zoom: 16,
+        zoom: 17,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    
-    var map = new google.maps.Map(document.getElementById('geolocation'), mapOptions);
+    map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
+
+    // Try HTML5 geolocation
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var longitud = position.coords.longitude;
+            var latitud = position.coords.latitude;
+            //Guardar latitud y longitud para enviar al back-end
+            var pos = new google.maps.LatLng(latitud, longitud);
+
+            var infowindow = new google.maps.InfoWindow({
+              map: map,
+              position: pos,
+              content: 'Posición a establecer'
+            });
+
+            map.setCenter(pos);
+        }, function() {
+            handleNoGeolocation(true);
+        });
+    } else {
+      // Browser doesn't support Geolocation
+        handleNoGeolocation(false);
+    }
 }
 
-function onError(error){
-    alert("Código: " + error.code + " mensaje: " + error.message);
-}*/
-
-var mapOptions = {
-    zoom: 6
-  };
-  map = new google.maps.Map(document.getElementById('geolocation'),
-      mapOptions);
-
-  // Try HTML5 geolocation
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found using HTML5.'
-      });
-
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
-}
-
+//Manejar errores si no hay Geolocation
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
+    var content = 'Error: Fallo el servicio Geolocation.';
   } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
+    var content = 'Error: Geolocation no soportado.';
   }
 
   var options = {
@@ -73,4 +62,44 @@ function handleNoGeolocation(errorFlag) {
   map.setCenter(options.position);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+/*-----------------------------------------
+ * Relacionado con ver el Lugar de descanso
+ *-----------------------------------------*/
+//Función del botón de Lugar de descanso
+function verLugar(){
+    location.href="VerLugarDescanso.html";
+}
+
+//Permite establecer la posición actual y presentarla en una mapa usando
+//GoogleMaps, esta será la posición a establecer como Lugar de descanso.
+//Se inicia cuando se carga la página SetLugarDescanso.html.
+function initialize2(){
+    var mapOptions = {
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
+
+    // Try HTML5 geolocation
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            //AQUI va llamar a la función del back-end q da la lat y long
+            var longitud = position.coords.longitude;//Cambiar por lo que viene
+            var latitud = position.coords.latitude;//cambiar por lo que viene
+            var pos = new google.maps.LatLng(latitud, longitud);
+
+            var infowindow = new google.maps.InfoWindow({
+              map: map,
+              position: pos,
+              content: 'Lugar de descanso'
+            });
+
+            map.setCenter(pos);
+        }, function() {
+            handleNoGeolocation(true);
+        });
+    } else {
+      // Browser doesn't support Geolocation
+        handleNoGeolocation(false);
+    }
+}
