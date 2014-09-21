@@ -14,6 +14,7 @@ document.write('<script type="text/javascript" src="js/ScriptsCliente/PerfilJSON
 document.write('<script type="text/javascript" src="js/ScriptsCliente/Biografia.js"></script>');
 document.write('<script type="text/javascript" src="js/ScriptsCliente/Comentarios.js"></script>');
 document.write('<script type="text/javascript" src="js/ScriptsCliente/Busquedas.js"></script>');
+document.write('<script type="text/javascript" src="js/ScriptsCliente/Eventos.js"></script>');
 document.write('<script type="text/javascript" src="js/Fotografia.js"></script>');
 document.write('<script type="text/javascript" src="js/LocationGoogleMaps.js"></script>');
 document.write('<script type="text/javascript" src="js/Eventos.js"></script>');
