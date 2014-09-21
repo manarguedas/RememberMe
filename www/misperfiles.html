@@ -13,16 +13,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/PerfilJSON.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Biografia.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Comentarios.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
-        <script type="text/javascript" src="js/Fotografia.js"></script>
-        <script type="text/javascript" src="js/LocationGoogleMaps.js"></script>
+        <script type="text/javascript" src="js/Includes.js"></script>
     </head>
     <body>
 
@@ -87,13 +78,31 @@ and open the template in the editor.
                             <span onclick="AgregarComentario();" class="input-group-addon">Comentar</span>
                         </div>
                         <br>
-
                     </div>
-
-
                 </div>
             </div>
         </div>
+        <div  onclick="" class=""  align="center" > 
+            <div id="opPerfil" class='DivContenedorOpcionesPerfiles '>
+                <div class="btn-group-vertical Width100" style="height: 100%;">
+                    <button type="button" class="btn btn-primary" onclick="CrearBiografia();" >Agregar Biografía</button>
+                    <button type="button" class="btn btn-primary" onclick="ModificarPerfil();" >Modificar</button>
+                    <button type="button" class="btn btn-primary" onclick="EliminarPerfil();" >Eliminar</button>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id="opciones" onclick="Desaparecer();" class="DivOpciones"  align="center" > 
+            <div class='DivOpcionesContenedor'>
+                <div class="btn-group-vertical Width100" style="height: 100%;">
+                    <button type="button" class="btn btn-primary BotonesOpciones" onclick="LlamarFuncion(ModificarBiografia());" >Modificar</button>
+                    <button type="button" class="btn btn-primary BotonesOpciones" onclick="LlamarFuncion(EliminarBiografia());" >Eliminar</button>
+                </div>
+            </div>
+        </div>
+
+        
         <script>
             AdmiPer.RecuperarPerfil();
             AdminBio.CargarBiografias();

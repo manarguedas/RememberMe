@@ -14,11 +14,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
         <link rel="stylesheet" href="css/datepicker.css">
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
-        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Biografia.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
+        <script type="text/javascript" src="js/Includes.js"></script>
     </head>
     <body>
         <script type="text/javascript">
@@ -46,12 +42,17 @@ and open the template in the editor.
                     </div>
                     <div class="form-group">
                         <div class="" align="right">
-                            <button class="btn-primary btn" onclick="AgregarBiografia();">Agregar</button>
+                            <button id="Agregar" class="btn-primary btn" onclick="AgregarBiografia();">Agregar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            if (sessionStorage.getItem("mod") === "1") {
+                CargarUnaBiografia();
+            }
+        </script>
 
     </body>
 </html>

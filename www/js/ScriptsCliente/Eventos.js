@@ -1,10 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-var FormatoEvento = '<div class="panel panel-primary"> \
+var FormatoEvento = '<div class="panel panel-primary" onmousedown="ClickDown(GuardarDato,{6});" onmouseup="ClickUp();" > \
                     <div class="panel-heading"> \
                         <h5 class="panel-title">{1}</h5>\
                         <h6>Lugar: {2}, Fecha: {3}, Hora: {4} </h6>\
@@ -28,18 +23,18 @@ function AdministradorEvento() {
     this.idd = "";
     this.eve = new Array();
 
-    this.CrearEvento = function CrearEvento(){
+    this.CrearEvento = function CrearEvento() {
         this.eve = new Array();
-    }
+    };
 
-    this.AgregarEvento = function AgregarEvento(pNom, pLug, pFec, pHor, pDes) {
+    this.AgregarEvento = function AgregarEvento(pNom, pLug, pFec, pHor, pDes, pId) {
         var mEve = new Evento();
         mEve.des = pDes;
         mEve.nom = pNom;
         mEve.fec = pFec;
         mEve.hor = pHor;
         mEve.lug = pLug;
-        mEve.id = "1";
+        mEve.id = pId;
         this.eve[this.eve.length] = mEve;
     };
 
@@ -50,52 +45,54 @@ function AdministradorEvento() {
 
     this.EnviarEventoCrear = function EnviarEventoCrear(pIdDifunto) {
         this.idd = pIdDifunto;
-        $.ajax({
-            type: kConstantes.post, // it's easier to read GET request parameters
-            url: kConstantes.Servidor + kConstantes.DirEventos,
-            dataType: 'JSON',
-            data: {
-                json: JSON.stringify(this)
-            },
-            success: function(data) {
-                alert("Eventos creados.");
-            },
-            error: function(data) {
-                alert('No se pudo conectar con el servidor.');
-            }
-        });
+        AjaxSolicitud(kConstantes.post, kConstantes.Servidor + kConstantes.DirEventos, JSON.stringify(this),
+                function(data) {
+                    alert("Eventos creados.");
+                    document.location = "Actividades.html";
+                });
     };
 
-    this.CargarEvento = function CargarEvento(pIdDifunto) {
+    this.CargarEvento = function(pIdDifunto) {
         pIdDifunto = sessionStorage.getItem('idDifunto');
-        $.ajax({
-            type: kConstantes.get, // it's easier to read GET request parameters
-            url: kConstantes.Servidor + kConstantes.DirEventos + "?idDifunto=" + pIdDifunto,
-            dataType: 'JSON',
-            data: {
-                json: ""
-            },
-            success: function(data) {
-                AdminEve.CargarObjeto(data);
-                CargarTodosEventos(data);
-            },
-            error: function(data) {
-                alert('No se pudo conectar con el servidor.');
-            }
-        });
+        AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirEventos + "?idDifunto=" + pIdDifunto, "",
+                function(data) {
+                    AdminEve.CargarObjeto(data);
+                    CargarTodosEventos(data);
+                });
+    };
+
+    this.RecuperarEvento = function(pEvento) {
+        AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirEventos + "?idDifunto=" + sessionStorage.getItem("idDifunto"), "",
+                function(data) {
+                    alert(JSON.stringify(data));
+                    CargarEventoHtml(data.eve[0]);
+                });
+    };
+
+    this.GuardarEvento = function(pIdEvento) {
+        AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirEventos + "?idEvento=" + pIdEvento, JSON.stringify(this),
+                function(data) {
+                    alert("evento modificado");
+                    document.location = "Actividades.html";
+                });
     };
 
     this.GetEventos = function GetEventos() {
         return this.eve;
     };
-    
-    this.SetIdDifunto = function SetIdDifunto(pId){
+
+    this.SetIdDifunto = function SetIdDifunto(pId) {
         this.idd = pId;
-    }
+    };
 }
 
 var AdminEve = new AdministradorEvento();
 
+/////////////////////////////////////////////////////////////////////
+//              Funcion que cargan datos en interfaz
+/////////////////////////////////////////////////////////////////////
+
+//Esta funcion lo que hace es cargar todos los eventos que le lleguen
 function CargarTodosEventos(pOb) {
     var mResultado;
     var mResultadoFinal = "";
@@ -105,24 +102,91 @@ function CargarTodosEventos(pOb) {
         mResultado = mResultado.replace("{3}", pOb.eve[i].fec);
         mResultado = mResultado.replace("{4}", pOb.eve[i].hor);
         mResultado = mResultado.replace("{5}", pOb.eve[i].des);
+        mResultado = mResultado.replace("{6}", pOb.eve[i].id);
         mResultadoFinal += mResultado;
     }
     $("#eveContenedor").html("<br>" + mResultadoFinal);
 }
 
-function AgregarEvento(){
+function CargarEventoHtml(pEvento) {
+    document.getElementById("nomEvento").value = pEvento.nom;
+    document.getElementById("lugEvento").value = pEvento.lug;
+    document.getElementById("fecEvento").value = pEvento.fec;
+    document.getElementById("horEvento").value = pEvento.hor;
+    document.getElementById("desEvento").value = pEvento.des;
+    document.getElementById("Agregar").onclick = GuardarEvento;
+    document.getElementById("Agregar").innerHTML = "Guardar";
+    sessionStorage.setItem("idEvento", pEvento.id);
+}
+
+
+/////////////////////////////////////////////////////////////////////
+//              Funcion que solicitan datos al servidor
+/////////////////////////////////////////////////////////////////////
+
+//Funcion que Envia a cargar un solo evento
+function CargarUnEvento() {
+    AdminEve.RecuperarEvento(sessionStorage.getItem('idEvento'));
+}
+
+/////////////////////////////////////////////////////////////////////
+//              Funcion que envian datos al servidor 
+/////////////////////////////////////////////////////////////////////
+
+
+
+function AgregarEvento() {
+    if (AgregarDatosAdmin()) {
+        AdminEve.EnviarEventoCrear(sessionStorage.getItem('idDifunto'));
+    }
+}
+function GuardarEvento() {
+    if (AgregarDatosAdmin()) {
+        AdminEve.GuardarEvento(sessionStorage.getItem("idEvento"));
+    }
+}
+
+//Esta funcion lo que hace es tomar todos los datos registrados por el usuario y los agrega al administrador
+function AgregarDatosAdmin() {
     var nombre = document.getElementById("nomEvento").value;
     var lugar = document.getElementById("lugEvento").value;
     var fecha = document.getElementById("fecEvento").value;
     var hora = document.getElementById("horEvento").value;
     var descripcion = document.getElementById("desEvento").value;
-    
-    if (nombre==="" || lugar==="" || fecha==="" || hora==="" || descripcion===""){
+    var id = sessionStorage.getItem("idEvento");
+
+    if (nombre === "" || lugar === "" || fecha === "" || hora === "" || descripcion === "") {
         alert("Aún hay espacios en blanco.");
-        return;
+        return false;
     }
-    
-    AdminEve.CrearEvento();
-    AdminEve.AgregarEvento(nombre,lugar,fecha,hora,descripcion);
-    AdminEve.EnviarEventoCrear(sessionStorage.getItem('idDifunto'));
+    else {
+        AdminEve.CrearEvento();
+        AdminEve.AgregarEvento(nombre, lugar, fecha, hora, descripcion, id);
+        return true;
+    }
 }
+
+/////////////////////////////////////////////////////////////////////
+//              Funcion que controlar el flujo de interfaz 
+/////////////////////////////////////////////////////////////////////
+
+function CrearEvento() {
+    sessionStorage.setItem("mod", 0);
+    document.location = "AgregarActividad.html";
+}
+
+function ModificarEvento(pEvento) {
+    sessionStorage.setItem("idEvento", pEvento);
+    sessionStorage.setItem("mod", 1);
+    document.location = "AgregarActividad.html";
+}
+
+function EliminarEvento(pEvento) {
+    if (!confirm("¿Está seguro que desea eliminar esta actividad?"))
+        return;
+    AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirEventos + "?idEvento=" + pEvento, "",
+            function() {
+                alert("Objeto Eliminado");
+            });
+}
+
