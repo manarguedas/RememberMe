@@ -48,7 +48,6 @@ public class Biografias extends HttpServlet {
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
         SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarBiografia(json)); 
-    
     }
     
     @Override

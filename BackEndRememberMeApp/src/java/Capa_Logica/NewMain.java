@@ -37,7 +37,7 @@ public class NewMain {
 //        ParseJson_Perfil parse = new ParseJson_Perfil();
         
 //        Perfil p = parse.ParsePerfilModelo(g);
-        String biografia = "{\"idd\":\"1\", \"bio\":[{\"id\":\"10\",\"nom\":\"Joven\",\"des\":\"fue muy malcriado\"},{\"id\":\"10\",\"nom\":\"Adultez\",\"des\":\"fue un gran padre que siempre aconsejo a sus hijo a ser mejores\"}]}";
+        String biografia = "{\"idd\":\"10\", \"bio\":[{\"id\":\"10\",\"nom\":\"Joven\",\"des\":\"fue muy malcriado\"},{\"id\":\"10\",\"nom\":\"Adultez\",\"des\":\"fue un gran padre que siempre aconsejo a sus hijo a ser mejores\"}]}";
 //        //System.out.println(parse.ParsePerfilJson(p));
        //String h =  "{\"idd\":\"8\", \"cord\":[{\"cordx\":\"564634654\",\"cordy\":\"564635463\"}]}";
         String comentario = "{\"idd\":\"8\", \"com\":[{\"id\":\"2\",\"des\":\"Talves era una buena persona\",\"fec\":\"13/01/1234\",\"nom\":\"Gustavo Vargas\"}]}";
@@ -49,13 +49,13 @@ public class NewMain {
   
        // Comentario b = h.ParseComentarioModelo(com);
         GestionarBiografias_Presentacion gb = new GestionarBiografias_Presentacion();
-        System.out.println("gb "+gb.ModificarBiografia(biografia));
-        GestionarComentarios_Presentacion gc = new GestionarComentarios_Presentacion();
-        System.out.println("gc " + gc.ModificarComentario(comentario));
-        GestionarEvento_Presentacion ge = new GestionarEvento_Presentacion();
-        System.out.println("ge " + ge.ModificarEvento(evento));
-        AgregarPerfil_Presentacion gp = new AgregarPerfil_Presentacion();
-        System.out.println("gp "+gp.EliminarPerfil(8));
+        System.out.println("gb "+gb.AgregarBiografia(biografia));
+//        GestionarComentarios_Presentacion gc = new GestionarComentarios_Presentacion();
+//        System.out.println("gc " + gc.ModificarComentario(comentario));
+//        GestionarEvento_Presentacion ge = new GestionarEvento_Presentacion();
+//        System.out.println("ge " + ge.ModificarEvento(evento));
+//        AgregarPerfil_Presentacion gp = new AgregarPerfil_Presentacion();
+//        System.out.println("gp "+gp.EliminarPerfil(8));
        // System.out.println(i.ConsultarCoordenadas(9));
          //List<Comentario> u = new ArrayList();
         //u.add(h.ParseComentarioModelo(com));
