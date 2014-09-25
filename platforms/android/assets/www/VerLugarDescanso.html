@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>RememberMeApp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/EstilosApp.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
+        <script type="text/javascript" src="js/LocationGoogleMaps.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
+        
+    </head>
+    <body onload="initialize2()">
+        <script type="text/javascript">
+            ConfigurarBarra(2);
+            ConfigurarBarraActividades(1);
+        </script>
+
+        <!-- Datos de un perfil seleccionado -->
+        <div class="container">
+            
+            <!-- Ubicación del mapa -->
+            <div class="row"><div align="center">
+                <div class="col-xs-12 col-sm-12" >
+                    <div id="mapa" style="width:80%; height: 350px"></div>
+                </div>
+            </div></div>
+            
+            <div class="row">
+                <div align="center" class="col-xs-6 col-sm-6">
+                        <button class="btn btn-primary btn-sm">Establecer visita</button>
+                    </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
