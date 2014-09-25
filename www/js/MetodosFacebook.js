@@ -36,3 +36,28 @@ function apiTest(pIdUsuario) {
                 alert(response.name);
             });
 };
+
+//Permite publicar un comentario en el muro sobre que se agrego un perfil
+// nuevo en al app Remember Me
+function newStatusOnFB(){
+    facebookConnectPlugin.getLoginStatus(
+        function (status) {
+            //alert("current status: " + JSON.stringify(status));
+            
+            //Recibe el nombre de la persona cuyo perfil fue agregado
+            var person = "NOMBRE";
+            //Post generico que se publica al agregar un perfil nuevo
+            var post = "Se ha agregado el perfil de " + person + " \n\
+            y esta disponible su informacion en la app RememberMe";
+            
+            //Establece el mensaje a publicar
+            var options = { method:"feed", caption:post };
+            facebookConnectPlugin.showDialog(options,
+                function (result) {
+                    alert("Publicacion: " + JSON.stringify(result));
+                }, function (e) {
+                alert("Fallo: " + e);
+            });
+        }
+    );
+}
