@@ -68,7 +68,7 @@ public class BusquedasPerfiles extends HttpServlet {
         String dato = request.getParameter("dato");
         System.out.println("Evento: " + dato);
         try {
-            SingletonHttp.getInstance().EnviarResultado(response, consultar.ConsultarPerfiles(dato));
+            SingletonHttp.getInstance().EnviarResultado(response,request, consultar.ConsultarPerfiles(dato));
         } catch (SQLException ex) {
             Logger.getLogger(Busquedas.class.getName()).log(Level.SEVERE, null, ex);
         }

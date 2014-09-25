@@ -36,7 +36,7 @@ public class Biografias extends HttpServlet {
                 mIdD = 0;
             }
             GestionarBiografias_Presentacion consulta = new GestionarBiografias_Presentacion();
-            SingletonHttp.getInstance().EnviarResultado(response, consulta.ConsultarBiografias(mIdD));
+            SingletonHttp.getInstance().EnviarResultado(response,request, consulta.ConsultarBiografias(mIdD));
         } catch (SQLException ex) {
             Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
         }}
@@ -47,7 +47,7 @@ public class Biografias extends HttpServlet {
          GestionarBiografias_Presentacion agregar = new GestionarBiografias_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
-        SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarBiografia(json)); 
+        SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarBiografia(json)); 
     }
     
     @Override
@@ -56,7 +56,7 @@ public class Biografias extends HttpServlet {
          GestionarBiografias_Presentacion agregar = new GestionarBiografias_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
-        SingletonHttp.getInstance().EnviarResultado(response, agregar.ModificarBiografia(json)); 
+        SingletonHttp.getInstance().EnviarResultado(response,request, agregar.ModificarBiografia(json)); 
     
     }
 
@@ -71,7 +71,7 @@ public class Biografias extends HttpServlet {
         }
         idDifunto = Integer.parseInt(iDifunto);
         GestionarBiografias_Presentacion consulta = new GestionarBiografias_Presentacion();
-        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarBiografia(idDifunto));
+        SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarBiografia(idDifunto));
     }
     
     @Override

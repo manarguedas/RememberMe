@@ -72,7 +72,7 @@ public class Coordenadas extends HttpServlet {
                 mIdD = 0;
             }
             GestionarCoordenadas_Presentacion consulta = new GestionarCoordenadas_Presentacion();
-            SingletonHttp.getInstance().EnviarResultado(response, consulta.ConsultarCoordenadas(mIdD));
+            SingletonHttp.getInstance().EnviarResultado(response,request, consulta.ConsultarCoordenadas(mIdD));
         } catch (SQLException ex) {
             Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -92,7 +92,7 @@ public class Coordenadas extends HttpServlet {
         GestionarCoordenadas_Presentacion agregar = new GestionarCoordenadas_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
-        SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarCoordenadas(json)); 
+        SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarCoordenadas(json)); 
     
     }
 
@@ -108,7 +108,7 @@ public class Coordenadas extends HttpServlet {
         }
         id = Integer.parseInt(iDifunto);
         GestionarCoordenadas_Presentacion consulta = new GestionarCoordenadas_Presentacion();
-        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarCoordenada(id));
+        SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarCoordenada(id));
     }
     /**
      * Returns a short description of the servlet.

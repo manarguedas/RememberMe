@@ -37,7 +37,7 @@ public class Eventos extends HttpServlet {
                 mIdD = 0;
             }
             ConsultarEventos_Presentacion consulta = new ConsultarEventos_Presentacion();
-            SingletonHttp.getInstance().EnviarResultado(response, consulta.ConsultarEventos(mIdD));
+            SingletonHttp.getInstance().EnviarResultado(response,request, consulta.ConsultarEventos(mIdD));
         } catch (SQLException ex) {
             Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -50,7 +50,7 @@ public class Eventos extends HttpServlet {
          GestionarEvento_Presentacion agregar = new GestionarEvento_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
-        SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarEvento(json)); 
+        SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarEvento(json)); 
     }
     
     @Override
@@ -59,7 +59,7 @@ public class Eventos extends HttpServlet {
          GestionarEvento_Presentacion agregar = new GestionarEvento_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
-        SingletonHttp.getInstance().EnviarResultado(response, agregar.ModificarEvento(json)); 
+        SingletonHttp.getInstance().EnviarResultado(response,request, agregar.ModificarEvento(json)); 
     }
 
            @Override
@@ -73,7 +73,7 @@ public class Eventos extends HttpServlet {
         }
         id = Integer.parseInt(iDifunto);
         GestionarEvento_Presentacion consulta = new GestionarEvento_Presentacion();
-        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarEvento(id));
+        SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarEvento(id));
     }
     
     @Override

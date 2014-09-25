@@ -5,10 +5,12 @@
  */
 package Servlets;
 
+import Capa_Logica.Constantes.ConstantesComunicacion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -29,8 +31,10 @@ public class SingletonHttp extends HttpServlet {
         return instance;
     }
 
-    public void EnviarResultado(HttpServletResponse response, String mResultado)
+    public void EnviarResultado(HttpServletResponse response,HttpServletRequest request, String mResultado)
             throws ServletException, IOException {
+        String token = request.getParameter("token");
+        if(verificar(token)){
         AddEncabezados(response);
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
@@ -40,6 +44,17 @@ public class SingletonHttp extends HttpServlet {
         } finally {
             out.close();
         }
+        }else{
+           AddEncabezados(response);
+        response.setContentType("application/json");
+        PrintWriter out = response.getWriter();
+        try {
+            out.println(".I. Haga su propio back end!!!");
+            out.flush();
+        } finally {
+             
+        }
+    }
     }
 
     public void AddEncabezados(HttpServletResponse response) {
@@ -49,4 +64,12 @@ public class SingletonHttp extends HttpServlet {
         response.addHeader("Access-Control-Max-Age", "1728000");
     }
 
+     public boolean verificar(String idFacebook){
+        
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

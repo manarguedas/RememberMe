@@ -115,7 +115,7 @@ public class perfiles extends HttpServlet {
                 iDifunto = "0";
             }
             idDifunto = Integer.parseInt(iDifunto);
-            EnviarResultado(response, GetDifunto(idDifunto));
+            SingletonHttp.getInstance().EnviarResultado(response,request, GetDifunto(idDifunto));
         } catch (SQLException ex) {
             Logger.getLogger(perfiles.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -140,7 +140,7 @@ public class perfiles extends HttpServlet {
                 mIdD = 0;
             }
         AgregarPerfil_Presentacion agregar = new AgregarPerfil_Presentacion();
-        EnviarResultado(response, agregar.AgregarPerfil(json,mIdD));
+        SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarPerfil(json,mIdD));
     }
     
     @Override
@@ -148,7 +148,7 @@ public class perfiles extends HttpServlet {
             throws ServletException, IOException {
         String json = request.getParameter("json");
         AgregarPerfil_Presentacion actualizar = new AgregarPerfil_Presentacion();
-        SingletonHttp.getInstance().EnviarResultado(response, actualizar.ModificarPerfil(json));
+        SingletonHttp.getInstance().EnviarResultado(response,request, actualizar.ModificarPerfil(json));
     }
     
     
@@ -163,7 +163,7 @@ public class perfiles extends HttpServlet {
         }
         idDifunto = Integer.parseInt(iDifunto);
         AgregarPerfil_Presentacion consulta = new AgregarPerfil_Presentacion();
-        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarPerfil(idDifunto));
+        SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarPerfil(idDifunto));
     }
   
     

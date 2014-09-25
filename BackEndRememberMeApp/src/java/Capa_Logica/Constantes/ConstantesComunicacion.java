@@ -18,7 +18,7 @@ public class ConstantesComunicacion {
     public static String exito = "1";
     public static String fallo = "-1";
     public static String LLaveMensaje = "men";
-    public static int LLavefacebook = 123456789;
+    public static String LLavefacebook = "669076949827119";
     
     
 }

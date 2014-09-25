@@ -46,7 +46,7 @@ public class Comentarios extends HttpServlet {
                 mIdD = 0;
             }
             GestionarComentarios_Presentacion consulta = new GestionarComentarios_Presentacion();
-            SingletonHttp.getInstance().EnviarResultado(response, consulta.ConsultarComentario(mIdD));
+            SingletonHttp.getInstance().EnviarResultado(response,request, consulta.ConsultarComentario(mIdD));
         } catch (SQLException ex) {
             Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,7 +66,7 @@ public class Comentarios extends HttpServlet {
                  GestionarComentarios_Presentacion agregar = new GestionarComentarios_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
-        SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarComentario(json)); 
+        SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarComentario(json)); 
     }
     
      @Override
@@ -75,7 +75,7 @@ public class Comentarios extends HttpServlet {
                  GestionarComentarios_Presentacion agregar = new GestionarComentarios_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
-        SingletonHttp.getInstance().EnviarResultado(response, agregar.ModificarComentario(json)); 
+        SingletonHttp.getInstance().EnviarResultado(response,request, agregar.ModificarComentario(json)); 
     }
     
      @Override
@@ -89,7 +89,7 @@ public class Comentarios extends HttpServlet {
         }
         id = Integer.parseInt(iDifunto);
         GestionarComentarios_Presentacion consulta = new GestionarComentarios_Presentacion();
-        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarComentario(id));
+        SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarComentario(id));
     }
 
     /**
