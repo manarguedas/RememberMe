@@ -23,7 +23,7 @@ public class ConsultarPerfil_Presentacion {
         return consulta.ObtenerPerfilDifunto(idDifunto);
     }
     
-     public String ConsultarPerfilesAdmin(int idAdmin) throws SQLException{
+     public String ConsultarPerfilesAdmin(long idAdmin) throws SQLException{
         ConsultarPerfiles_Logica  consulta = new ConsultarPerfiles_Logica();
         return consulta.ObtenerPerfilesAdministrador(idAdmin);
     }

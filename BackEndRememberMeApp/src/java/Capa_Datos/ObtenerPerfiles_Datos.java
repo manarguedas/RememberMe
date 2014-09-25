@@ -47,7 +47,7 @@ public class ObtenerPerfiles_Datos {
         return perfil;
     }
     
-   public List<Perfil> ObtenerPerfilesAdmin(int idAdmin) throws SQLException {
+   public List<Perfil> ObtenerPerfilesAdmin(long idAdmin) throws SQLException {
         Conexion conexion = new Conexion();
         List<Perfil> perfiles = new ArrayList();
         if (conexion.crearConexion()) {

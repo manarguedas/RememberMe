@@ -68,7 +68,7 @@ public class Busquedas extends HttpServlet {
         String idUser = request.getParameter("idUser");
         System.out.println("Evento: " + idUser);
         try {
-            int id = Integer.parseInt(idUser);
+            long id = Long.parseLong(idUser);
             SingletonHttp.getInstance().EnviarResultado(response,request, consultar.ConsultarPerfilesAdmin(id));
         } catch (SQLException ex) {
             Logger.getLogger(Busquedas.class.getName()).log(Level.SEVERE, null, ex);

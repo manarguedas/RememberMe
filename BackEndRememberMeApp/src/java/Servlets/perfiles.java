@@ -133,9 +133,9 @@ public class perfiles extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String json = request.getParameter("json");
-        int mIdD;
+        long mIdD;
             try {
-                mIdD = Integer.parseInt(request.getParameter("idFacebook"));
+                mIdD = Long.parseLong(request.getParameter("idFacebook"));
             } catch (NumberFormatException e) {
                 mIdD = 0;
             }

@@ -29,7 +29,7 @@ public class AgregarPerfil_Logica {
                 return parseConf.Error();
             }
         }
-    public String AgregarPerfil(String jsonDatos, int idFacebook) {
+    public String AgregarPerfil(String jsonDatos, long idFacebook) {
         ParseJson_Perfil parse = new ParseJson_Perfil();
         ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
         Perfil perfil = parse.ParsePerfilModelo(jsonDatos);

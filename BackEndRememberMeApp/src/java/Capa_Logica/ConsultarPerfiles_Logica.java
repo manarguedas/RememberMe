@@ -32,7 +32,7 @@ public class ConsultarPerfiles_Logica {
         }
     }
     
-    public String ObtenerPerfilesAdministrador(int idAdmin) throws SQLException{
+    public String ObtenerPerfilesAdministrador(long idAdmin) throws SQLException{
         ObtenerPerfiles_Datos buscador = new ObtenerPerfiles_Datos();
         List<Perfil> perfiles = buscador.ObtenerPerfilesAdmin(idAdmin);
         ParseJson_Perfil parse = new ParseJson_Perfil();

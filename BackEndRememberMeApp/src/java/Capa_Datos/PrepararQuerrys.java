@@ -29,9 +29,9 @@ public class PrepararQuerrys {
         return pstmt;
     }
     
-    public PreparedStatement RecuperarPerfiles(int idAdministrador, Connection conexion) throws SQLException{
+    public PreparedStatement RecuperarPerfiles(long idAdministrador, Connection conexion) throws SQLException{
         PreparedStatement pstmt = conexion.prepareStatement(ConstBaseDatos.RecuperarPerfilesAdmin);
-        pstmt.setInt( 1, idAdministrador);
+        pstmt.setLong( 1, idAdministrador);
         return pstmt;
     }
     
@@ -40,7 +40,7 @@ public class PrepararQuerrys {
         return pstmt;
 }
     
-    public String AgregarPerfil(Perfil perfil, int idFacebook){
+    public String AgregarPerfil(Perfil perfil, long idFacebook){
         return ConstBaseDatos.GuardarPerfil+"('"+perfil.getNombre()+"','"+perfil.getApellido()+"','"+perfil.getNacimieno().toString()+"','"+perfil.getDefuncion().toString()+"','"+perfil.getUrlFoto()+"',"+idFacebook+")";
     }
     
