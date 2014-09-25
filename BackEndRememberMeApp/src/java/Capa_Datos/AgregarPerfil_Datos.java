@@ -32,11 +32,11 @@ public class AgregarPerfil_Datos {
     
     
     // Funcion en prueba
-    public boolean EliminarPerfil(Perfil perfil, int idFacebook) {
+    public boolean EliminarPerfil(int idPerfil) {
         Conexion conexion = new Conexion();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            String querry = preparar.AgregarPerfil(perfil,idFacebook);
+            String querry = preparar.EliminarPefil(idPerfil);
             System.out.println(querry);
             return conexion.ejecutarSQL(querry);
         } else {

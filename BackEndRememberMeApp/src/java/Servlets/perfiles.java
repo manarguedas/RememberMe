@@ -142,6 +142,36 @@ public class perfiles extends HttpServlet {
         AgregarPerfil_Presentacion agregar = new AgregarPerfil_Presentacion();
         EnviarResultado(response, agregar.AgregarPerfil(json,mIdD));
     }
+    
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String json = request.getParameter("json");
+        int mIdD;
+            try {
+                mIdD = Integer.parseInt(request.getParameter("idFacebook"));
+            } catch (NumberFormatException e) {
+                mIdD = 0;
+            }
+        AgregarPerfil_Presentacion actualizar = new AgregarPerfil_Presentacion();
+        SingletonHttp.getInstance().EnviarResultado(response, actualizar.ModificarPerfil(json));
+    
+    }
+    
+    
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idDifunto = -1;
+        System.out.println(request.getParameter("idDifunto") + "------------");
+        String iDifunto = request.getParameter("idDifunto");
+        if (iDifunto == null) {
+            iDifunto = "0";
+        }
+        idDifunto = Integer.parseInt(iDifunto);
+        AgregarPerfil_Presentacion consulta = new AgregarPerfil_Presentacion();
+        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarPerfil(idDifunto));
+    }
   
     
     /**

@@ -83,4 +83,8 @@ public class PrepararQuerrys {
     public String EliminarComentarios(int idComentarios){
         return ConstBaseDatos.EliminarComentario+idComentarios;
     }
+    
+    public String EliminarPefil(int idPerfil){
+        return ConstBaseDatos.EliminarPerfiles+idPerfil;
+    }
 }

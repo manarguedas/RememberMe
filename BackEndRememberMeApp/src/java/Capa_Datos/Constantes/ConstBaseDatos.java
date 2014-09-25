@@ -28,4 +28,5 @@ public class ConstBaseDatos {
     static public String EliminarBiografia = "DELETE FROM BIOGRAFIAS WHERE pk_biografia = ";
     static public String EliminarCoordenada = "DELETE FROM COORDENADAS WHERE pk_perfiles = ";
     static public String EliminarComentario = "DELETE FROM COMENTARIOS WHERE pk_comentarios = ";
+    static public String EliminarPerfiles = "DELETE FROM PERFILES WHERE pk_perfiles = ";
 }

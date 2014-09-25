@@ -48,8 +48,8 @@ public class NewMain {
        // Comentario b = h.ParseComentarioModelo(com);
         
         GestionarCoordenadas_Presentacion i = new GestionarCoordenadas_Presentacion(); 
-        ConsultarPerfiles_Logica u = new ConsultarPerfiles_Logica();
-        System.out.println(u.ObtenerPerfilDifunto(4));
+        AgregarPerfil_Presentacion u = new AgregarPerfil_Presentacion();
+        System.out.println(u.EliminarPerfil(8));
        // System.out.println(i.ConsultarCoordenadas(9));
          //List<Comentario> u = new ArrayList();
         //u.add(h.ParseComentarioModelo(com));
