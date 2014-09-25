@@ -147,15 +147,8 @@ public class perfiles extends HttpServlet {
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String json = request.getParameter("json");
-        int mIdD;
-            try {
-                mIdD = Integer.parseInt(request.getParameter("idFacebook"));
-            } catch (NumberFormatException e) {
-                mIdD = 0;
-            }
         AgregarPerfil_Presentacion actualizar = new AgregarPerfil_Presentacion();
         SingletonHttp.getInstance().EnviarResultado(response, actualizar.ModificarPerfil(json));
-    
     }
     
     

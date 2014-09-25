@@ -96,6 +96,20 @@ public class Coordenadas extends HttpServlet {
     
     }
 
+    
+         @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id = -1;
+        System.out.println(request.getParameter("id") + "------------");
+        String iDifunto = request.getParameter("id");
+        if (iDifunto == null) {
+            iDifunto = "0";
+        }
+        id = Integer.parseInt(iDifunto);
+        GestionarCoordenadas_Presentacion consulta = new GestionarCoordenadas_Presentacion();
+        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarCoordenada(id));
+    }
     /**
      * Returns a short description of the servlet.
      *

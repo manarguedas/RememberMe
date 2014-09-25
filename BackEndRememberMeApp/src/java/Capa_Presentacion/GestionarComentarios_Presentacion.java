@@ -22,6 +22,11 @@ public class GestionarComentarios_Presentacion {
         return gestionar.AgregarComentario(jsonComentario);
     }
     
+    public String ModificarComentario(String jsonComentario){
+        GestionarComentarios_Logica gestionar  = new GestionarComentarios_Logica();
+        return gestionar.ModificarComentario(jsonComentario);
+    }
+    
     public String EliminarComentario(int idComentario){
         GestionarComentarios_Logica gestionar  = new GestionarComentarios_Logica();
         return gestionar.EliminarComentarios(idComentario);

@@ -30,6 +30,18 @@ public class GestionarBiografias_Datos {
         }
     }
     
+    public boolean ModificarBiografia(Biografia biografia){
+        Conexion conexion = new Conexion();
+        if (conexion.crearConexion()) {
+            PrepararQuerrys preparar = new PrepararQuerrys();
+            String querry = preparar.ModificarBiografia(biografia);
+            System.out.println(querry);
+            return conexion.ejecutarSQL(querry);
+        } else {
+            return false;
+        }
+    }
+    
     public boolean EliminarBiografia(int idBiografia){
         Conexion conexion = new Conexion();
         if (conexion.crearConexion()) {

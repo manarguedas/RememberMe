@@ -52,7 +52,29 @@ public class Eventos extends HttpServlet {
         System.out.println("Evento: " + json);
         SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarEvento(json)); 
     }
+    
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+         GestionarEvento_Presentacion agregar = new GestionarEvento_Presentacion();
+         String json = request.getParameter("json");
+        System.out.println("Evento: " + json);
+        SingletonHttp.getInstance().EnviarResultado(response, agregar.ModificarEvento(json)); 
+    }
 
+           @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id = -1;
+        System.out.println(request.getParameter("id") + "------------");
+        String iDifunto = request.getParameter("id");
+        if (iDifunto == null) {
+            iDifunto = "0";
+        }
+        id = Integer.parseInt(iDifunto);
+        GestionarEvento_Presentacion consulta = new GestionarEvento_Presentacion();
+        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarEvento(id));
+    }
     
     @Override
     public String getServletInfo() {

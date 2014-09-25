@@ -42,13 +42,15 @@ public class ParseJson_Biografia {
 
                 JSONObject jsonObject1 = (JSONObject) i.next();
                 
+                int id =  Integer.parseInt((String)jsonObject1.get(ConstantesLlavesJson.identificador));
+            
                 String nombre = (String) jsonObject1.get(ConstantesLlavesJson.nombreBiografia);
                 String descripcion = (String) jsonObject1.get(ConstantesLlavesJson.descripcionBiografia);
                 
                 biografia.setDescripcion(descripcion);
                 biografia.setNombre(nombre);
                 biografia.setIdd(idDifunto);
-                biografia.setId(1);
+                biografia.setId(id);
             }
 
             return biografia;

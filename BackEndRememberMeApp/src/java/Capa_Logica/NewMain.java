@@ -15,6 +15,7 @@ import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import Capa_Presentacion.GestionarBiografias_Presentacion;
 import Capa_Presentacion.GestionarComentarios_Presentacion;
 import Capa_Presentacion.GestionarCoordenadas_Presentacion;
+import Capa_Presentacion.GestionarEvento_Presentacion;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +32,15 @@ public class NewMain {
     public static void main(String[] args) throws SQLException {
 //       ConsultarPerfil_Presentacion o = new ConsultarPerfil_Presentacion();
 //        System.out.println(o.ConsultarPerfil(3));
-////        String f = "{\"idd\":\"3\", \"eve\":[{\"id\":\"32\",\"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"},{\"id\":\"33\", \"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"}]}";
-        //String g = "{\"per\":{\"nom\":\"Ney\",\"ape\":\"Rojas\",\"nac\":\"14/03/2030\",\"def\":\"15/03/2030\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"1\"}}";
+        String evento = "{\"idd\":\"3\", \"eve\":[{\"id\":\"10\",\"nom\":\"Vela\",\"des\":\"No se que poner para la prueba\",\"lug\":\"Cartago(Campeon)\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"},{\"id\":\"33\", \"nom\":\"Vela\",\"des\":\"En la iglesia de no se donde se realizará la vela de juan perez\",\"lug\":\"Alajuela\",\"fec\":\"2014-23-12\",\"hor\":\"11:00\"}]}";
+        String  perfil = "{\"per\":{\"nom\":\"Jorge(Chino)\",\"ape\":\"Bolanos\",\"nac\":\"14/03/2030\",\"def\":\"15/03/2030\",\"url\":\"www.remembermeapp.com/recursos/fotos/121.png\",\"id\":\"10\"}}";
 //        ParseJson_Perfil parse = new ParseJson_Perfil();
+        
 //        Perfil p = parse.ParsePerfilModelo(g);
-        //String bio = "{\"idd\":\"9\", \"bio\":[{\"nom\":\"Joven\",\"des\":\"fue muy malcriado\"},{\"nom\":\"Adultez\",\"des\":\"fue un gran padre que siempre aconsejo a sus hijo a ser mejores\"}]}";
+        String biografia = "{\"idd\":\"1\", \"bio\":[{\"id\":\"10\",\"nom\":\"Joven\",\"des\":\"fue muy malcriado\"},{\"id\":\"10\",\"nom\":\"Adultez\",\"des\":\"fue un gran padre que siempre aconsejo a sus hijo a ser mejores\"}]}";
 //        //System.out.println(parse.ParsePerfilJson(p));
-       String h =  "{\"idd\":\"8\", \"cord\":[{\"cordx\":\"564634654\",\"cordy\":\"564635463\"}]}";
-        //String com = "{\"idd\":\"8\", \"com\":[{\"id\":\"2\",\"des\":\"Talves era una buena persona\",\"fec\":\"Nulo\",\"nom\":\"Gustavo Vargas\"}]}";
+       //String h =  "{\"idd\":\"8\", \"cord\":[{\"cordx\":\"564634654\",\"cordy\":\"564635463\"}]}";
+        String comentario = "{\"idd\":\"8\", \"com\":[{\"id\":\"2\",\"des\":\"Talves era una buena persona\",\"fec\":\"Nulo\",\"nom\":\"Gustavo Vargas\"}]}";
 //String o = "{\"bus\":[{\"id\":\"2\",\"nom\":\"Nombre\",\"url\":\"IMAGEN.png\"},{\"id\":\"1\",\"nom\":\"Nombre\",\"url\":\"IMAGEN.png\"}]}";
         //AgregarPerfil_Datos k = new AgregarPerfil_Datos();
 //        //System.out.println(k.AgregarPerfil(p));
@@ -46,10 +48,14 @@ public class NewMain {
        // ParseJson_Comentario h = new ParseJson_Comentario();
   
        // Comentario b = h.ParseComentarioModelo(com);
-        
-        GestionarCoordenadas_Presentacion i = new GestionarCoordenadas_Presentacion(); 
-        AgregarPerfil_Presentacion u = new AgregarPerfil_Presentacion();
-        System.out.println(u.EliminarPerfil(8));
+        GestionarBiografias_Presentacion gb = new GestionarBiografias_Presentacion();
+        System.out.println("gb "+gb.ModificarBiografia(biografia));
+        GestionarComentarios_Presentacion gc = new GestionarComentarios_Presentacion();
+        System.out.println("gc " + gc.ModificarComentario(comentario));
+        GestionarEvento_Presentacion ge = new GestionarEvento_Presentacion();
+        System.out.println("ge " + ge.ModificarEvento(evento));
+        AgregarPerfil_Presentacion gp = new AgregarPerfil_Presentacion();
+        System.out.println("gp "+gp.EliminarPerfil(8));
        // System.out.println(i.ConsultarCoordenadas(9));
          //List<Comentario> u = new ArrayList();
         //u.add(h.ParseComentarioModelo(com));

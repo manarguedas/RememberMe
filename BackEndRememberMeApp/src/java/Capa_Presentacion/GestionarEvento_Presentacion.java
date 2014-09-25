@@ -20,6 +20,11 @@ public class GestionarEvento_Presentacion {
         return gestionar.AgregarEvento(jsonEvento);
     }
     
+     public String ModificarEvento(String jsonEvento){
+        GestionarEventos_Logica gestionar  = new GestionarEventos_Logica();
+        return gestionar.ModificarEvento(jsonEvento);
+    }
+    
     public String EliminarEvento(int idEvento){
         GestionarEventos_Logica gestionar  = new GestionarEventos_Logica();
         return gestionar.EliminarEvento(idEvento);

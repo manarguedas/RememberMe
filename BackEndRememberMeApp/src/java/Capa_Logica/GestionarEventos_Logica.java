@@ -31,6 +31,23 @@ public class GestionarEventos_Logica {
 
     }
     
+     public String ModificarEvento(String jsonEvento) {
+        ParseJson_Evento parse = new ParseJson_Evento();
+        Evento evento = parse.ParseEventoModelo(jsonEvento);
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        GestionarEventos_Datos guardar = new GestionarEventos_Datos();
+        if (evento.getId() != 0) {
+            if (guardar.ModificarEvento(evento)) {
+                return parseConf.Exito(evento.getId());
+            } else {
+                return parseConf.Error();
+            }
+        } else {
+            return parseConf.Error();
+        }
+
+    }
+    
     public String EliminarEvento(int idEvento) {
         ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
         GestionarEventos_Datos eliminar = new GestionarEventos_Datos();
