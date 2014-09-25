@@ -7,6 +7,7 @@
 package Servlets;
 
 
+import Capa_Logica.Constantes.ConstantesComunicacion;
 import Capa_Presentacion.GestionarComentarios_Presentacion;
 import Capa_Presentacion.GestionarEvento_Presentacion;
 import java.io.IOException;
@@ -38,6 +39,8 @@ public class Comentarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
                 try {
             int mIdD;
             try {
@@ -49,7 +52,7 @@ public class Comentarios extends HttpServlet {
             SingletonHttp.getInstance().EnviarResultado(response,request, consulta.ConsultarComentario(mIdD));
         } catch (SQLException ex) {
             Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }}
     }
 
     /**
@@ -63,24 +66,30 @@ public class Comentarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
                  GestionarComentarios_Presentacion agregar = new GestionarComentarios_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
         SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarComentario(json)); 
-    }
+    }}
     
      @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
                  GestionarComentarios_Presentacion agregar = new GestionarComentarios_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
         SingletonHttp.getInstance().EnviarResultado(response,request, agregar.ModificarComentario(json)); 
-    }
+    }}
     
      @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         int id = -1;
         System.out.println(request.getParameter("id") + "------------");
         String iDifunto = request.getParameter("id");
@@ -90,7 +99,7 @@ public class Comentarios extends HttpServlet {
         id = Integer.parseInt(iDifunto);
         GestionarComentarios_Presentacion consulta = new GestionarComentarios_Presentacion();
         SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarComentario(id));
-    }
+    }}
 
     /**
      * Returns a short description of the servlet.

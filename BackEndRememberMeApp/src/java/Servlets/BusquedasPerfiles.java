@@ -6,6 +6,7 @@
 
 package Servlets;
 
+import Capa_Logica.Constantes.ConstantesComunicacion;
 import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -64,6 +65,8 @@ public class BusquedasPerfiles extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         ConsultarPerfil_Presentacion consultar =  new ConsultarPerfil_Presentacion();
         String dato = request.getParameter("dato");
         System.out.println("Evento: " + dato);
@@ -72,7 +75,7 @@ public class BusquedasPerfiles extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(Busquedas.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }}
 
     /**
      * Handles the HTTP <code>POST</code> method.

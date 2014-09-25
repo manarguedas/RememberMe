@@ -6,6 +6,7 @@
 package Servlets;
 
 import Capa_Datos.AgregarPerfil_Datos;
+import Capa_Logica.Constantes.ConstantesComunicacion;
 import Capa_Presentacion.AgregarPerfil_Presentacion;
 import Capa_Presentacion.ConsultarPerfil_Presentacion;
 import java.io.BufferedReader;
@@ -36,7 +37,8 @@ public class perfiles extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         response.setContentType("application/json");
         AddEncabezados(response);
         PrintWriter out = response.getWriter();
@@ -49,9 +51,11 @@ public class perfiles extends HttpServlet {
             out.close();
         }
     }
+    }
 
     protected void EnviarResultado(HttpServletResponse response, String mResultado)
             throws ServletException, IOException {
+        
         AddEncabezados(response);
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
@@ -104,7 +108,8 @@ public class perfiles extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //processRequest(request, response);
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         try {
             int idDifunto = -1;
             System.out.println(request.getParameter("idDifunto") + "------------");
@@ -119,7 +124,7 @@ public class perfiles extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(perfiles.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }}
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -132,6 +137,8 @@ public class perfiles extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         String json = request.getParameter("json");
         long mIdD;
             try {
@@ -141,20 +148,24 @@ public class perfiles extends HttpServlet {
             }
         AgregarPerfil_Presentacion agregar = new AgregarPerfil_Presentacion();
         SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarPerfil(json,mIdD));
-    }
+    }}
     
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         String json = request.getParameter("json");
         AgregarPerfil_Presentacion actualizar = new AgregarPerfil_Presentacion();
         SingletonHttp.getInstance().EnviarResultado(response,request, actualizar.ModificarPerfil(json));
-    }
+    }}
     
     
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         int idDifunto = -1;
         System.out.println(request.getParameter("idDifunto") + "------------");
         String iDifunto = request.getParameter("idDifunto");
@@ -164,7 +175,7 @@ public class perfiles extends HttpServlet {
         idDifunto = Integer.parseInt(iDifunto);
         AgregarPerfil_Presentacion consulta = new AgregarPerfil_Presentacion();
         SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarPerfil(idDifunto));
-    }
+    }}
   
     
     /**

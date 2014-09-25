@@ -6,6 +6,7 @@
 
 package Servlets;
 
+import Capa_Logica.Constantes.ConstantesComunicacion;
 import Capa_Presentacion.GestionarCoordenadas_Presentacion;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -64,6 +65,8 @@ public class Coordenadas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
                         try {
             int mIdD;
             try {
@@ -76,7 +79,7 @@ public class Coordenadas extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }}
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -89,17 +92,21 @@ public class Coordenadas extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         GestionarCoordenadas_Presentacion agregar = new GestionarCoordenadas_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
         SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarCoordenadas(json)); 
     
-    }
+    }}
 
     
          @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         int id = -1;
         System.out.println(request.getParameter("id") + "------------");
         String iDifunto = request.getParameter("id");
@@ -109,7 +116,7 @@ public class Coordenadas extends HttpServlet {
         id = Integer.parseInt(iDifunto);
         GestionarCoordenadas_Presentacion consulta = new GestionarCoordenadas_Presentacion();
         SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarCoordenada(id));
-    }
+    }}
     /**
      * Returns a short description of the servlet.
      *

@@ -6,6 +6,7 @@
 
 package Servlets;
 
+import Capa_Logica.Constantes.ConstantesComunicacion;
 import Capa_Presentacion.AgregarPerfil_Presentacion;
 import Capa_Presentacion.ConsultarEventos_Presentacion;
 import Capa_Presentacion.GestionarEvento_Presentacion;
@@ -29,6 +30,8 @@ public class Eventos extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         try {
             int mIdD;
             try {
@@ -41,30 +44,36 @@ public class Eventos extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(Eventos.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }}
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
          GestionarEvento_Presentacion agregar = new GestionarEvento_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
         SingletonHttp.getInstance().EnviarResultado(response,request, agregar.AgregarEvento(json)); 
-    }
+    }}
     
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
          GestionarEvento_Presentacion agregar = new GestionarEvento_Presentacion();
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
         SingletonHttp.getInstance().EnviarResultado(response,request, agregar.ModificarEvento(json)); 
-    }
+    }}
 
            @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String idFacebook = request.getParameter("token");
+        if(idFacebook.contentEquals(ConstantesComunicacion.LLavefacebook)){
         int id = -1;
         System.out.println(request.getParameter("id") + "------------");
         String iDifunto = request.getParameter("id");
@@ -74,7 +83,7 @@ public class Eventos extends HttpServlet {
         id = Integer.parseInt(iDifunto);
         GestionarEvento_Presentacion consulta = new GestionarEvento_Presentacion();
         SingletonHttp.getInstance().EnviarResultado(response,request, consulta.EliminarEvento(id));
-    }
+    }}
     
     @Override
     public String getServletInfo() {
