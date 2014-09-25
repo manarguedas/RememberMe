@@ -49,8 +49,8 @@ public class GestionarCoordenadas_Datos {
         List<Coordenada> coordenadas = new ArrayList();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            System.out.println(preparar.RecuperarCoordenadas(idDifunto));
-            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarCoordenadas(idDifunto));
+            System.out.println(preparar.RecuperarCoordenadas(idDifunto,conexion.getConexion()));
+            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarCoordenadas(idDifunto,conexion.getConexion()));
             while (resultado.next()) {
                 Coordenada coordenada = new Coordenada();
                 coordenada.setIdd(resultado.getInt("pk_perfiles"));

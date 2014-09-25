@@ -13,6 +13,9 @@ import static Capa_Logica.Constantes.ConstantesLlavesJson.Biografia;
 import Capa_Logica.Coordenada;
 import Capa_Logica.Evento;
 import Capa_Logica.Perfil;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -20,17 +23,22 @@ import Capa_Logica.Perfil;
  */
 public class PrepararQuerrys {
     
-    public String RecuperarPerfil(int idDifunto){
-        return ConstBaseDatos.RecuperarPerfil+idDifunto;
+    public PreparedStatement RecuperarPerfil(int idDifunto, Connection conexion) throws SQLException{
+        PreparedStatement pstmt = conexion.prepareStatement(ConstBaseDatos.RecuperarPerfil);
+        pstmt.setInt( 1, idDifunto);
+        return pstmt;
     }
     
-    public String RecuperarPerfiles(int idAdministrador){
-        return ConstBaseDatos.RecuperarPerfilesAdmin+idAdministrador;
+    public PreparedStatement RecuperarPerfiles(int idAdministrador, Connection conexion) throws SQLException{
+        PreparedStatement pstmt = conexion.prepareStatement(ConstBaseDatos.RecuperarPerfilesAdmin);
+        pstmt.setInt( 1, idAdministrador);
+        return pstmt;
     }
     
-    public String RecuperarPerfilesDato(String dato){
-        return ConstBaseDatos.RecuperarPerfiles+"'%"+dato+"%'"+"or apellidos LIKE "+"'%"+dato+"%'";
-    }
+    public PreparedStatement RecuperarPerfilesDato(String dato, Connection conexion) throws SQLException{
+        PreparedStatement pstmt = conexion.prepareStatement(ConstBaseDatos.RecuperarPerfiles+"'%"+dato+"%'"+"or apellidos LIKE "+"'%"+dato+"%'");
+        return pstmt;
+}
     
     public String AgregarPerfil(Perfil perfil, int idFacebook){
         return ConstBaseDatos.GuardarPerfil+"('"+perfil.getNombre()+"','"+perfil.getApellido()+"','"+perfil.getNacimieno().toString()+"','"+perfil.getDefuncion().toString()+"','"+perfil.getUrlFoto()+"',"+idFacebook+")";
@@ -52,20 +60,29 @@ public class PrepararQuerrys {
         return ConstBaseDatos.GuardarComentario+"("+comentario.getIdd()+",'"+comentario.getDescripcion()+"','"+comentario.getNombre()+"','"+comentario.getFecha().toString()+"')";
     }
     
-    public String RecuperarEventos(int idDifunto){
-        return ConstBaseDatos.RecuperarEventos+idDifunto;
+    public PreparedStatement RecuperarEventos(int idDifunto, Connection conexion) throws SQLException{
+        PreparedStatement pstmt = conexion.prepareStatement(ConstBaseDatos.RecuperarEventos);
+        pstmt.setInt( 1, idDifunto);
+        return pstmt;
     }
     
-    public String RecuperarCoordenadas(int idDifunto){
-        return ConstBaseDatos.RecuperarCoodenada+idDifunto;
+    public PreparedStatement RecuperarCoordenadas(int idDifunto, Connection conexion) throws SQLException{
+        PreparedStatement pstmt = conexion.prepareStatement(ConstBaseDatos.RecuperarCoodenada);
+        pstmt.setInt( 1, idDifunto);
+        return pstmt;
+
     }
     
-    public String RecuperarBiografias(int idDifunto){
-        return ConstBaseDatos.RecuperarBiografia+idDifunto;
+    public PreparedStatement RecuperarBiografias(int idDifunto, Connection conexion) throws SQLException{
+        PreparedStatement pstmt = conexion.prepareStatement(ConstBaseDatos.RecuperarBiografia);
+        pstmt.setInt( 1, idDifunto);
+        return pstmt;
     }
     
-    public String RecuperarComentarios(int idDifunto){
-        return ConstBaseDatos.RecuperarComentarios+idDifunto;
+    public PreparedStatement RecuperarComentarios(int idDifunto, Connection conexion) throws SQLException{
+        PreparedStatement pstmt = conexion.prepareStatement(ConstBaseDatos.RecuperarComentarios);
+        pstmt.setInt( 1, idDifunto);
+        return pstmt;
     }
     
     public String EliminarEvento(int idEvento){

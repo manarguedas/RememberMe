@@ -62,8 +62,8 @@ public class GestionarComentarios_Datos {
         List<Comentario> comentarios = new ArrayList();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            System.out.println(preparar.RecuperarComentarios(idDifunto));
-            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarComentarios(idDifunto));
+            System.out.println(preparar.RecuperarComentarios(idDifunto,conexion.getConexion()));
+            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarComentarios(idDifunto,conexion.getConexion()));
             while (resultado.next()) {
                 Comentario comentario = new Comentario();
                 comentario.setId(resultado.getInt("pk_comentarios"));

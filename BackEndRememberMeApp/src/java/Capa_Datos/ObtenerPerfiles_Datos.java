@@ -29,7 +29,7 @@ public class ObtenerPerfiles_Datos {
         Perfil perfil = new Perfil();
         if(conexion.crearConexion()){
         PrepararQuerrys preparar = new PrepararQuerrys();
-        ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarPerfil(idDifunto));
+        ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarPerfil(idDifunto,conexion.getConexion()));
         if (resultado.next()) {
             perfil.setId(resultado.getInt("pk_perfiles"));
             perfil.setNombre(resultado.getString("nombre"));
@@ -52,7 +52,7 @@ public class ObtenerPerfiles_Datos {
         List<Perfil> perfiles = new ArrayList();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarPerfiles(idAdmin));
+            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarPerfiles(idAdmin,conexion.getConexion()));
             while (resultado.next()) {
                 Perfil perfil = new Perfil();
                 perfil.setId(resultado.getInt("pk_perfiles"));
@@ -72,7 +72,7 @@ public class ObtenerPerfiles_Datos {
         List<Perfil> perfiles = new ArrayList();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarPerfilesDato(dato));
+            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarPerfilesDato(dato,conexion.getConexion()));
             while (resultado.next()) {
                 Perfil perfil = new Perfil();
                 perfil.setId(resultado.getInt("pk_perfiles"));

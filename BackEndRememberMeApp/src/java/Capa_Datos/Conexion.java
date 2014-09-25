@@ -8,6 +8,7 @@ package Capa_Datos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -73,13 +74,12 @@ public boolean ejecutarSQL(String sql)
 *@return resultado regresa los registros generados por la consulta
 *
 */
-public ResultSet ejecutarSQLSelect(String sql)
+public ResultSet ejecutarSQLSelect(PreparedStatement sql)
 {
    ResultSet resultado;
    try {
        //System.out.println("--->  "+sql);
-      Statement sentencia = conexion.createStatement();
-      resultado = sentencia.executeQuery(sql);
+      resultado = sql.executeQuery();
    } catch (SQLException ex) {
       ex.printStackTrace();
       return null;

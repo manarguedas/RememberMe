@@ -59,8 +59,8 @@ public class GestionarBiografias_Datos {
         List<Biografia> biografias = new ArrayList();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            System.out.println(preparar.RecuperarBiografias(idDifunto));
-            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarBiografias(idDifunto));
+            System.out.println(preparar.RecuperarBiografias(idDifunto,conexion.getConexion()));
+            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarBiografias(idDifunto,conexion.getConexion()));
             while (resultado.next()) {
                 Biografia biografia = new Biografia();
                 biografia.setId(resultado.getInt("pk_biografia"));

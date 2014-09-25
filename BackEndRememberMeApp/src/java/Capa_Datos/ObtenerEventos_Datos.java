@@ -23,7 +23,7 @@ public class ObtenerEventos_Datos {
         List<Evento> eventos = new ArrayList();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarEventos(idDifunto));
+            ResultSet resultado = conexion.ejecutarSQLSelect(preparar.RecuperarEventos(idDifunto,conexion.getConexion()));
             while (resultado.next()) {
                 Evento evento = new Evento();
                 evento.setId(resultado.getInt("pk_itinerario"));

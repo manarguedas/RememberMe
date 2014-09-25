@@ -48,14 +48,14 @@ public class NewMain {
        // ParseJson_Comentario h = new ParseJson_Comentario();
   
        // Comentario b = h.ParseComentarioModelo(com);
-        GestionarBiografias_Presentacion gb = new GestionarBiografias_Presentacion();
-        System.out.println("gb "+gb.AgregarBiografia(biografia));
-//        GestionarComentarios_Presentacion gc = new GestionarComentarios_Presentacion();
-//        System.out.println("gc " + gc.ModificarComentario(comentario));
+        //GestionarBiografias_Presentacion gb = new GestionarBiografias_Presentacion();
+        //System.out.println("gb "+gb.AgregarBiografia(biografia));
+        GestionarComentarios_Presentacion gc = new GestionarComentarios_Presentacion();
+        System.out.println("gc " + gc.ConsultarComentario(10));
 //        GestionarEvento_Presentacion ge = new GestionarEvento_Presentacion();
 //        System.out.println("ge " + ge.ModificarEvento(evento));
-//        AgregarPerfil_Presentacion gp = new AgregarPerfil_Presentacion();
-//        System.out.println("gp "+gp.EliminarPerfil(8));
+        //AgregarPerfil_Presentacion gp = new AgregarPerfil_Presentacion();
+       // System.out.println("gp "+gp.);
        // System.out.println(i.ConsultarCoordenadas(9));
          //List<Comentario> u = new ArrayList();
         //u.add(h.ParseComentarioModelo(com));
