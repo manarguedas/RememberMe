@@ -76,6 +76,10 @@
         <servlet-name>Coordenadas</servlet-name>
         <servlet-class>Servlets.Coordenadas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Imagenes</servlet-name>
+        <servlet-class>Servlets.Imagenes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>perfil</servlet-name>
         <url-pattern>/app</url-pattern>
@@ -107,6 +111,10 @@
     <servlet-mapping>
         <servlet-name>Coordenadas</servlet-name>
         <url-pattern>/app/coordenadas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Imagenes</servlet-name>
+        <url-pattern>/app/imagenes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

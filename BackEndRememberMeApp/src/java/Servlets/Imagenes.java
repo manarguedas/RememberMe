@@ -6,6 +6,7 @@
 package Servlets;
 
 import static com.google.common.base.CharMatcher.is;
+import com.oreilly.servlet.MultipartRequest;
 import java.awt.Image;
 import java.awt.image.RenderedImage;
 import java.io.BufferedInputStream;
@@ -130,7 +131,7 @@ public class Imagenes extends HttpServlet {
         SingletonHttp.getInstance().AddEncabezados(response);
         PrintWriter out = response.getWriter();
 
-        ///MultipartRequest m = new MultipartRequest(request, "C:\\Users\\MarcoNey\\Pictures\\");
+        MultipartRequest m = new MultipartRequest(request, "C:\\glassfish4\\glassfish\\domains\\domain1\\docroot\\imagenes");
 //        try {
 //            copiar("C:\\Users\\MarcoNey\\Pictures\\" + "image.jpg", "C:\\Users\\MarcoNey\\Pictures\\" + request.getRemoteAddr());
 //        } catch (Exception ex) {
@@ -166,7 +167,7 @@ public class Imagenes extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("Estoy en el put");
         try {
-            copiar("C:\\Users\\MarcoNey\\Pictures\\" + request.getRemoteAddr(), "C:\\Users\\MarcoNey\\Pictures\\" + request.getParameter("nombre"));
+            copiar("C:\\glassfish4\\glassfish\\domains\\domain1\\docroot\\imagenes" + request.getRemoteAddr(), "C:\\glassfish4\\glassfish\\domains\\domain1\\docroot\\imagenes" + request.getParameter("nombre"));
         } catch (Exception ex) {
             Logger.getLogger(Imagenes.class.getName()).log(Level.SEVERE, null, ex);
         }

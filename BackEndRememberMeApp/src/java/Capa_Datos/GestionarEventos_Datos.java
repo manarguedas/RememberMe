@@ -27,6 +27,18 @@ public class GestionarEventos_Datos {
         }
     }
     
+    public boolean ModificarEvento(Evento evento){
+        Conexion conexion = new Conexion();
+        if (conexion.crearConexion()) {
+            PrepararQuerrys preparar = new PrepararQuerrys();
+            String querry = preparar.ModificarEventos(evento);
+            System.out.println(querry);
+            return conexion.ejecutarSQL(querry);
+        } else {
+            return false;
+        }
+    }
+    
     public boolean EliminarEvento(int idEvento){
         Conexion conexion = new Conexion();
         if (conexion.crearConexion()) {

@@ -34,6 +34,23 @@ public class GestionarComentarios_Logica {
 
     }
    
+   public String ModificarComentario(String jsonComentario) {
+        ParseJson_Comentario parse = new ParseJson_Comentario();
+        Comentario comentario = parse.ParseComentarioModelo(jsonComentario);
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        GestionarComentarios_Datos guardar = new GestionarComentarios_Datos();
+        if (comentario.getId() != 0) {
+            if (guardar.ModificarComentario(comentario)) {
+                return parseConf.Exito(comentario.getId());
+            } else {
+                return parseConf.Error();
+            }
+        } else {
+            return parseConf.Error();
+        }
+
+    }
+   
    
     public String EliminarComentarios(int idComentarios) {
         ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();

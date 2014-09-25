@@ -48,9 +48,32 @@ public class Biografias extends HttpServlet {
          String json = request.getParameter("json");
         System.out.println("Evento: " + json);
         SingletonHttp.getInstance().EnviarResultado(response, agregar.AgregarBiografia(json)); 
+    }
+    
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+         GestionarBiografias_Presentacion agregar = new GestionarBiografias_Presentacion();
+         String json = request.getParameter("json");
+        System.out.println("Evento: " + json);
+        SingletonHttp.getInstance().EnviarResultado(response, agregar.ModificarBiografia(json)); 
     
     }
 
+     @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idDifunto = -1;
+        System.out.println(request.getParameter("id") + "------------");
+        String iDifunto = request.getParameter("id");
+        if (iDifunto == null) {
+            iDifunto = "0";
+        }
+        idDifunto = Integer.parseInt(iDifunto);
+        GestionarBiografias_Presentacion consulta = new GestionarBiografias_Presentacion();
+        SingletonHttp.getInstance().EnviarResultado(response, consulta.EliminarBiografia(idDifunto));
+    }
+    
     @Override
     public String getServletInfo() {
         return "Short description";

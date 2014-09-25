@@ -24,6 +24,11 @@ public class GestionarBiografias_Presentacion {
         return gestionar.AgregarBiografia(jsonBiografia);
     }
     
+    public String ModificarBiografia(String jsonBiografia){
+        GestionarBiografias_Logica gestionar  = new GestionarBiografias_Logica();
+        return gestionar.ModificarBiografia(jsonBiografia);
+    }
+    
     public String EliminarBiografia(int idBiografia){
         GestionarBiografias_Logica gestionar  = new GestionarBiografias_Logica();
         return gestionar.EliminarBiografia(idBiografia);

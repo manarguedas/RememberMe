@@ -88,7 +88,20 @@ public class PrepararQuerrys {
         return ConstBaseDatos.EliminarPerfiles+idPerfil;
     }
     
-    public String modificarPefil(Perfil perfil){
+    public String ModificarPefil(Perfil perfil){
         return "UPDATE PERFILES SET nombre='"+perfil.nombre+"', apellidos='"+perfil.apellido+"', fecha_nacimiento='"+perfil.getNacimieno().toString()+"', fecha_defuncion='"+perfil.getDefuncion().toString()+"' WHERE pk_perfiles = " + perfil.getId();
     }
+    
+    public String ModificarBiografia(Biografia biografia){
+        return "UPDATE BIOGRAFIAS SET descripcion='"+biografia.getDescripcion()+"', titulo='"+biografia.getNombre()+"' WHERE pk_biografia = " + biografia.getId();
+    }
+    
+     public String ModificarEventos(Evento evento){
+        return "UPDATE ITINERARIO SET fecha='"+evento.getFecha().toString()+"', hora='"+evento.getHora()+"', nombre_evento='"+evento.getNombre()+"', descripcion='"+evento.getDescripcion()+"', lugar='"+evento.getLugar()+"' WHERE pk_itinerario = " + evento.getId();
+    }
+     
+     public String ModificarComentario(Comentario comentario){
+        return "UPDATE COMENTARIOS SET  descripcion='"+comentario.getDescripcion()+"' WHERE pk_comentarios = " + comentario.getId();
+    }
+    
 }

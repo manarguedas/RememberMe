@@ -16,13 +16,31 @@ import java.sql.SQLException;
  */
 public class GestionarBiografias_Logica {
     
-       public String AgregarBiografia(String jsonBiografia) {
+    
+    public String AgregarBiografia(String jsonBiografia) {
         ParseJson_Biografia parse = new ParseJson_Biografia();
         Biografia biografia = parse.ParseBiografiaModelo(jsonBiografia);
         ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
         GestionarBiografias_Datos guardar = new GestionarBiografias_Datos();
         if (biografia.getId() != 0) {
             if (guardar.AgregarBiografia(biografia)) {
+                return parseConf.Exito(biografia.getId());
+            } else {
+                return parseConf.Error();
+            }
+        } else {
+            return parseConf.Error();
+        }
+
+    }
+    
+       public String ModificarBiografia(String jsonBiografia) {
+        ParseJson_Biografia parse = new ParseJson_Biografia();
+        Biografia biografia = parse.ParseBiografiaModelo(jsonBiografia);
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        GestionarBiografias_Datos guardar = new GestionarBiografias_Datos();
+        if (biografia.getId() != 0) {
+            if (guardar.ModificarBiografia(biografia)) {
                 return parseConf.Exito(biografia.getId());
             } else {
                 return parseConf.Error();

@@ -42,6 +42,8 @@ public class ParseJson_Comentario {
 
                 JSONObject jsonObject1 = (JSONObject) i.next();
                 
+                int id =  Integer.parseInt((String)jsonObject1.get(ConstantesLlavesJson.identificador));
+            
                 String nombre = (String) jsonObject1.get(ConstantesLlavesJson.nombreComentario);
                 String descripcion = (String) jsonObject1.get(ConstantesLlavesJson.descripcionComentario);
                 
@@ -49,7 +51,7 @@ public class ParseJson_Comentario {
                 comentario.setNombre(nombre);
                 comentario.setIdd(idDifunto);
                 comentario.setFecha(new Date());
-                comentario.setId(1);
+                comentario.setId(id);
             }
 
             return comentario;
