@@ -38,13 +38,13 @@ public class ParseJson_Evento {
 
             Iterator i = lang.iterator();
 
-            while (i.hasNext()) {
 
                 JSONObject jsonObject1 = (JSONObject) i.next();
+
                 SimpleDateFormat ft = new SimpleDateFormat(ConstantesLlavesJson.formatoFecha);
 
                 String input1 = (String) jsonObject1.get(ConstantesLlavesJson.fechaEvento);
-
+                //System.out.println("++++++++> "+input1);
                 Date fecha = ft.parse(input1);
                 
                 int idEvento = Integer.parseInt((String) jsonObject1.get(ConstantesLlavesJson.idEvento));
@@ -60,7 +60,6 @@ public class ParseJson_Evento {
                 evento.setIdDifunto(idDifunto);
                 evento.setLugar(lugar);
                 evento.setNombre(nombre);
-            }
 
             return evento;
 
