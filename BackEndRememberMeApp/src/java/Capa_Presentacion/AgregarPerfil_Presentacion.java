@@ -21,4 +21,14 @@ public class AgregarPerfil_Presentacion {
         AgregarPerfil_Logica agregar = new AgregarPerfil_Logica();
         return agregar.AgregarPerfil(jsonPerfil, idFacebook);
     }
+    
+    public String ModificarPerfil(String jsonPerfil){
+        AgregarPerfil_Logica agregar = new AgregarPerfil_Logica();
+        return agregar.modificarPerfil(jsonPerfil);
+    }
+    
+    public String EliminarPerfil(int idPerfil){
+        AgregarPerfil_Logica agregar = new AgregarPerfil_Logica();
+        return agregar.EliminarPerfil(idPerfil);
+    }
 }

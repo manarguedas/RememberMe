@@ -13,7 +13,7 @@ package Capa_Datos.Constantes;
 public class ConstBaseDatos {
     
     static public String RecuperarBiografia = "select pk_biografia, fk_pefiles,descripcion, titulo from BIOGRAFIAS where fk_pefiles = ";
-    static public String RecuperarPerfil = "select pk_perfiles, nombre, apellidos, fecha_nacimiento, fecha_defuncion, dir_foto, id_coordenadas, idAdministrador from PERFILES where pk_perfiles = ";
+    static public String RecuperarPerfil = "select pk_perfiles, nombre, apellidos, fecha_nacimiento, fecha_defuncion, dir_foto, idAdministrador from PERFILES where pk_perfiles = ";
     static public String RecuperarPerfilesAdmin = "select pk_perfiles, nombre, apellidos, dir_foto from PERFILES where idAdministrador = ";
     static public String RecuperarPerfiles = "select pk_perfiles, nombre, apellidos, dir_foto from PERFILES where nombre LIKE ";
     static public String GuardarPerfil = "INSERT INTO PERFILES  (nombre, apellidos, fecha_nacimiento, fecha_defuncion, dir_foto, fk_administradores) VALUES";
@@ -28,4 +28,5 @@ public class ConstBaseDatos {
     static public String EliminarBiografia = "DELETE FROM BIOGRAFIAS WHERE pk_biografia = ";
     static public String EliminarCoordenada = "DELETE FROM COORDENADAS WHERE pk_perfiles = ";
     static public String EliminarComentario = "DELETE FROM COMENTARIOS WHERE pk_comentarios = ";
+    static public String EliminarPerfiles = "DELETE FROM PERFILES WHERE pk_perfiles = ";
 }

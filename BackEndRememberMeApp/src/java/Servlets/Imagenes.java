@@ -6,7 +6,6 @@
 package Servlets;
 
 import static com.google.common.base.CharMatcher.is;
-import com.oreilly.servlet.MultipartRequest;
 import java.awt.Image;
 import java.awt.image.RenderedImage;
 import java.io.BufferedInputStream;
@@ -131,7 +130,7 @@ public class Imagenes extends HttpServlet {
         SingletonHttp.getInstance().AddEncabezados(response);
         PrintWriter out = response.getWriter();
 
-        MultipartRequest m = new MultipartRequest(request, "C:\\Users\\MarcoNey\\Pictures\\");
+        ///MultipartRequest m = new MultipartRequest(request, "C:\\Users\\MarcoNey\\Pictures\\");
 //        try {
 //            copiar("C:\\Users\\MarcoNey\\Pictures\\" + "image.jpg", "C:\\Users\\MarcoNey\\Pictures\\" + request.getRemoteAddr());
 //        } catch (Exception ex) {

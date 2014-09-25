@@ -83,4 +83,12 @@ public class PrepararQuerrys {
     public String EliminarComentarios(int idComentarios){
         return ConstBaseDatos.EliminarComentario+idComentarios;
     }
+    
+    public String EliminarPefil(int idPerfil){
+        return ConstBaseDatos.EliminarPerfiles+idPerfil;
+    }
+    
+    public String modificarPefil(Perfil perfil){
+        return "UPDATE PERFILES SET nombre='"+perfil.nombre+"', apellidos='"+perfil.apellido+"', fecha_nacimiento='"+perfil.getNacimieno().toString()+"', fecha_defuncion='"+perfil.getDefuncion().toString()+"' WHERE pk_perfiles = " + perfil.getId();
+    }
 }

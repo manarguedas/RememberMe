@@ -14,7 +14,6 @@ var CascaronComentario = '<div class="panel panel-info" id="{id}"> \
                                     <small>{des}</small>\
                                 </div>\
                             </div>';
-
 function Comentario() {
     this.id = "";
     this.nom = "";
@@ -25,67 +24,45 @@ function Comentario() {
 function AdministradorComentarios() {
     this.idd = "";
     this.com = new Array();
-
-
     this.CrearComentario = function() {
         this.idd = "";
         this.com = new Array();
     };
-
     this.AgregarComentario = function(pNombre, pDescripcion) {
         var mCom = new Comentario();
         mCom.id = 1;
         mCom.des = pDescripcion;
         mCom.nom = pNombre;
         mCom.fec = new Date();
-        mCom.fec = mCom.fec.getDate() + "/" + (mCom.fec.getMonth()+1) + "/" + mCom.fec.getFullYear();
+        mCom.fec = mCom.fec.getDate() + "/" + (mCom.fec.getMonth() + 1) + "/" + mCom.fec.getFullYear();
         alert("la fecha es " + mCom.fec);
         this.com[this.com.length] = mCom;
     };
-
     this.EnviarComentarioCrear = function(pIdDifunto) {
         this.idd = pIdDifunto;
-        $.ajax({
-            type: kConstantes.post, // it's easier to read GET request parameters
-            url: kConstantes.Servidor + kConstantes.DirComentarios,
-            dataType: 'JSON',
-            data: {
-                json: JSON.stringify(this)
-            },
-            success: function(data) {
-                alert("Comentario creado.");
-                document.location = "misperfiles.html";
-            },
-            error: function(data) {
-                alert('No se pudo conectar con el servidor.');
-            }
-        });
+        AjaxSolicitud(kConstantes.post, kConstantes.Servidor + kConstantes.DirComentarios, JSON.stringify(this),
+                function() {
+                    document.location = "misperfiles.html";
+                });
     };
 
     this.CargarComentarios = function CargarComentarios() {
         var pIdDifunto = sessionStorage.getItem("idDifunto");
-        $.ajax({
-            type: kConstantes.get,
-            url: kConstantes.Servidor + kConstantes.DirComentarios + "?idDifunto=" + pIdDifunto,
-            dataType: 'JSON',
-            data: {
-                json: ""
-            },
-            success: function(data) {
-                // AdminBio.CargarObjeto(data);
-                CargarComentariosHtml(data);
-            },
-            error: function(data) {
-                alert('No se pudo conectar con el servidor.');
-            }
-        });
+        AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirComentarios + "?idDifunto=" + pIdDifunto, "",
+                CargarComentariosHtml);
     };
 
+    this.EliminarComentario = function (pIdComentario) {
+        var pIdDifunto = sessionStorage.getItem("idDifunto");
+        AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirComentarios + "?idComentario=" + pIdComentario, "",
+                function (){
+                    alert("comentario eliminado");
+                    document.reload();
+                });
+    };
 }
 
 var AdminCom = new AdministradorComentarios();
-
-
 function CargarComentariosHtml(pOb) {
     if (pOb === null && pOb.com === null) {
         console.log("No hay comentarios");
@@ -108,7 +85,6 @@ function CargarComentariosHtml(pOb) {
 function AgregarComentario() {
     var Nombre = sessionStorage.getItem("nomFace");
     var Descripcion = document.getElementById("desCom").value;
-
     if (Descripcion === "") {
         alert("Aún hay campos vacíos.");
         return;
@@ -118,3 +94,5 @@ function AgregarComentario() {
     AdminCom.AgregarComentario(Nombre, Descripcion);
     AdminCom.EnviarComentarioCrear(sessionStorage.getItem("idDifunto"));
 }
+
+
