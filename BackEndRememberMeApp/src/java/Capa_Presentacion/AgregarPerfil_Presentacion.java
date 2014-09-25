@@ -24,7 +24,7 @@ public class AgregarPerfil_Presentacion {
     
     public String ModificarPerfil(String jsonPerfil){
         AgregarPerfil_Logica agregar = new AgregarPerfil_Logica();
-        return agregar.AgregarPerfil(jsonPerfil, idFacebook);
+        return agregar.modificarPerfil(jsonPerfil);
     }
     
     public String EliminarPerfil(int idPerfil){

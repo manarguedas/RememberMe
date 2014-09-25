@@ -34,7 +34,7 @@ public class AgregarPerfil_Datos {
         Conexion conexion = new Conexion();
         if (conexion.crearConexion()) {
             PrepararQuerrys preparar = new PrepararQuerrys();
-            String querry = preparar.AgregarPerfil(perfil);
+            String querry = preparar.modificarPefil(perfil);
             System.out.println(querry);
             return conexion.ejecutarSQL(querry);
         } else {
