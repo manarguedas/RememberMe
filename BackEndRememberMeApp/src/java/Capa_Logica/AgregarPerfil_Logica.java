@@ -45,13 +45,13 @@ public class AgregarPerfil_Logica {
         }
     }
     
-    public String AgregarPerfil(String jsonDatos) {
+    public String modificarPerfil(String jsonDatos) {
         ParseJson_Perfil parse = new ParseJson_Perfil();
         ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
         Perfil perfil = parse.ParsePerfilModelo(jsonDatos);
-        if (perfil.getId() != 0 && idFacebook!=0) {
+        if (perfil.getId() != 0) {
             AgregarPerfil_Datos guardar = new AgregarPerfil_Datos();
-            if (guardar.AgregarPerfil(perfil,idFacebook)) {
+            if (guardar.ModificarPerfil(perfil)) {
                 return parseConf.Exito(perfil.getId());
             } else {
                 return parseConf.Error();

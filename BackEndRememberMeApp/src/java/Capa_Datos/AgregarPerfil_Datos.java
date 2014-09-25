@@ -30,6 +30,18 @@ public class AgregarPerfil_Datos {
         }
     }
     
+     public boolean ModificarPerfil(Perfil perfil) {
+        Conexion conexion = new Conexion();
+        if (conexion.crearConexion()) {
+            PrepararQuerrys preparar = new PrepararQuerrys();
+            String querry = preparar.AgregarPerfil(perfil);
+            System.out.println(querry);
+            return conexion.ejecutarSQL(querry);
+        } else {
+            return false;
+        }
+    }
+    
     
     // Funcion en prueba
     public boolean EliminarPerfil(int idPerfil) {
