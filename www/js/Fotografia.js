@@ -2,6 +2,7 @@
 var pictureSource;
 var destinationType;
 document.addEventListener("deviceready", onDeviceReady, false);
+
 function onDeviceReady()
 {
     pictureSource = navigator.camera.PictureSourceType;
@@ -99,8 +100,8 @@ function uploadFromGallery() {
 
     // Retrieve image file location from specified source
     navigator.camera.getPicture(uploadPhoto,
-                                function(message) { alert('get picture failed'); },
-                                { quality: 100, 
+                                function(message) {},
+                                { quality: 30, 
                                 destinationType: navigator.camera.DestinationType.FILE_URI,
                                 sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
                                 );
@@ -110,25 +111,28 @@ function uploadFromGallery() {
 function uploadPhoto(imageURI) {
     var options = new FileUploadOptions();
     //options.fileKey="imagen";
-    options.fileName= "hola.png";///imageURI.substr(imageURI.lastIndexOf('/')+1) + ".png";
+    options.fileName= sessionStorage.getItem("idDifunto") + ".png";///imageURI.substr(imageURI.lastIndexOf('/')+1) + ".png";
     //options.mimeType="image/jpeg";
     
     var params = {"image":"hola.jps"};
     options.params = params;
-    alert("iniciando la transferencia");
+    alert("Iniciando la transferencia.");
     var ft = new FileTransfer();
-    ft.upload(imageURI, "http://192.168.0.130:8080/BackEndRememberMeApp/app/imagenes", win, fail, options);
+    //ft.upload(imageURI, "http://192.168.0.130:8080/BackEndRememberMeApp/app/imagenes", win, fail, options);
+    ft.upload(imageURI, kConstantes.Servidor + kConstantes.DirImagenes, win, fail, options);
 }
 
 function win(r) {
-    alert("Realizado");
+    alert("Imagen subida");
     console.log("Code = " + r.responseCode);
     console.log("Response = " + r.response);
     console.log("Sent = " + r.bytesSent);
+    document.location.reload();
 }
 
 function fail(error) {
-    alert("An error has occurred: Code = " + error.code);
+    alert("No se pudo subir la fotografía.");
+    //alert("An error has occurred: Code = " + error.code);
     console.log("upload error source " + error.source);
     console.log("upload error target " + error.target);
 }
@@ -136,7 +140,7 @@ function fail(error) {
 
 function CopiarImagen(){
      $.ajax({
-        url: "http://192.168.5.103:8080/BackEndRememberMeApp/app/imagenes",
+        url: "http://localhost:8080/BackEndRememberMeApp/app/imagenes", //"http://192.168.5.103:8080/BackEndRememberMeApp/app/imagenes",
         type: "PUT",
         contentType: "application/json",
         data: {"nombre": "12121"},

@@ -13,36 +13,26 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
-        <script type="text/javascript" src="js/LocationGoogleMaps.js"></script>
+        <script type="text/javascript" src="js/Includes.js"></script>
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
-        
+
     </head>
-    <body onload="initialize2()">
+    <body onload="CargarPosicion()">
         <script type="text/javascript">
-            ConfigurarBarra(2);
-            ConfigurarBarraActividades(1);
+            ConfigurarBarra(2, 3);
+            ConfigurarBarraActividades(2);
         </script>
 
         <!-- Datos de un perfil seleccionado -->
         <div class="container">
-            
-            <!-- Ubicación del mapa -->
+
+            <!-- UbicaciÃ³n del mapa -->
             <div class="row"><div align="center">
-                <div class="col-xs-12 col-sm-12" >
-                    <div id="mapa" style="width:80%; height: 350px"></div>
-                </div>
-            </div></div>
-            
-            <div class="row">
-                <div align="center" class="col-xs-6 col-sm-6">
-                        <button class="btn btn-primary btn-sm">Establecer visita</button>
+                    <div class="col-xs-12 col-sm-12" >
+                        <div id="mapa" style="width:80%; height: 350px"></div>
                     </div>
+                </div>
             </div>
-            
         </div>
     </body>
 </html>

@@ -19,7 +19,7 @@ and open the template in the editor.
 
 
         <script type="text/javascript">
-            ConfigurarBarra(3);
+            ConfigurarBarra(3,1);
         </script>
         <br><br><br>
         <div class="Width100">
@@ -32,8 +32,8 @@ and open the template in the editor.
                         <div class="panel-body">
                             <div class="Width100" >
                                 <div class="input-group">
-                                    <input type="text" class="InputBuscar form-control" placeholder="Ingresar nombre">
-                                    <span onclick="alert('buscar');" class="input-group-addon glyphicon glyphicon-search">Buscar</span>
+                                    <input type="text" id="nombre" class="InputBuscar form-control" placeholder="Ingresar nombre">
+                                    <span onclick="CargarBusquedaNombre(document.getElementById('nombre').value);" class="input-group-addon glyphicon glyphicon-search">Buscar</span>
                                 </div>
                             </div>
                         </div>
@@ -42,18 +42,15 @@ and open the template in the editor.
             </div>
 
             <div class="ContenedorActividades container-fluid ">
-                <div class="ContenedorActividades ">
-                    <div class="panel panel-warning ">
+                <div class="ContenedorActividades">
+                    <div class="panel panel-warning">
                         <div class="panel-heading">
                             <h5 class="panel-title">Resultados de la búsqueda</h5>
                         </div>
                         <div class="panel-body">
                             <div id="ListaPerfiles" class="list-group">
-                                <p>No se ha efectuado ninguna busqueda</p>
+                                <p>No se ha realizado ninguna búsqueda</p>
                             </div>
-                            <script>
-                                CargarBusqueda(1);
-                            </script>
                         </div>
                     </div>
                 </div>

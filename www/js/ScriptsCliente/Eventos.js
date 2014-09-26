@@ -1,5 +1,7 @@
 
-var FormatoEvento = '<div class="panel panel-primary" onmousedown="ClickDown(GuardarDato,{6});" onmouseup="ClickUp();" > \
+//onmousedown="ClickDown(GuardarDato,{6});" onmouseup="ClickUp();"
+
+var FormatoEvento = '<div id="a{6}" class="panel panel-primary"> \
                     <div class="panel-heading"> \
                         <h5 class="panel-title">{1}</h5>\
                         <h6>Lugar: {2}, Fecha: {3}, Hora: {4} </h6>\
@@ -8,7 +10,6 @@ var FormatoEvento = '<div class="panel panel-primary" onmousedown="ClickDown(Gua
                         <small>{5}</small>\
                     </div>\
                 </div>';
-
 
 function Evento() {
     this.nom = "";
@@ -45,7 +46,7 @@ function AdministradorEvento() {
 
     this.EnviarEventoCrear = function EnviarEventoCrear(pIdDifunto) {
         this.idd = pIdDifunto;
-        AjaxSolicitud(kConstantes.post, kConstantes.Servidor + kConstantes.DirEventos, JSON.stringify(this),
+        AjaxSolicitud(kConstantes.post, kConstantes.Servidor + kConstantes.DirEventos + "?json=" + JSON.stringify(this), JSON.stringify(this),
                 function(data) {
                     alert("Eventos creados.");
                     document.location = "Actividades.html";
@@ -64,13 +65,13 @@ function AdministradorEvento() {
     this.RecuperarEvento = function(pEvento) {
         AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirEventos + "?idDifunto=" + sessionStorage.getItem("idDifunto"), "",
                 function(data) {
-                    alert(JSON.stringify(data));
                     CargarEventoHtml(data.eve[0]);
                 });
     };
 
     this.GuardarEvento = function(pIdEvento) {
-        AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirEventos + "?idEvento=" + pIdEvento, JSON.stringify(this),
+        this.idd = "0";
+        AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirEventos+"?json=" + JSON.stringify(this), JSON.stringify(this),
                 function(data) {
                     alert("evento modificado");
                     document.location = "Actividades.html";
@@ -106,6 +107,11 @@ function CargarTodosEventos(pOb) {
         mResultadoFinal += mResultado;
     }
     $("#eveContenedor").html("<br>" + mResultadoFinal);
+    if (sessionStorage.getItem("TipoUsuario") !== "0") {
+        for (var j = 0; j < pOb.eve.length; j++) {
+            AgregarHold("a" + pOb.eve[j].id);
+        }
+    }
 }
 
 function CargarEventoHtml(pEvento) {
@@ -153,8 +159,15 @@ function AgregarDatosAdmin() {
     var fecha = document.getElementById("fecEvento").value;
     var hora = document.getElementById("horEvento").value;
     var descripcion = document.getElementById("desEvento").value;
-    var id = sessionStorage.getItem("idEvento");
+    var id = sessionStorage.getItem("idEvento") + "";
 
+    if (id === "null") {
+        id = "-1";
+    }
+    else{
+        id = id.substring(1, id.length)+"";
+    }
+    
     if (nombre === "" || lugar === "" || fecha === "" || hora === "" || descripcion === "") {
         alert("Aún hay espacios en blanco.");
         return false;
@@ -184,9 +197,10 @@ function ModificarEvento(pEvento) {
 function EliminarEvento(pEvento) {
     if (!confirm("¿Está seguro que desea eliminar esta actividad?"))
         return;
-    AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirEventos + "?idEvento=" + pEvento, "",
+    AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirEventos + "?id=" + pEvento.substring(1, pEvento.length), "",
             function() {
-                alert("Objeto Eliminado");
+                alert("Evento eliminado");
+                document.location = "Actividades.html";
             });
 }
 

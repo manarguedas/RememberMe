@@ -16,7 +16,8 @@ function Perfil() {
 function AdministrarPerfil() {
 
     this.per = "";
-
+    
+    
     this.CrearPerfil = function CrearPerfil() {
         this.per = new Perfil();
     };
@@ -32,7 +33,7 @@ function AdministrarPerfil() {
     this.RecuperarPerfil = function RecuperarPerfil(pIdDifunto) {
         pIdDifunto = sessionStorage.getItem("idDifunto");
         AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirPerfiles + "?idDifunto=" + pIdDifunto, "",
-                function() {
+                function(data) {
                     var mJson = JSON.stringify(data);
                     AdmiPer.CargarJSON(mJson);
                     CargarPerfilHtml(data);
@@ -40,11 +41,10 @@ function AdministrarPerfil() {
     };
 
     this.EnviarPerfilCrear = function EnviarPerfilCrear() {
-        alert(JSON.stringify(this));
         AjaxSolicitud(kConstantes.post, kConstantes.Servidor + kConstantes.DirPerfiles, JSON.stringify(this),
                 function() {
                     alert("Perfil creado");
-                    document.href = "perfil.html";
+                    document.location = "perfil.html";
                 });
     };
 
@@ -54,9 +54,10 @@ function AdministrarPerfil() {
     };
 
     this.GuardarPerfil = function() {
-        AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirPerfiles + "?idDifunto=" + sessionStorage.getItem("idDifunto"), "",
+        AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirPerfiles + "?json=" + JSON.stringify(this), JSON.stringify(this),
                 function(data) {
                     alert("Perfil Guardado");
+                    document.location = "misperfiles.html";
                 });
     };
 
@@ -118,7 +119,6 @@ function MostrarOpciones() {
         EstiloOpciones.visibility = "hidden";
     else
         EstiloOpciones.visibility = "visible";
-
 }
 
 
@@ -137,8 +137,10 @@ function CargarPerfilHtml(pOb) {
     document.getElementById("nacDifunto").innerHTML = ("<b>Fecha de nacimiento: </b>" + pOb.per.nac);
     document.getElementById("defDifunto").innerHTML = ("<b>Fecha de defunción: </b>" + pOb.per.def);
     sessionStorage.setItem('idDifunto', pOb.per.id);
-    if (pOb.per.url !== "")
-        document.getElementById("fotoDifunto").src = "./images/FondoNegro.png";  //pOb.per.url;
+    
+    if (true) {
+        document.getElementById("fotoDifunto").src = kConstantes.DirImagenesAlmacen + pOb.per.id + ".png";///"./images/FondoNegro.png";  //pOb.per.url;
+    }
 }
 
 function CargarUnPerfilHtml(pPerfil) {
@@ -147,7 +149,7 @@ function CargarUnPerfilHtml(pPerfil) {
     document.getElementById("nac").value = pPerfil.per.nac;
     document.getElementById("def").value = pPerfil.per.def;
 
-    document.getElementById("Agregar").onclick = GuardarDifunto();
+    document.getElementById("Agregar").onclick = GuardarDifunto;
     document.getElementById("Agregar").innerHTML = "Guardar";
 }
 
@@ -184,6 +186,11 @@ function AgregarPerfilAdmin() {
     var Apellido = document.getElementById("ape").value;
     var Nacimiento = document.getElementById("nac").value;
     var Defuncion = document.getElementById("def").value;
+    var id = sessionStorage.getItem("idDifunto") + "";
+
+    if (id === "null") {
+        id = "-1";
+    }
 
     if (Nombre === "" || Apellido === "" || Nacimiento === "" || Defuncion === "") {
         alert("Aún hay campos vacíos.");
@@ -196,7 +203,7 @@ function AgregarPerfilAdmin() {
     AdmiPer.SetNacimiento(Nacimiento);
     AdmiPer.SetNombre(Nombre);
     AdmiPer.SetUrl("");
-    AdmiPer.per.id = sessionStorage.getItem("idDifunto");
+    AdmiPer.per.id = id;
 
     return true;
 }
@@ -221,5 +228,6 @@ function EliminarPerfil() {
     AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirPerfiles + "?idDifunto=" + sessionStorage.getItem("idDifunto"), "",
             function() {
                 alert("Perfil Eliminado");
+                document.location = "perfil.html";
             });
 }

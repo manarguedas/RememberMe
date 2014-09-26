@@ -18,19 +18,10 @@ and open the template in the editor.
     </head>
     <body>
         <script type="text/javascript">
-            ConfigurarBarra(2);
+            ConfigurarBarra(2, 1);
             ConfigurarBarraActividades(1);
         </script>
         <br><br><br>
-        <div>
-            <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);"> subir foto</button>
-            <form action="http://localhost:8080/BackEndRememberMeApp/app/imagenes" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="file"/>
-                <input type="submit" value="upload" />
-            </form>  
-        </div>
-
-
 
         <div class="ContenedorActividades container-fluid ">
             <div class="ContenedorActividades ">
@@ -43,8 +34,7 @@ and open the template in the editor.
                             <p>No hay perfiles.</p>
                         </div>
                         <script>
-                            sessionStorage.setItem("nomFace", "Ney Rojas Jiménez");
-                            CargarBusqueda(1);
+                            CargarBusqueda(sessionStorage.getItem("idUser"));
                         </script>
                     </div>
                 </div>

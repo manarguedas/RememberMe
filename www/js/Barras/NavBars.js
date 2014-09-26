@@ -5,21 +5,21 @@
  */
 
 var CuerpoBarraInicio = '<nav class="navbar navbar-inverse BarraPrincipal" role="navigation">' +
-        '<div class="navbar-header row BarraPrincipal" align="center">' +
         '<div class="ContenedorBotones">' +
+        '<div class="nav navbar-header" align="center">' +
         '<ul id="barraEstado" class="nav navbar-nav" >' +
         '<li class="{1} col-xs-2 col-md-2 BotonAtras">' +
-        '<a id="btnAtras" href="registro.html">' +
-        '<span class="glyphicon glyphicon-chevron-left"></span>' +
+        '<a id="btnAtras" onclick="{funcion}" >' +
+        '<span class="{clase}"></span>' +
         '</a>' +
         '</li>' +
-        '<li class="{2} col-xs-5 col-md-5 AnchoBoton">' +
-        '<a href="perfil.html">' +
+        '<li class="{2} col-xs-5 col-md-4 AnchoBoton">' +
+        '<a href="perfil.html" onclick="onClickMisPerfiles();">' +
         '<span class="glyphicon glyphicon-user"></span>' +
         '</a>' +
         '</li>' +
-        '<li class="{3} col-xs-5 col-md-5 AnchoBoton">' +
-        '<a href="buscar.html">' +
+        '<li class="{3} col-xs-5 col-md-4 AnchoBoton">' +
+        '<a href="buscar.html" onclick="onClickBusquedas();">' +
         '<span class="glyphicon glyphicon-search"></span>' +
         '</a>' +
         '</li>' +
@@ -50,8 +50,11 @@ var CuerpoBarraActividades = '<nav class="navbar-default BarraActividades" > \
         </nav>\n\
 <br><br><br><br><br><br>';
 
-function ConfigurarBarra(pIndice) {
+var AccionAtras;
+
+function ConfigurarBarra(pIndice, pAtras) {
     var mResultado = CuerpoBarraInicio.replace("{" + pIndice + "}", "active");
+    mResultado = ConfigurarAtras(pAtras, mResultado);
     //if (pIndice === 3)
     //    mResultado = mResultado.replace("{5}", "none");
     var iframe = document.createElement("div");
@@ -60,8 +63,51 @@ function ConfigurarBarra(pIndice) {
     return mResultado;
 }
 
+function HacerBack() {
+    eval(AccionAtras);
+}
+
+function ConfigurarAtras(pIndice, pString) {
+    var mResultado = pString;
+    var mFuncion = "document.location='perfil.html'";
+    var mClase = "glyphicon glyphicon-chevron-left";
+    switch (pIndice) {
+        case 1:
+            mFuncion = "navigator.app.exitApp();";
+            mClase = "glyphicon glyphicon-off";
+            break;
+        case 2:
+            mFuncion = "document.location='perfil.html'";
+            break;
+        case 3:
+            mFuncion = "document.location='misperfiles.html'";
+            break;
+        case 4:
+            mFuncion = "document.location='Actividades.html'";
+            break;
+        case 5:
+            mFuncion = "document.location='Galeria.html'";
+            break;
+        default:
+            break;
+    }
+    if (sessionStorage.getItem("TipoUsuario") === "0" && pIndice!==1) {
+        mFuncion = "document.location='buscar.html'";
+    }
+    AccionAtras = mFuncion;
+    document.addEventListener("backbutton", HacerBack, false);
+
+    mResultado = mResultado.replace("{funcion}", mFuncion);
+    mResultado = mResultado.replace("{clase}", mClase);
+
+    return mResultado;
+}
+
 function ConfigurarBarraActividades(pIndice) {
     var mResultado = CuerpoBarraActividades.replace("{" + (pIndice - 1) + "}", "active");
+    if (sessionStorage.getItem("TipoUsuario") === "0") {
+        pIndice = 0;
+    }
     switch (pIndice) {
         case 1:
             ConfigurarAgregarPerfil();
@@ -74,12 +120,13 @@ function ConfigurarBarraActividades(pIndice) {
             ConfigurarAgregarPerfil();
             ConfigurarAgregar();
             break;
+        default:
+            break;
     }
-    
+
     var iframe = document.createElement("div");
     iframe.innerHTML = mResultado;
     document.body.appendChild(iframe);
-    document.getElementById("btnAtras").href = "perfil.html";
     return mResultado;
 }
 
@@ -94,7 +141,6 @@ function ConfigurarAgregarPerfil() {
 function ConfigurarAgregar() {
     document.getElementById("AgregarHref").onclick = CrearEvento;
     document.getElementById("AgregarHref").href = "AgregarActividad.html";
-    
 }
 
 function ConfigurarOpecionesPerfil() {
@@ -103,11 +149,13 @@ function ConfigurarOpecionesPerfil() {
             '<span class="glyphicon glyphicon-align-justify"></span>\
                                 </a>\
                             </li>';
-
 }
-//<li class="dropdown-open col-xs-3 BotonAgregarPerfil ">\
-//              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>\
-//              <ul class="dropdown-menu" role="menu">\
-//                <li><a href="#">Action</a></li>\
-//              </ul>\
-//            </li>';
+
+function onClickMisPerfiles() {
+    sessionStorage.setItem("TipoUsuario", "1");
+}
+
+function onClickBusquedas() {
+    sessionStorage.setItem("TipoUsuario", "0");
+}
+

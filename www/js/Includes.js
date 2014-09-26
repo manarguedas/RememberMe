@@ -6,6 +6,7 @@
 
 document.write('<script type="text/javascript" src="cordova.js"></script>');
 document.write('<script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>');
+document.write('<script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>');
 document.write('<script type="text/javascript" src="js/main.js"></script>');
 document.write('<script type="text/javascript" src="js/Barras/NavBars.js"></script>');
 document.write('<script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>');

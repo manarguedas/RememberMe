@@ -18,16 +18,18 @@ and open the template in the editor.
     </head>
     <body>
         <script type="text/javascript">
-            ConfigurarBarra(2);
+            ConfigurarBarra(2,2);
             ConfigurarBarraActividades(1);
             if (sessionStorage.getItem("mod") === "1") {
                 ConfigurarBarraActividades(2);
                 CargarUnPerfil();
-
+            }
+            else{
+                document.write("<br><br><br>");
             }
 
         </script>
-
+        
         <div class="container">
             <form class="form-horizontal" role="form">
                 <div class="form-group">
@@ -42,27 +44,23 @@ and open the template in the editor.
                         <input type="text" class="form-control" id="ape">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Fecha de nacimiento</label>
-                    <div class="col-sm-10">
-                        <div class="input-append date" id="nacimiento" data-date-format="dd/mm/yyyy">
-                            <input id="nac" type="text" class="form-control" readonly>
-                            <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
-                        </div>
+                 <div class="form-group container">
+                    <label class="col-sm-2 control-label">Fecha de defunción</label>
+                    <div class="input-group date" id="nacimiento"  data-date-format="dd/mm/yyyy">
+                        <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
+                        <input id="nac" type="text" class="form-control" readonly>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group container">
                     <label class="col-sm-2 control-label">Fecha de defunción</label>
-                    <div class="col-sm-10">
-                        <div class="input-append date" id="defuncion" data-date-format="dd/mm/yyyy">
-                            <input id="def" type="text" class="form-control" readonly>
-                            <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
-                        </div>
+                    <div class="input-group date" id="defuncion"  data-date-format="dd/mm/yyyy">
+                        <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
+                        <input id="def" type="text" class="form-control" readonly>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-8">
-                        <button id="Agregar" type="button" onclick="AgregarDifunto();" class="btn btn-primary">Guardar</button>
+                        <button id="Agregar" type="button" onclick="AgregarDifunto();" class="btn btn-primary">Agregar</button>
                     </div>
                 </div>
             </form>

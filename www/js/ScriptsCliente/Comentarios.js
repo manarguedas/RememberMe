@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 
+var FaceComentarioMod = "";
+var fechaComentarioMod = "";
 
-
-var CascaronComentario = '<div class="panel panel-info" id="{id}"> \
+var CascaronComentario = '<div id="c{id}" class="panel panel-info" onclick="SeleccionDato = 0;" > \
                                 <div class="panel-heading">\
                                     <h6 class="panel-title">{nom}<small>({fec})</small></h6>\
                                 </div>\
@@ -28,14 +29,13 @@ function AdministradorComentarios() {
         this.idd = "";
         this.com = new Array();
     };
-    this.AgregarComentario = function(pNombre, pDescripcion) {
+    this.AgregarComentario = function(pNombre, pDescripcion, pId) {
         var mCom = new Comentario();
-        mCom.id = 1;
+        mCom.id = pId;
         mCom.des = pDescripcion;
         mCom.nom = pNombre;
         mCom.fec = new Date();
         mCom.fec = mCom.fec.getDate() + "/" + (mCom.fec.getMonth() + 1) + "/" + mCom.fec.getFullYear();
-        alert("la fecha es " + mCom.fec);
         this.com[this.com.length] = mCom;
     };
     this.EnviarComentarioCrear = function(pIdDifunto) {
@@ -52,10 +52,18 @@ function AdministradorComentarios() {
                 CargarComentariosHtml);
     };
 
-    this.EliminarComentario = function (pIdComentario) {
+    this.GuardarComentarioCrear = function(pIdDifunto) {
+        this.idd = "1";
+        AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirComentarios +"?json=" + JSON.stringify(this), JSON.stringify(this),
+                function() {
+                    document.location = "misperfiles.html";
+                });
+    };
+
+    this.EliminarComentario = function(pIdComentario) {
         var pIdDifunto = sessionStorage.getItem("idDifunto");
-        AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirComentarios + "?idComentario=" + pIdComentario, "",
-                function (){
+        AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirComentarios + "?idComentario=" + pIdComentario, "",
+                function() {
                     alert("comentario eliminado");
                     document.reload();
                 });
@@ -80,19 +88,81 @@ function CargarComentariosHtml(pOb) {
         mHtmlResultado += com;
     }
     document.getElementById("comentarios").innerHTML = mHtmlResultado;
+    if (sessionStorage.getItem("TipoUsuario") !== "0") {
+        for (var j = 0; j < pOb.com.length; j++) {
+            AgregarHold("c" + pOb.com[j].id);
+        }
+    }
 }
 
-function AgregarComentario() {
-    var Nombre = sessionStorage.getItem("nomFace");
+function AgregarAdminComentario(pNombreFace) {
+    var Nombre = pNombreFace;
     var Descripcion = document.getElementById("desCom").value;
+    var id = sessionStorage.getItem("idCom") + "";
+
+    if (id === "null") {
+        id = "-1";
+    }
+
     if (Descripcion === "") {
         alert("Aún hay campos vacíos.");
-        return;
+        return false;
     }
 
     AdminCom.CrearComentario();
-    AdminCom.AgregarComentario(Nombre, Descripcion);
-    AdminCom.EnviarComentarioCrear(sessionStorage.getItem("idDifunto"));
+    AdminCom.AgregarComentario(Nombre, Descripcion, id);
+    return true;
+}
+
+function AgregarComentario() {
+    if (AgregarAdminComentario(sessionStorage.getItem("nomFace"))) {
+        AdminCom.EnviarComentarioCrear(sessionStorage.getItem("idDifunto"));
+    }
 }
 
 
+function EliminarComentario(pComentario) {
+    if (!confirm("¿Está seguro que desea eliminar este comentario?"))
+        return;
+    AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirComentarios + "?id=" + pComentario.substring(1, pComentario.length), "",
+            function() {
+                alert("Objeto Eliminado");
+                document.location = "perfil.html";
+            });
+}
+
+function ModificarComentario(pComentario) {
+    sessionStorage.setItem("idCom", pComentario.substring(1, pComentario.length) + "");
+    sessionStorage.setItem("mod", 1);
+    AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirComentarios + "?idDifunto=" + sessionStorage.getItem("idDifunto"), "",
+                CargarUnComentario);
+}
+
+function CargarUnComentario(pComentario) {
+    var Comentario = BuscarCometario(sessionStorage.getItem("idCom"), pComentario.com);
+    usuarioFaceComentario = Comentario.nom;
+    fechaComentarioMod = Comentario.fec;
+    document.getElementById("desCom").value = Comentario.des;
+    document.getElementById("btnComentar").onclick = onClickGuardarComentario;
+    document.getElementById("btnComentar").innerHTML = "Guardar comentario";
+}
+
+function onClickGuardarComentario() {
+    document.getElementById("btnComentar").onclick = AgregarComentario;
+    document.getElementById("btnComentar").innerHTML = "Comentario";
+    if (AgregarAdminComentario(fechaComentarioMod)) {
+        AdminCom.com[0].fec = usuarioFaceComentario;
+        AdminCom.GuardarComentarioCrear();
+    }   
+}
+
+function BuscarCometario(pId, pArrayComentarios){
+    var mResultado = 0;
+    for(var i = 0; i < pArrayComentarios.length; i++){
+        if ((pArrayComentarios[i].id+"") === (pId+"")){
+            mResultado = pArrayComentarios[i];
+            break;
+        }
+    }
+    return mResultado;
+}

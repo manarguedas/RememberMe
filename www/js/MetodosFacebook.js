@@ -21,16 +21,18 @@ function login() {
 
 
 function GuardarUsuario(pIdUsuario) {
+    //alert(pIdUsuario);
     sessionStorage.setItem("idUser", pIdUsuario);
-    window.location = "perfil.html";
+    GuardarNombre(pIdUsuario);
 }
 
-function apiTest(pIdUsuario) {
+function GuardarNombre(pIdUsuario) {
     if (pIdUsuario==="") return;
-    facebookConnectPlugin.api(pIdUsuario+"/?fields=id,email,name", [],
+    facebookConnectPlugin.api(pIdUsuario+"/?fields=name", [],
             function(response) {
-                alert(response.name);
-
+                //alert(response.name);
+                sessionStorage.setItem("nomFace",response.name);
+                window.location = "perfil.html";
             },
             function(response) {
                 alert(response.name);
@@ -39,13 +41,14 @@ function apiTest(pIdUsuario) {
 
 //Permite publicar un comentario en el muro sobre que se agrego un perfil
 // nuevo en al app Remember Me
-function newStatusOnFB(){
+function newStatusOnFB(pNombreDifunto){
+    alert(pNombreDifunto);
     facebookConnectPlugin.getLoginStatus(
         function (status) {
             //alert("current status: " + JSON.stringify(status));
             
             //Recibe el nombre de la persona cuyo perfil fue agregado
-            var person = "NOMBRE";
+            var person = pNombreDifunto;
             //Post generico que se publica al agregar un perfil nuevo
             var post = "Se ha agregado el perfil de " + person + " \n\
             y esta disponible su informacion en la app RememberMe";

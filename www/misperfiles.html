@@ -14,11 +14,11 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
         <script type="text/javascript" src="js/Includes.js"></script>
+        <script type="text/javascript" src="js/MetodosFacebook.js"></script>
     </head>
     <body>
-
         <script type="text/javascript">
-            ConfigurarBarra(2);
+            ConfigurarBarra(2,2);
             ConfigurarBarraActividades(2);
         </script>
 
@@ -29,10 +29,10 @@ and open the template in the editor.
                 <div class="container">
                     <div align="left" class="col-xs-6 col-sm-6">
                         <h3 id = "nomDifunto"></h3>
-                        <button onclick="setLugar();" class="btn btn-primary btn-sm">Lugar de descanso</button>
+                        <button onclick="onclickVerLugar();" class="btn btn-primary btn-sm">Lugar de descanso</button>
                     </div>
                     <div align="center" class="col-xs-6 col-sm-6 FotoPerfil">
-                        <p><img id="fotoPerfil" onclick="getPhoto(pictureSource.PHOTOLIBRARY);" src="images/icon.png" alt="" width="100" height="100" class="img-circle "></p>
+                        <p><img id="fotoDifunto" onclick="getPhoto(pictureSource.PHOTOLIBRARY);" src="images/FondoNegro.png" onError="this.src ='images/FondoNegro.png'" alt="" width="100" height="100" class="img-circle "></p>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ and open the template in the editor.
                         </div>
                         <div class="input-group container">
                             <textarea id="desCom" class="form-control" placeholder="Ingresar comentario"></textarea>
-                            <span onclick="AgregarComentario();" class="input-group-addon">Comentar</span>
+                            <span id = "btnComentar" onclick="AgregarComentario();" class="input-group-addon">Comentar</span>
                         </div>
                         <br>
                     </div>
@@ -85,9 +85,10 @@ and open the template in the editor.
         <div  onclick="" class=""  align="center" > 
             <div id="opPerfil" class='DivContenedorOpcionesPerfiles '>
                 <div class="btn-group-vertical Width100" style="height: 100%;">
-                    <button type="button" class="btn btn-primary" onclick="CrearBiografia();" >Agregar Biografía</button>
-                    <button type="button" class="btn btn-primary" onclick="ModificarPerfil();" >Modificar</button>
-                    <button type="button" class="btn btn-primary" onclick="EliminarPerfil();" >Eliminar</button>
+                    <button type="button" class="btn btn-default" onclick="CrearBiografia();" >Agregar Biografía</button>
+                    <button type="button" class="btn btn-default" onclick="ModificarPerfil();" >Modificar</button>
+                    <button type="button" class="btn btn-default" onclick="EliminarPerfil();" >Eliminar</button>
+                    <button type="button" class="btn btn-default" onclick="newStatusOnFB(document.getElementById('nomDifunto').innerHTML);" >Compartir en Facebook</button>
                 </div>
             </div>
         </div>
@@ -96,14 +97,32 @@ and open the template in the editor.
         <div id="opciones" onclick="Desaparecer();" class="DivOpciones"  align="center" > 
             <div class='DivOpcionesContenedor'>
                 <div class="btn-group-vertical Width100" style="height: 100%;">
-                    <button type="button" class="btn btn-primary BotonesOpciones" onclick="LlamarFuncion(ModificarBiografia());" >Modificar</button>
-                    <button type="button" class="btn btn-primary BotonesOpciones" onclick="LlamarFuncion(EliminarBiografia());" >Eliminar</button>
+                    <button type="button" class="btn btn-default BotonesOpciones" onclick="LlamarFuncion(Modificar);" >Modificar</button>
+                    <button type="button" class="btn btn-default BotonesOpciones" onclick="LlamarFuncion(Eliminar);" >Eliminar</button>
                 </div>
             </div>
         </div>
-
         
         <script>
+            var SeleccionDato = 1;
+            function Modificar(pDato){
+                if (pDato.charAt(0) === 'b'){
+                    ModificarBiografia(pDato);
+                }
+                else{
+                    ModificarComentario(pDato);
+                }
+            }
+            
+            function Eliminar(pDato){
+                if (pDato.charAt(0) === 'b'){
+                    EliminarBiografia(pDato);
+                }
+                else{
+                    EliminarComentario(pDato);
+                }
+            }
+            
             AdmiPer.RecuperarPerfil();
             AdminBio.CargarBiografias();
             AdminCom.CargarComentarios();

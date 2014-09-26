@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var CascaronBiografia = '<div class="panel panel-primary" onmousedown="ClickDown(GuardarDato,{id});" onmouseup="ClickUp();"> \
+var CascaronBiografia = '<div id="b{id}" class="panel panel-primary" onclick="SeleccionDato = 1;"> \
                         <div class="panel-heading"> \
                             <h5 class="panel-title">{tit}</h5>\
                         </div>\
@@ -66,13 +66,13 @@ function AdministradorBiografia() {
         pBiografia = sessionStorage.getItem("idDifunto");
         AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirBiografias + "?idDifunto=" + pBiografia, "",
                 function(data) {
-                    CargarUnaBiografiaHtml(data.bio[0]);
+                    CargarUnaBiografiaHtml(BuscarBiografia(pBiografia,data.bio));
                 });
     };
 
     this.GuardarBiografia = function(pBiografia) {
-        pBiografia = sessionStorage.getItem("idDifunto");
-        AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirBiografias + "?idBiografia=" + pBiografia, "",
+        this.idd = "0";
+        AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirBiografias + "?json=" + JSON.stringify(this), JSON.stringify(this),
                 function(data) {
                     alert("Biografía guardada");
                     document.location = "misperfiles.html";
@@ -103,6 +103,11 @@ function CargarBiografiasHtml(pOb) {
         mHtmlResultado += bio;
     }
     document.getElementById("biografias").innerHTML = mHtmlResultado;
+    if (sessionStorage.getItem("TipoUsuario") !== "0") {
+        for (var j = 0; j < pOb.bio.length; j++) {
+            AgregarHold("b" + pOb.bio[j].id);
+        }
+    }
 }
 
 function CargarUnaBiografiaHtml(pBio) {
@@ -111,6 +116,9 @@ function CargarUnaBiografiaHtml(pBio) {
     document.getElementById("Agregar").onclick = GuardarBiografia;
     document.getElementById("Agregar").innerHTML = "Guardar";
     sessionStorage.setItem("idBio", pBio.id);
+
+
+
 }
 
 
@@ -135,7 +143,6 @@ function AgregarBiografia() {
 }
 
 function GuardarBiografia() {
-    alert("guardando");
     if (AgregarBiografiaAdmin()) {
         AdminBio.GuardarBiografia(sessionStorage.getItem("idBio"));
     }
@@ -145,14 +152,21 @@ function GuardarBiografia() {
 function AgregarBiografiaAdmin() {
     var Nombre = document.getElementById("nom").value;
     var Descripcion = document.getElementById("des").value;
+    var id =sessionStorage.getItem("idBio") + "";
 
+    if (id === "null") {
+        id = "-1";
+    }
+    else{
+        id = id.substring(1, id.length) + "";
+    }
     if (Nombre === "" || Descripcion === "") {
         alert("Aún hay campos vacíos.");
         return false;
     }
     else {
         AdminBio.CrearBiografia();
-        AdminBio.AgregarBiografia(Nombre, Descripcion, sessionStorage.getItem("idBio"));
+        AdminBio.AgregarBiografia(Nombre, Descripcion, id);
         return true;
     }
 }
@@ -176,9 +190,20 @@ function ModificarBiografia(pBiografia) {
 function EliminarBiografia(pBiografia) {
     if (!confirm("¿Está seguro que desea eliminar esta biografía?"))
         return;
-    AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirBiografias + "?idBiografia=" + pBiografia, "",
+    AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirBiografias + "?id=" + pBiografia.substring(1, pBiografia.length), "",
             function() {
                 alert("Objeto Eliminado");
+                document.location = "misperfiles.html";
             });
 }
 
+function BuscarBiografia(pId, pArrayComentarios){
+    var mResultado = 0;
+    for(var i = 0; i < pArrayComentarios.length; i++){
+        if ((pArrayComentarios[i].id+"") === (pId+"")){
+            mResultado = pArrayComentarios[i];
+            break;
+        }
+    }
+    return mResultado;
+}
