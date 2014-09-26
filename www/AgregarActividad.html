@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
+
 -->
 <html>
     <head>
@@ -16,6 +17,9 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/EstilosApp.css">
         <link rel="stylesheet" href="css/datepicker.css">
         <script type="text/javascript" src="js/Includes.js"></script>
+<link rel="stylesheet" href="css/jquery.ui.timepicker.css">
+<script type="text/javascript" src="js/jquery.ui.timepicker.js"></script>
+	
 
     </head>
     <body>
@@ -47,7 +51,7 @@ and open the template in the editor.
                         </div>
                         <div class="col-xs-12">
                             <h6 class="col-xs-12">Hora:</h6>
-                            <input id="horEvento" type="text" class="form-control" placeholder="Hora del evento">
+                            <input id="horEvento" type="text" class="form-control hasTimepicker" placeholder="Hora del evento">
                         </div>
                         <div class="col-xs-12">
                             <h6 class="col-xs-12">Lugar:</h6>
@@ -70,7 +74,10 @@ and open the template in the editor.
             if (sessionStorage.getItem("mod") === "1") {
                 CargarUnEvento();
             }
-            $(function() {
+	$(function() {
+                $('#horEvento').timepicker();
+            });            
+	$(function() {
                 $('#defuncion').datepicker();
             });
         </script>
