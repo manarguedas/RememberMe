@@ -15,13 +15,8 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
         <link rel="stylesheet" href="css/datepicker.css">
-        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
-        <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Eventos.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
-        
+        <script type="text/javascript" src="js/Includes.js"></script>
+
     </head>
     <body>
         <script type="text/javascript">
@@ -64,13 +59,17 @@ and open the template in the editor.
                         </div>
                         <div class="col-xs-12" align="right">
                             <br>
-                            <button onclick="AgregarEvento();" class="btn btn-primary" type="button">Agregar</button>
+                            <button id="Agregar" onclick="AgregarEvento();" class="btn btn-primary" type="button">Agregar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <script type="text/javascript">
+
+            if (sessionStorage.getItem("mod") === "1") {
+                CargarUnEvento();
+            }
             $(function() {
                 $('#defuncion').datepicker();
             });
