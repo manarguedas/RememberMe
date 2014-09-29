@@ -11,16 +11,21 @@ import Capa_Datos.GestionarComentarios_Datos;
 import java.sql.SQLException;
 
 /**
- *
+ * GESTIONA BIOGRAFIAS LOGICA
  * @author Administrator
  */
 public class GestionarBiografias_Logica {
     
-    
+    /**
+     * AGREGA UNA NUEVA BIOGRAFIA
+     * 
+     * @param jsonBiografia
+     * @return 
+     */
     public String AgregarBiografia(String jsonBiografia) {
         ParseJson_Biografia parse = new ParseJson_Biografia();
         Biografia biografia = parse.ParseBiografiaModelo(jsonBiografia);
-        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion(); // PARSEA EL JSON DE BIOGRAFIA
         GestionarBiografias_Datos guardar = new GestionarBiografias_Datos();
         if (biografia.getId() != 0) {
             if (guardar.AgregarBiografia(biografia)) {
@@ -33,7 +38,12 @@ public class GestionarBiografias_Logica {
         }
 
     }
-    
+     /**
+      * MOFIFICA UN BIOGRAFIA
+      * 
+      * @param jsonBiografia
+      * @return 
+      */
        public String ModificarBiografia(String jsonBiografia) {
         ParseJson_Biografia parse = new ParseJson_Biografia();
         Biografia biografia = parse.ParseBiografiaModelo(jsonBiografia);

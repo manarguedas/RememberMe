@@ -7,8 +7,6 @@
 package Capa_Logica;
 
 import Capa_Logica.Constantes.ConstantesLlavesJson;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -19,7 +17,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * PARSEA UNA BIOGRAFIA
  * @author Administrator
  */
 public class ParseJson_Biografia {

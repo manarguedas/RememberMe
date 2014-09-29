@@ -11,15 +11,22 @@ import Capa_Datos.ObtenerEventos_Datos;
 import java.sql.SQLException;
 
 /**
- *
+ * CONSULTA EVENTOS EN CAPA LOGICA
  * @author gustavovargas
  */
 public class ConsultarEventos_Logica {
     
+    /**
+     * 
+     * CONSULTA EVENTOS DE UN DIFUNTO
+     * @param idDifunto
+     * @return
+     * @throws SQLException 
+     */
       public String ConsultarEventos(int idDifunto) throws SQLException{
           ObtenerEventos_Datos buscar =  new ObtenerEventos_Datos();
           ParseJson_Evento parse = new ParseJson_Evento();
-          return parse.ParseEventosJson(buscar.ObtenerEventosDifunto(idDifunto));
+          return parse.ParseEventosJson(buscar.ObtenerEventosDifunto(idDifunto)); // CONSULTA LOS EVENTOS
     }
       
       

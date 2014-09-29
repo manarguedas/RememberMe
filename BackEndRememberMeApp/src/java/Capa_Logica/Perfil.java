@@ -9,7 +9,7 @@ package Capa_Logica;
 import java.util.Date;
 
 /**
- *
+ * MODELO DE PERFIL
  * @author gustavovargas
  */
 public class Perfil {

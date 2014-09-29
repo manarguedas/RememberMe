@@ -9,7 +9,7 @@ package Capa_Logica;
 import java.util.Date;
 
 /**
- *
+ * MODELO DE EVENTO
  * @author gustavovargas
  */
 public class Evento {

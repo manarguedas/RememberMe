@@ -18,11 +18,16 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * PARSE DE JSON PARA PERFILES
  * @author gustavovargas
  */
 public class ParseJson_Perfil {
 
+    /**
+     * PARSEA UN JSON A UN MODELO PERFIL
+     * @param json
+     * @return 
+     */
     public Perfil ParsePerfilModelo(String json) {
         Perfil perfil = new Perfil();
         try {
@@ -66,6 +71,12 @@ public class ParseJson_Perfil {
         return perfil;
 }
     
+    /**
+     * PARSEA UN MODELO DE PERFIL COMPLETO A UN JSON
+     * 
+     * @param perfil
+     * @return 
+     */
     
     public String ParsePerfilJson(Perfil perfil) {
         JSONObject obj = new JSONObject();
@@ -80,6 +91,11 @@ public class ParseJson_Perfil {
         return obj2.toJSONString();
     }
     
+    /**
+     * PARSEA UNA LISTA DE MODELOS DE PERFILES A UN JSON
+     * @param perfiles
+     * @return 
+     */
     public String ParsePerfilesJson(List<Perfil> perfiles) {
         JSONObject obj2 = new JSONObject();
         JSONArray lista = new JSONArray();

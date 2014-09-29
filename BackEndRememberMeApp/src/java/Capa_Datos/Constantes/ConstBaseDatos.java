@@ -7,7 +7,8 @@
 package Capa_Datos.Constantes;
 
 /**
- *
+ * CONSTANTES DE BASE DE DATOS PARA LA RECUPERACION DE DATOS DE PERFILES, ELIMINACION Y MODIFICACION
+ * 
  * @author gustavovargas
  */
 public class ConstBaseDatos {

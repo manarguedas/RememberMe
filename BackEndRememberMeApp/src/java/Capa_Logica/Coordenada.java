@@ -7,7 +7,7 @@
 package Capa_Logica;
 
 /**
- *
+ *  MODELO DE COORDENADAS
  * @author Administrator
  */
 public class Coordenada {

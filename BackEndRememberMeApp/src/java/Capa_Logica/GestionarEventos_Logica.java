@@ -9,11 +9,16 @@ package Capa_Logica;
 import Capa_Datos.GestionarEventos_Datos;
 
 /**
- *
+ * GESTIONA LOS EVENTOS 
  * @author gustavovargas
  */
 public class GestionarEventos_Logica {
 
+    /**
+     * AGREGA UN EVENTO
+     * @param jsonEvento
+     * @return 
+     */
     public String AgregarEvento(String jsonEvento) {
         ParseJson_Evento parse = new ParseJson_Evento();
         Evento evento = parse.ParseEventoModelo(jsonEvento);
@@ -30,7 +35,11 @@ public class GestionarEventos_Logica {
         }
 
     }
-    
+    /**
+     * MODIFICA UN EVENTO
+     * @param jsonEvento
+     * @return 
+     */
      public String ModificarEvento(String jsonEvento) {
         ParseJson_Evento parse = new ParseJson_Evento();
         Evento evento = parse.ParseEventoModelo(jsonEvento);
@@ -48,6 +57,11 @@ public class GestionarEventos_Logica {
 
     }
     
+     /**
+      * ELIMINA UN EVENTO
+      * @param idEvento
+      * @return 
+      */
     public String EliminarEvento(int idEvento) {
         ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
         GestionarEventos_Datos eliminar = new GestionarEventos_Datos();

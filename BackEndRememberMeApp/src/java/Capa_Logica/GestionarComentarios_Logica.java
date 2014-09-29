@@ -12,15 +12,20 @@ import Capa_Datos.GestionarCoordenadas_Datos;
 import java.sql.SQLException;
 
 /**
- *
+ * GESTIONA LOS COMENTARIOS DE UN DIFUNTO LOGOCA
  * @author Administrator
  */
 public class GestionarComentarios_Logica {
     
+    /**
+     * AGREGAR UN NUEVO COMENTARIO
+     * @param jsonComentario
+     * @return 
+     */
    public String AgregarComentario(String jsonComentario) {
         ParseJson_Comentario parse = new ParseJson_Comentario();
         Comentario comentario = parse.ParseComentarioModelo(jsonComentario);
-        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
+        ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion(); // PARSEA EL COMENTARIO
         GestionarComentarios_Datos guardar = new GestionarComentarios_Datos();
         if (comentario.getId() != 0) {
             if (guardar.AgregarComentario(comentario)) {
@@ -34,6 +39,12 @@ public class GestionarComentarios_Logica {
 
     }
    
+   /**
+    * MODIFICA UN COMETARIO
+    * 
+    * @param jsonComentario
+    * @return 
+    */
    public String ModificarComentario(String jsonComentario) {
         ParseJson_Comentario parse = new ParseJson_Comentario();
         Comentario comentario = parse.ParseComentarioModelo(jsonComentario);
@@ -51,7 +62,11 @@ public class GestionarComentarios_Logica {
 
     }
    
-   
+   /**
+    * ELIMINA UN COMENTARIO
+    * @param idComentarios
+    * @return 
+    */
     public String EliminarComentarios(int idComentarios) {
         ParseJson_Confirmacion parseConf = new ParseJson_Confirmacion();
         GestionarComentarios_Datos eliminar = new GestionarComentarios_Datos();
@@ -62,6 +77,12 @@ public class GestionarComentarios_Logica {
             }
         }
        
+    /**
+     * CONSUTA COMENTARIOS DE UN DIFUNTO
+     * @param idDifunto
+     * @return
+     * @throws SQLException 
+     */
     public String ConsultarComentarios(int idDifunto) throws SQLException{
           GestionarComentarios_Datos buscar =  new GestionarComentarios_Datos();
           ParseJson_Comentario parse = new ParseJson_Comentario();
