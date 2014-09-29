@@ -14,54 +14,29 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/EstilosApp.css">
-        <script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/Barras/NavBars.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Eventos.js"></script>
-        <script type="text/javascript" src="js/ScriptsCliente/Constantes.js"></script>
+        <script type="text/javascript" src="js/Includes.js"></script>
     </head>
     <body>
         <script type="text/javascript">
             ConfigurarBarra(2);
             ConfigurarBarraActividades(3);
         </script>
-        
+
         <div class="ContenedorActividades container-fluid ">
             <div id="eveContenedor" class="ContenedorActividades ">
                 <br>
                 <script>
                     AdminEve.CargarEvento(sessionStorage.getItem("idDifunto"));
-                </script>
-                
-                <!--
-                <div class="panel panel-primary ">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Velorio </h5>
-                        <h6>Lugar: Alajuela, Fecha: 30/08/2014, Hora: 17:00 </h6>
-                    </div>
-                    <div class="panel-body">
-                        <small>El la iglesia de alajuela centro se celebrará la vela de Juan, y tiene una duración de 3 horas.</small>
-                    </div>
+                </script>                
+            </div>
+            <br>
+        </div>
+        <div id="opciones" onclick="Desaparecer();" class="DivOpciones"  align="center" > 
+            <div class='DivOpcionesContenedor'>
+                <div class="btn-group-vertical Width100" style="height: 100%;">
+                    <button type="button" class="btn btn-primary BotonesOpciones" onclick="LlamarFuncion(ModificarEvento);" >Modificar</button>
+                    <button type="button" class="btn btn-primary BotonesOpciones" onclick="LlamarFuncion(EliminarEvento);" >Eliminar</button>
                 </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Velorio </h5>
-                        <h6>Lugar: Alajuela, Fecha: 30/08/2014, Hora: 17:00 </h6>
-                    </div>
-                    <div class="panel-body">
-                        <small>El la iglesia de alajuela centro se celebrará la vela de Juan, y tiene una duración de 3 horas.</small>
-                    </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Velorio </h5>
-                        <h6>Lugar: Alajuela, Fecha: 30/08/2014, Hora: 17:00 </h6>
-                    </div>
-                    <div class="panel-body">
-                        <small>El la iglesia de alajuela centro se celebrará la vela de Juan, y tiene una duración de 3 horas.</small>
-                    </div>
-                </div>
-                -->
             </div>
         </div>
     </body>
