@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+
+//funcion que inicia la seccion de un usuario de facebook
 function login() {
     if (!window.cordova) {
         var appId = prompt("669076949827119", "RememberMeApp");
@@ -19,13 +21,14 @@ function login() {
             });
 };
 
-
+//funcion que guarda el id de facebook, para que sea utilizado porsteriormente 
 function GuardarUsuario(pIdUsuario) {
     //alert(pIdUsuario);
     sessionStorage.setItem("idUser", pIdUsuario);
     GuardarNombre(pIdUsuario);
 }
 
+//Funcion que solicita el nombre de la persona a facebook y luego lo guarda en la session
 function GuardarNombre(pIdUsuario) {
     if (pIdUsuario==="") return;
     facebookConnectPlugin.api(pIdUsuario+"/?fields=name", [],

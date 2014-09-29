@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+//cascaron que se utiliza para mostrar las biografias en pantalla
 var CascaronBiografia = '<div id="b{id}" class="panel panel-primary" onclick="SeleccionDato = 1;"> \
                         <div class="panel-heading"> \
                             <h5 class="panel-title">{tit}</h5>\
@@ -12,23 +13,23 @@ var CascaronBiografia = '<div id="b{id}" class="panel panel-primary" onclick="Se
                             <small>{des}</small>\
                         </div>\
                     </div>';
-
+//Estructura de una biografia
 function Biografia() {
     this.id = "";
     this.nom = "";
     this.des = "";
 }
-
+//Administrador que se encarga de agregar, modificar o eliminar las biografias para un perfil
 function AdministradorBiografia() {
     this.idd = "";
     this.bio = new Array();
 
-
+	//funcion que crea desde cero, todas las biografias
     this.CrearBiografia = function() {
         this.idd = 0;
         this.bio = new Array();
     };
-
+	//agrega una biografia 
     this.AgregarBiografia = function AgregarBiografia(pTitulo, pDescripcion, pId) {
         var mBio = new Biografia();
         mBio.des = pDescripcion;
@@ -37,12 +38,13 @@ function AdministradorBiografia() {
         this.bio[this.bio.length] = mBio;
         //this.bio.ap;
     };
-
+	
+//funcion que carga toda su informacion, apartir de un json de entrada
     this.CargarObjeto = function  CargarJSON(pObjeto) {
         this.bio = pObjeto.bio;
         this.idd = pObjeto.idd;
     };
-
+//funcion que se encarga de enviar toda la informacion de una biografia al servidor para que cree una biografia, bajo un id de difunto
     this.EnviarBiografiaCrear = function(pIdDifunto) {
         this.idd = pIdDifunto;
         AjaxSolicitud(kConstantes.post, kConstantes.Servidor + kConstantes.DirBiografias, JSON.stringify(this),
@@ -52,7 +54,7 @@ function AdministradorBiografia() {
 
                 });
     };
-
+	//funcion que se encarga de cargar todas las biografias en el perfil de la persona 
     this.CargarBiografias = function CargarBiografias() {
         var pIdDifunto = sessionStorage.getItem("idDifunto");
         AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirBiografias + "?idDifunto=" + pIdDifunto, "",
@@ -61,7 +63,7 @@ function AdministradorBiografia() {
                     CargarBiografiasHtml(data);
                 });
     };
-
+	//carga una sola biografia para que sea modificada
     this.RecuperarUnaBiografia = function(pBiografia) {
         pBiografia = sessionStorage.getItem("idDifunto");
         AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirBiografias + "?idDifunto=" + pBiografia, "",
@@ -69,7 +71,7 @@ function AdministradorBiografia() {
                     CargarUnaBiografiaHtml(BuscarBiografia(pBiografia,data.bio));
                 });
     };
-
+	//Funcion que guarda o le solicita al servidor que actualice su informacion en el servidor, segun la info enviada en esta peticion
     this.GuardarBiografia = function(pBiografia) {
         this.idd = "0";
         AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirBiografias + "?json=" + JSON.stringify(this), JSON.stringify(this),
@@ -80,6 +82,7 @@ function AdministradorBiografia() {
     };
 }
 
+//Administrador de las biografias
 var AdminBio = new AdministradorBiografia();
 
 
@@ -87,6 +90,7 @@ var AdminBio = new AdministradorBiografia();
 //              Funcion que cargan datos en interfaz
 /////////////////////////////////////////////////////////////////////
 
+//Funcion que carga las biografias en el perfil
 function CargarBiografiasHtml(pOb) {
     if (pOb === null && pOb.bio === null) {
         console.log("No hay biografías");
@@ -95,7 +99,7 @@ function CargarBiografiasHtml(pOb) {
     var i = 0;
     var mHtmlResultado = "";
     var bio;
-    for (i; i < pOb.bio.length; i++) {
+    for (i; i < pOb.bio.length; i++) { //se crean las biografias
         bio = CascaronBiografia;
         bio = bio.replace("{tit}", pOb.bio[i].nom);
         bio = bio.replace("{des}", pOb.bio[i].des);
@@ -103,14 +107,14 @@ function CargarBiografiasHtml(pOb) {
         mHtmlResultado += bio;
     }
     document.getElementById("biografias").innerHTML = mHtmlResultado;
-    if (sessionStorage.getItem("TipoUsuario") !== "0") {
+    if (sessionStorage.getItem("TipoUsuario") !== "0") { //se le agrega el evento press and hold
         for (var j = 0; j < pOb.bio.length; j++) {
             AgregarHold("b" + pOb.bio[j].id);
         }
     }
 }
 
-function CargarUnaBiografiaHtml(pBio) {
+function CargarUnaBiografiaHtml(pBio) { //carga una unica biografia en la pantalla de modificar
     document.getElementById("nom").value = pBio.nom;
     document.getElementById("des").value = pBio.des;
     document.getElementById("Agregar").onclick = GuardarBiografia;
@@ -136,15 +140,15 @@ function CargarUnaBiografia() {
 /////////////////////////////////////////////////////////////////////
 
 
-function AgregarBiografia() {
+function AgregarBiografia() { //funcion que agrega la biografia que se quiere agregar al administrador de biografias 
     if (AgregarBiografiaAdmin()) {
-        AdminBio.EnviarBiografiaCrear(sessionStorage.getItem("idDifunto"));
+        AdminBio.EnviarBiografiaCrear(sessionStorage.getItem("idDifunto")); //se envia la biografia
     }
 }
 
-function GuardarBiografia() {
+function GuardarBiografia() { //se agrega la biografia que se quiere modificar al admin, para luego ser actualizada
     if (AgregarBiografiaAdmin()) {
-        AdminBio.GuardarBiografia(sessionStorage.getItem("idBio"));
+        AdminBio.GuardarBiografia(sessionStorage.getItem("idBio")); ///solicita la actualizacion al servidor
     }
 }
 
@@ -175,18 +179,20 @@ function AgregarBiografiaAdmin() {
 //              Funcion que controlar el flujo de interfaz 
 /////////////////////////////////////////////////////////////////////
 
-
+//Funcion que se llama cuando se presiona el boton de crear biografia en el perfil
 function CrearBiografia() {
     sessionStorage.setItem("mod", 0);
     document.location = "AgregarBiografias.html";
 }
 
+//funcion que se llama cuando se presiona el boton de modificar una biografia
 function ModificarBiografia(pBiografia) {
     sessionStorage.setItem("idBio", pBiografia);
     sessionStorage.setItem("mod", 1);
     document.location = "AgregarBiografias.html";
 }
 
+//Funcion que se llama cuando se presiona el boton de eliminar una biografia
 function EliminarBiografia(pBiografia) {
     if (!confirm("¿Está seguro que desea eliminar esta biografía?"))
         return;
@@ -196,7 +202,7 @@ function EliminarBiografia(pBiografia) {
                 document.location = "misperfiles.html";
             });
 }
-
+//funcion que devuelve la informacion de una biografia usando el id de la misma, se tiene que hacer una busqueda en la informacion brindada por el servidor
 function BuscarBiografia(pId, pArrayComentarios){
     var mResultado = 0;
     for(var i = 0; i < pArrayComentarios.length; i++){

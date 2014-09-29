@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+//Estructura de un perfil
 function Perfil() {
     this.nom = "";
     this.ape = "";
@@ -13,11 +14,12 @@ function Perfil() {
     this.id = "";
 }
 
+//el administrador de perfiles 
 function AdministrarPerfil() {
 
     this.per = "";
     
-    
+    //crea un perfil desde cero 
     this.CrearPerfil = function CrearPerfil() {
         this.per = new Perfil();
     };
@@ -29,7 +31,8 @@ function AdministrarPerfil() {
     this.CargarJSON = function CargarJSON(pJSON) {
         this.per = JSON.parse(pJSON).perfil;
     };
-
+	
+//recupera un perfil en especifico y luego lo carga en el html, para que sea visualizado 
     this.RecuperarPerfil = function RecuperarPerfil(pIdDifunto) {
         pIdDifunto = sessionStorage.getItem("idDifunto");
         AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirPerfiles + "?idDifunto=" + pIdDifunto, "",
@@ -39,7 +42,7 @@ function AdministrarPerfil() {
                     CargarPerfilHtml(data);
                 });
     };
-
+//funcion que solicita al servidor guardar el perfil enviado
     this.EnviarPerfilCrear = function EnviarPerfilCrear() {
         AjaxSolicitud(kConstantes.post, kConstantes.Servidor + kConstantes.DirPerfiles, JSON.stringify(this),
                 function() {
@@ -48,11 +51,13 @@ function AdministrarPerfil() {
                 });
     };
 
+//Funcion que recupera un perfil para que sea modificado
     this.RecuperarUnPerfil = function() {
         AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirPerfiles + "?idDifunto=" + sessionStorage.getItem("idDifunto"), "",
                 CargarUnPerfilHtml);
     };
 
+//funcion que le solicita al servidor actulizar los datos de un perfil en especifico
     this.GuardarPerfil = function() {
         AjaxSolicitud(kConstantes.put, kConstantes.Servidor + kConstantes.DirPerfiles + "?json=" + JSON.stringify(this), JSON.stringify(this),
                 function(data) {
@@ -113,6 +118,7 @@ var AdmiPer = new AdministrarPerfil();
 //          Funciones utilizadas en la parte de interfaz
 /////////////////////////////////////////////////////////////////
 
+//Funcion que muestra las opciones de un perfil si estan ocultas, en caso contrario las ocultas 
 function MostrarOpciones() {
     var EstiloOpciones = document.getElementById("opPerfil").style;
     if (EstiloOpciones.visibility === "visible")
@@ -127,6 +133,7 @@ function MostrarOpciones() {
 //              Funcion que cargan datos en interfaz
 /////////////////////////////////////////////////////////////////////
 
+//Funcion que carga la informacion de un perfil de la pagina de difunto 
 function CargarPerfilHtml(pOb) {
     if (pOb === null && pOb.per === null) {
         alert("Error al cargar el perfil");
@@ -138,11 +145,12 @@ function CargarPerfilHtml(pOb) {
     document.getElementById("defDifunto").innerHTML = ("<b>Fecha de defunción: </b>" + pOb.per.def);
     sessionStorage.setItem('idDifunto', pOb.per.id);
     
-    if (true) {
+    if (true) { //se carga la foto del difunto 
         document.getElementById("fotoDifunto").src = kConstantes.DirImagenesAlmacen + pOb.per.id + ".png";///"./images/FondoNegro.png";  //pOb.per.url;
     }
 }
 
+//se carga un perfil para que sea modificado por el usuario y luego actualizado 
 function CargarUnPerfilHtml(pPerfil) {
     document.getElementById("nom").value = pPerfil.per.nom;
     document.getElementById("ape").value = pPerfil.per.ape;
@@ -167,13 +175,14 @@ function CargarUnPerfil() {
 //              Funcion que envian datos al servidor 
 /////////////////////////////////////////////////////////////////////
 
-
+//funcion que toma toda la informacion infroducida por el usuario, la almacena y luego la enviar al servidor 
 function AgregarDifunto() {
     if (AgregarPerfilAdmin()) {
         AdmiPer.EnviarPerfilCrear();
     }
 }
 
+//funcion que toma toda la informacion introducida por el usuario, la almacena y luego la enviar al servidor para que este la actualice en la base de datos 
 function GuardarDifunto() {
     if (AgregarPerfilAdmin()) {
         AdmiPer.GuardarPerfil();
@@ -212,18 +221,21 @@ function AgregarPerfilAdmin() {
 //              Funcion que controlar el flujo de interfaz 
 /////////////////////////////////////////////////////////////////////
 
+//funcion que se llama cuando se presiona el boton de agregar un nuevo perfil 
 function AgregarPerfil() {
     sessionStorage.setItem("mod", 0);
     document.location = "AgregarPerfil.html";
 }
 
+//funcion que se llama cuando se presiona el boton de modificar un perfil 
 function ModificarPerfil() {
     sessionStorage.setItem("mod", 1);
     document.location = "AgregarPerfil.html";
 }
 
+//Funcion que se llama cuando se presiona el boton de eliminar un perfil
 function EliminarPerfil() {
-    if (!confirm("¿Está seguro que desea eliminar este perfil?"))
+    if (!confirm("Est� seguro que desea eliminar este perfil?"))
         return;
     AjaxSolicitud(kConstantes.delete, kConstantes.Servidor + kConstantes.DirPerfiles + "?idDifunto=" + sessionStorage.getItem("idDifunto"), "",
             function() {

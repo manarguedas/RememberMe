@@ -1,8 +1,10 @@
+//funciones que se utilizan para enviar la foto al servidor 
 
 var pictureSource;
 var destinationType;
 document.addEventListener("deviceready", onDeviceReady, false);
 
+//funcion que inicializa los apis para obtener una foto de la camara o la galeria
 function onDeviceReady()
 {
     pictureSource = navigator.camera.PictureSourceType;
@@ -71,34 +73,31 @@ function resOnError(error)
 {
     alert(error.code);
 }
-function uploadText(imageURI) {
 
-}
-
+//funcion que captura una imagnen usando la camara 
 function capturePhotoEdit()
 {
     navigator.camera.getPicture(onSuccess, onFail, {quality: 20, allowEdit: true,
         destinationType: destinationType.DATA_URL});
 }
 
+//funcion que se llama cuando se presiona la imagen del difunto 
 function getPhoto(source)
 {   
     uploadFromGallery();
     return;
-    navigator.camera.getPicture(uploadText, onFail, {quality: 50,
-        destinationType: destinationType.FILE_URI,
-        sourceType: source});
 }
 
+//funcion que se llama en cado de que haya un error al tomar una foto 
 function onFail(message)
 {
     alert('Failed because: ' + message);
 }
 
 
+//funcion que carga una imagen desde galeria
 function uploadFromGallery() {
 
-    // Retrieve image file location from specified source
     navigator.camera.getPicture(uploadPhoto,
                                 function(message) {},
                                 { quality: 30, 
@@ -108,8 +107,10 @@ function uploadFromGallery() {
 
 }
 
+
+//Funcion que se encarga de enviarle la foto al servidor 
 function uploadPhoto(imageURI) {
-    var options = new FileUploadOptions();
+    var options = new FileUploadOptions(); //comienza una transferencia de archivos 
     //options.fileKey="imagen";
     options.fileName= sessionStorage.getItem("idDifunto") + ".png";///imageURI.substr(imageURI.lastIndexOf('/')+1) + ".png";
     //options.mimeType="image/jpeg";
@@ -119,9 +120,10 @@ function uploadPhoto(imageURI) {
     alert("Iniciando la transferencia.");
     var ft = new FileTransfer();
     //ft.upload(imageURI, "http://192.168.0.130:8080/BackEndRememberMeApp/app/imagenes", win, fail, options);
-    ft.upload(imageURI, kConstantes.Servidor + kConstantes.DirImagenes, win, fail, options);
+    ft.upload(imageURI, kConstantes.Servidor + kConstantes.DirImagenes, win, fail, options); //se coloca la direccion del servidor y se envia 
 }
 
+//funcion que se ejecuta en caso de exito
 function win(r) {
     alert("Imagen subida");
     console.log("Code = " + r.responseCode);
@@ -130,6 +132,7 @@ function win(r) {
     document.location.reload();
 }
 
+//funcion que se ejecuta en caso de fallo
 function fail(error) {
     alert("No se pudo subir la fotografía.");
     //alert("An error has occurred: Code = " + error.code);

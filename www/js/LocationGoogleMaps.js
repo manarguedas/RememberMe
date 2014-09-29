@@ -14,14 +14,15 @@ function setLugar() {
     location.href = "SetLugarDescanso.html";
 }
 
-//Permite establecer la posiciÃ³n actual y presentarla en una mapa usando
-//GoogleMaps, esta serÃ¡ la posiciÃ³n a establecer como Lugar de descanso.
-//Se inicia cuando se carga la pÃ¡gina SetLugarDescanso.html.
+//funcion que se llama cuando se desea guardar la posicion actual, esto solo muestra la pantalla de lugar de descanso para que sea guardad posteriomente.
 function GuardarMapa() {
     mensaje = "Establecer lugar descanso.";
     GestionMapa(0);
 }
 
+//Permite establecer la posiciÃ³n actual y presentarla en una mapa usando
+//GoogleMaps, esta serÃ¡ la posiciÃ³n a establecer como Lugar de descanso.
+//Se inicia cuando se carga la pÃ¡gina SetLugarDescanso.html.
 function GestionMapa(pTipoVista) {
     var mapOptions = {
         zoom: 17,
@@ -115,7 +116,7 @@ function initialize2() {
     }
 }
 
-
+//funcion que se ejecuta cuando se presiona el boton de lugar de descanso, dependiendo del tipo de usuario se le muestra la pantalla de configuracion o solamente la e ver el lugar de entierro
 function onclickVerLugar() {
     if (sessionStorage.getItem("TipoUsuario") !== "0") {
         document.location = "SetLugarDescanso.html";
@@ -125,6 +126,7 @@ function onclickVerLugar() {
     }
 }
 
+//funcion que obtiene la posicion del servior y la muestra en pantalla
 function CargarPosicion() {
     AjaxSolicitud(kConstantes.get, kConstantes.Servidor + kConstantes.DirLocation + "?idDifunto=" + sessionStorage.getItem("idDifunto"), "",
             function(pDato) {
@@ -140,6 +142,7 @@ function CargarPosicion() {
 
 }
 
+//Funcion que toma la posicion del usuario usando el gps y lo envia al servidor
 function GuardarPosicion() {
     var json = {"idd": sessionStorage.getItem("idDifunto"), "cord": [{"cordx": latitud + "", "cordy": longitud + ""}]};
     AjaxSolicitud(kConstantes.post, kConstantes.Servidor + kConstantes.DirLocation, JSON.stringify(json),

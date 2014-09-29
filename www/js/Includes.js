@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+//Estos son incluciones que se agrega en los html y para evitar hacer mucho ruido en los htmls
+
 document.write('<script type="text/javascript" src="cordova.js"></script>');
 document.write('<script type="text/javascript" src="js/vendor/jquery-1.11.0.js"></script>');
 document.write('<script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>');

@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+//Este archivo contine las diferentes barras de navegacion de la aplicacion
+
+//Cascaron que se utiliza para la barra principal de de navegacion entre los perfiles que tiene el usuario y la busqueda de los mismos 
+
 var CuerpoBarraInicio = '<nav class="navbar navbar-inverse BarraPrincipal" role="navigation">' +
         '<div class="ContenedorBotones">' +
         '<div class="nav navbar-header" align="center">' +
@@ -28,6 +32,8 @@ var CuerpoBarraInicio = '<nav class="navbar navbar-inverse BarraPrincipal" role=
                 </div>\
         </nav>\n\
 ';
+
+//Cascaron que tiene los detalles de un perfil 
 var CuerpoBarraActividades = '<nav class="navbar-default BarraActividades" > \
             <div class=""> \
                 <div class="ContenedorBotonesActividades" align="center"> \
@@ -50,8 +56,10 @@ var CuerpoBarraActividades = '<nav class="navbar-default BarraActividades" > \
         </nav>\n\
 <br><br><br><br><br><br>';
 
-var AccionAtras;
 
+var AccionAtras; //variable que se utiliza para almacenar accion del boton de atras
+
+//funcion que se encarga de cambiar la configuracion de la barra, en este caso cambia cual pestana esta activa 
 function ConfigurarBarra(pIndice, pAtras) {
     var mResultado = CuerpoBarraInicio.replace("{" + pIndice + "}", "active");
     mResultado = ConfigurarAtras(pAtras, mResultado);
@@ -63,39 +71,41 @@ function ConfigurarBarra(pIndice, pAtras) {
     return mResultado;
 }
 
+//funcion que se llama cuando el usuario presiona back
 function HacerBack() {
-    eval(AccionAtras);
+    eval(AccionAtras); //evalua una instruccion desde un string
 }
 
+//configuracion de las acciones del boton atras
 function ConfigurarAtras(pIndice, pString) {
     var mResultado = pString;
     var mFuncion = "document.location='perfil.html'";
     var mClase = "glyphicon glyphicon-chevron-left";
-    switch (pIndice) {
-        case 1:
-            mFuncion = "navigator.app.exitApp();";
+    switch (pIndice) { //cambia la accion segun el indice introducico 
+        case 1:	//en la pantalla princiapl
+            mFuncion = "navigator.app.exitApp();"; //se sale de la aplicacion
             mClase = "glyphicon glyphicon-off";
             break;
-        case 2:
-            mFuncion = "document.location='perfil.html'";
+        case 2:	//cuando esta viendo el detalle de algun perfil
+            mFuncion = "document.location='perfil.html'"; //se devuelve a los perfiles creados por el usuario 
             break;
-        case 3:
-            mFuncion = "document.location='misperfiles.html'";
+        case 3:	//cuando se metio a crear biografia, a la localizacion, entre otros
+            mFuncion = "document.location='misperfiles.html'"; //se devuelve a los detalles del perfil
             break;
-        case 4:
-            mFuncion = "document.location='Actividades.html'";
+        case 4:	//cuando se metio a agregar o modificar una actividad
+            mFuncion = "document.location='Actividades.html'"; //se devuelve a las actividades de ese perfil
             break;
-        case 5:
+        case 5: //cuando se metio a la galeria para agrgar fotos o algo asi 
             mFuncion = "document.location='Galeria.html'";
             break;
         default:
             break;
     }
     if (sessionStorage.getItem("TipoUsuario") === "0" && pIndice!==1) {
-        mFuncion = "document.location='buscar.html'";
+        mFuncion = "document.location='buscar.html'";	// si estaba en la seccion de busqueda se tiene que devolver a las busquedas 
     }
     AccionAtras = mFuncion;
-    document.addEventListener("backbutton", HacerBack, false);
+    document.addEventListener("backbutton", HacerBack, false); //se le agrega el evento de back del telefono
 
     mResultado = mResultado.replace("{funcion}", mFuncion);
     mResultado = mResultado.replace("{clase}", mClase);
@@ -103,20 +113,21 @@ function ConfigurarAtras(pIndice, pString) {
     return mResultado;
 }
 
+//configuracion de cual boton esta activo en la barra de actividades
 function ConfigurarBarraActividades(pIndice) {
     var mResultado = CuerpoBarraActividades.replace("{" + (pIndice - 1) + "}", "active");
     if (sessionStorage.getItem("TipoUsuario") === "0") {
         pIndice = 0;
     }
     switch (pIndice) {
-        case 1:
+        case 1: //en la pagina principal 
             ConfigurarAgregarPerfil();
             return;
             break;
-        case 2:
+        case 2:	//En el detalle de un perfil
             ConfigurarOpecionesPerfil();
             break;
-        case 3:
+        case 3:	//en la pantalla de las actividades
             ConfigurarAgregarPerfil();
             ConfigurarAgregar();
             break;
@@ -130,6 +141,7 @@ function ConfigurarBarraActividades(pIndice) {
     return mResultado;
 }
 
+//se configura el boton de la pantalla principal para agregar un perfil 
 function ConfigurarAgregarPerfil() {
     document.getElementById("barraEstado").innerHTML += '<li class="{4} col-xs-3 col-lg-3 BotonAgregarPerfil" >' +
             '<a id = "AgregarHref" onclick="AgregarPerfil();">' +
@@ -138,11 +150,13 @@ function ConfigurarAgregarPerfil() {
                             </li>';
 }
 
+//Se cambian las acciines del borton de agregar un perfil
 function ConfigurarAgregar() {
     document.getElementById("AgregarHref").onclick = CrearEvento;
     document.getElementById("AgregarHref").href = "AgregarActividad.html";
 }
 
+//Se cambia la accion de agregar un perfil por la de mostrar las opciones en el detalle de un perfil 
 function ConfigurarOpecionesPerfil() {
     document.getElementById("barraEstado").innerHTML += '<li class="col-xs-5 col-lg-5 BotonAgregarPerfil" >' +
             '<a id = "AgregarHref" onclick="MostrarOpciones();"' +
@@ -151,10 +165,11 @@ function ConfigurarOpecionesPerfil() {
                             </li>';
 }
 
+//funcion que se ejecuta cuando se presiona la pestana de mis perfiles 
 function onClickMisPerfiles() {
     sessionStorage.setItem("TipoUsuario", "1");
 }
-
+//funcion que se ejecuta cuando se presiona el boton de busqueda de perfiles 
 function onClickBusquedas() {
     sessionStorage.setItem("TipoUsuario", "0");
 }
