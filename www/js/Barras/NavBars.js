@@ -101,7 +101,7 @@ function ConfigurarAtras(pIndice, pString) {
         default:
             break;
     }
-    if (sessionStorage.getItem("TipoUsuario") === "0" && pIndice!==1) {
+    if (sessionStorage.getItem("TipoUsuario") === "0" && pIndice !== 1) {
         mFuncion = "document.location='buscar.html'";	// si estaba en la seccion de busqueda se tiene que devolver a las busquedas 
     }
     AccionAtras = mFuncion;
@@ -131,6 +131,10 @@ function ConfigurarBarraActividades(pIndice) {
             ConfigurarAgregarPerfil();
             ConfigurarAgregar();
             break;
+        case 4:	//en la pantalla de las actividades
+            ConfigurarAgregarPerfil();
+            ConfigurarAgregarFotoGaleria();
+            break;
         default:
             break;
     }
@@ -148,6 +152,13 @@ function ConfigurarAgregarPerfil() {
             '<span class="glyphicon glyphicon-plus"></span>\
                                 </a>\
                             </li>';
+}
+
+//Configura la interfaz para que el boton de agregar agregue fotos a la galeria 
+function ConfigurarAgregarFotoGaleria() {
+    alert('cambiando a subir foto');
+    document.getElementById("AgregarHref").onclick = SubirFotoGaleria;
+    document.getElementById("AgregarHref").href = 'javascript: void(0)';
 }
 
 //Se cambian las acciines del borton de agregar un perfil

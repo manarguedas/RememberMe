@@ -110,6 +110,7 @@ function uploadFromGallery() {
 
 //Funcion que se encarga de enviarle la foto al servidor 
 function uploadPhoto(imageURI) {
+    MostrarCargando();
     var options = new FileUploadOptions(); //comienza una transferencia de archivos 
     //options.fileKey="imagen";
     options.fileName= sessionStorage.getItem("idDifunto") + ".png";///imageURI.substr(imageURI.lastIndexOf('/')+1) + ".png";
@@ -125,6 +126,7 @@ function uploadPhoto(imageURI) {
 
 //funcion que se ejecuta en caso de exito
 function win(r) {
+    OcultarCargando();
     alert("Imagen subida");
     console.log("Code = " + r.responseCode);
     console.log("Response = " + r.response);
@@ -134,6 +136,7 @@ function win(r) {
 
 //funcion que se ejecuta en caso de fallo
 function fail(error) {
+    OcultarCargando();
     alert("No se pudo subir la fotografía.");
     //alert("An error has occurred: Code = " + error.code);
     console.log("upload error source " + error.source);
@@ -152,4 +155,26 @@ function CopiarImagen(){
         }
     });
     alert("put enviado");
+}
+
+function SubirFotoGaleria(){
+    navigator.camera.getPicture(EnviarFotoGaleria,
+                                function(message) {},
+                                { quality: 30, 
+                                destinationType: navigator.camera.DestinationType.FILE_URI,
+                                sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                                );   
+}
+
+function EnviarFotoGaleria(imageURI){
+    MostrarCargando();
+    var options = new FileUploadOptions(); //comienza una transferencia de archivos 
+
+    options.fileName= sessionStorage.getItem("idDifunto") + '/' + imageURI.substr(imageURI.lastIndexOf('/')+1) + ".png";
+    alert("Iniciando la transferencia.dir=" + options.fileName);
+    
+    var ft = new FileTransfer();
+    //ft.upload(imageURI, "http://192.168.0.130:8080/BackEndRememberMeApp/app/imagenes", win, fail, options);
+    ft.upload(imageURI, kConstantes.Servidor + kConstantes.DirImagenes, win, fail, options); //se coloca la direccion del servidor y se envia 
+
 }

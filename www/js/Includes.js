@@ -21,6 +21,7 @@ document.write('<script type="text/javascript" src="js/ScriptsCliente/Eventos.js
 document.write('<script type="text/javascript" src="js/Fotografia.js"></script>');
 document.write('<script type="text/javascript" src="js/LocationGoogleMaps.js"></script>');
 document.write('<script type="text/javascript" src="js/Eventos.js"></script>');
+document.write('<script type="text/javascript" src="js/loader.js"></script>');
 
         
         

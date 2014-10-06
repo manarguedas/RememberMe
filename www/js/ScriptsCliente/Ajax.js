@@ -7,11 +7,13 @@
 //Esta funcion es la que se encarga de realizar solicitudes al servidor 
 //recibe la direccion, la funcion que se ejecuta, un parametro json y el tipo de solicitud
 function AjaxSolicitud(pTipo, pUrl, pJson, pFuncion) {
+    MostrarCargando();
     if (pTipo===kConstantes.delete || pTipo===kConstantes.put){
         AjaxEspecializado(pTipo, pUrl, pJson, pFuncion); //si la solicitud es un put o un delete, la solicitud tiene que ser procesada de una forma diferente
         return;
     }
     $.ajax({
+        
         type: pTipo, // it's easier to read GET request parameters
         url: pUrl,
         dataType: 'JSON',
@@ -22,9 +24,11 @@ function AjaxSolicitud(pTipo, pUrl, pJson, pFuncion) {
             
         },
         success: function(data) {
+            OcultarCargando();
             pFuncion(data); //se llama a la funcion, en caso de exito
         },
         error: function(data) {
+            OcultarCargando();
             alert('No se pudo conectar con el servidor.');
         }
     });
@@ -40,10 +44,13 @@ function AjaxEspecializado(pTipo, pUrl, pJson, pFuncion){
             json: pJson 
         },
         success: function(data) {
+            OcultarCargando();
             pFuncion(data);
         },
         error: function(data) {
+            OcultarCargando();
             alert('No se pudo conectar con el servidor.');
         }
     });
 }
+ 
