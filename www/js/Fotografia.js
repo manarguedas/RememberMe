@@ -171,7 +171,7 @@ function EnviarFotoGaleria(imageURI){
     var options = new FileUploadOptions(); //comienza una transferencia de archivos 
 
     options.fileName= sessionStorage.getItem("idDifunto") + '/' + imageURI.substr(imageURI.lastIndexOf('/')+1) + ".png";
-    alert("Iniciando la transferencia.dir=" + options.fileName);
+    //alert("Iniciando la transferencia.dir=" + options.fileName);
     
     var ft = new FileTransfer();
     //ft.upload(imageURI, "http://192.168.0.130:8080/BackEndRememberMeApp/app/imagenes", win, fail, options);

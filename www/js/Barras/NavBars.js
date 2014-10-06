@@ -156,7 +156,7 @@ function ConfigurarAgregarPerfil() {
 
 //Configura la interfaz para que el boton de agregar agregue fotos a la galeria 
 function ConfigurarAgregarFotoGaleria() {
-    alert('cambiando a subir foto');
+    //alert('cambiando a subir foto');
     document.getElementById("AgregarHref").onclick = SubirFotoGaleria;
     document.getElementById("AgregarHref").href = 'javascript: void(0)';
 }
